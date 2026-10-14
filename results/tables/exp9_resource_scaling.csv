@@ -1,0 +1,5 @@
+method,size,n_qubits,circuit_depth,cx_count
+QPIE-QHED,4,4,3,0
+NEQR-Gradient,4,8,49,0
+QPIE-QHED,8,6,3,0
+NEQR-Gradient,8,10,177,0

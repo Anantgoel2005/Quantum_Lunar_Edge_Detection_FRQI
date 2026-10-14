@@ -1,0 +1,1 @@
+# Quantum edge detection package
