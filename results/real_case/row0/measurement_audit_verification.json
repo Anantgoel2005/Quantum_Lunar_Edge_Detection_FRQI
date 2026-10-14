@@ -1,0 +1,6 @@
+{
+  "circuits_audited": 5476,
+  "shots_audited": 44859392,
+  "unique_tile_direction_offsets": 5476,
+  "saved_magnitude_exactly_reconstructed_from_counts": true
+}

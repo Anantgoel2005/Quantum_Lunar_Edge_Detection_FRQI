@@ -29,9 +29,18 @@ desktop.ini
 data/sombench/images/*.tif
 data/sombench/annotations/*.json
 data/sombench/annotations/*.parquet
+data/sombench/cache/
+data/sombench/real_case/*.parquet
+data/sombench/real_case/README.md
+data/sombench/real_case/files.json
+data/sombench/real_case/repo.json
 
 # HuggingFace cache
 .cache/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Private uploaded images and local upload verification artifacts
+results/user_images/
+results/upload_verification/

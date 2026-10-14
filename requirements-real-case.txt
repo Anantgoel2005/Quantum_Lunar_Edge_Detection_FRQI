@@ -1,0 +1,6 @@
+-r requirements-core.txt
+tifffile==2026.9.20
+imagecodecs==2026.10.10
+pyarrow==26.0.0
+ijson==3.6.0
+matplotlib==3.11.2

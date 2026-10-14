@@ -17,13 +17,13 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from quantum.qhed_circuit import run_qhed_combined
 from quantum.quantum_gradient import quantum_gradient_from_neqr
 
-FIGURES_DIR = PROJECT_ROOT / "results" / "figures"
+FIGURES_DIR = PROJECT_ROOT / "results" / "corrected" / "figures"
 FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -47,12 +47,12 @@ def generate_confidence_maps(image, method="QPIE-QHED", n_trials=20, shots=8192)
     for t in range(n_trials):
         if method == "QPIE-QHED":
             combined, _, _ = run_qhed_combined(
-                image.astype(np.float64), shots=shots
+                image.astype(np.float64), shots=shots, seed_simulator=42 + t
             )
             all_maps.append(combined)
         elif method == "NEQR-Gradient":
             edge_map, _, _ = quantum_gradient_from_neqr(
-                image, intensity_bits=4, shots=shots
+                image, intensity_bits=4, shots=shots, seed_simulator=42 + t
             )
             all_maps.append(edge_map)
     

@@ -27,9 +27,9 @@ def counts_to_probability_map(counts, n_qubits, image_shape):
     probs = np.zeros(n_states)
     
     for bitstring, count in counts.items():
-        idx = int(bitstring[::-1], 2)  # Reverse Qiskit ordering
+        idx = int(bitstring.replace(' ', ''), 2)
         if idx < n_states:
-            probs[idx] = count / total
+            probs[idx] = count / total if total else 0
     
     return probs[:n_pixels].reshape(h, w)
 
@@ -47,12 +47,21 @@ def threshold_edge_map(continuous_map, method="otsu"):
         threshold: the threshold value used
     """
     if method == "otsu":
-        # Simple Otsu-like: maximize inter-class variance
-        flat = continuous_map.flatten()
-        flat = flat[flat > 0]  # Only non-zero
-        if len(flat) == 0:
+        flat = np.asarray(continuous_map, dtype=float).ravel()
+        if not np.any(flat > 0):
             return np.zeros_like(continuous_map, dtype=np.uint8), 0
-        threshold = np.mean(flat)
+        values, frequencies = np.unique(flat, return_counts=True)
+        if len(values) == 1:
+            threshold = values[0]
+        else:
+            weights = np.cumsum(frequencies)[:-1].astype(float)
+            sums = np.cumsum(values * frequencies)[:-1]
+            other_weights = len(flat) - weights
+            other_sums = np.sum(values * frequencies) - sums
+            between = weights * other_weights * (sums / weights - other_sums / other_weights) ** 2
+            split = int(np.argmax(between))
+            threshold = (values[split] + values[split + 1]) / 2
+        return (continuous_map > threshold).astype(np.uint8) * 255, float(threshold)
     elif method == "median":
         flat = continuous_map.flatten()
         flat = flat[flat > 0]
@@ -64,6 +73,21 @@ def threshold_edge_map(continuous_map, method="otsu"):
     
     binary = (continuous_map >= threshold).astype(np.uint8) * 255
     return binary, threshold
+
+
+def neqr_counts_to_image(counts, image_shape, intensity_bits):
+    """Decode measured NEQR integers; unseen positions remain zero."""
+    n_pixels = int(np.prod(image_shape))
+    values, totals = np.zeros(n_pixels), np.zeros(n_pixels)
+    mask = (1 << intensity_bits) - 1
+    for bitstring, count in counts.items():
+        measured = int(bitstring.replace(' ', ''), 2)
+        position, intensity = measured >> intensity_bits, measured & mask
+        if position < n_pixels:
+            values[position] += intensity * count
+            totals[position] += count
+    np.divide(values, totals, out=values, where=totals > 0)
+    return (values / mask * 255).reshape(image_shape)
 
 
 def confidence_map(edge_probs, n_trials_results=None):

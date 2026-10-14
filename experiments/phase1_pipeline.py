@@ -22,13 +22,13 @@ import cv2
 import tifffile
 
 # Project paths
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SOMBENCH_DIR = PROJECT_ROOT / "data" / "sombench"
 IMAGES_DIR = SOMBENCH_DIR / "images"
 ANNOTATIONS_DIR = SOMBENCH_DIR / "annotations"
 PATCHES_DIR = SOMBENCH_DIR / "patches"
 MASKS_DIR = SOMBENCH_DIR / "masks"
-RESULTS_DIR = PROJECT_ROOT / "results"
+RESULTS_DIR = PROJECT_ROOT / "results" / "corrected"
 
 sys.path.insert(0, str(PROJECT_ROOT))
 
@@ -364,15 +364,17 @@ def main():
         with open(ann_path) as f:
             data = json.load(f)
         
+        id_map = {item['id']: len(all_images_info) + i for i, item in enumerate(data['images'])}
         for img_info in data['images']:
+            img_info = dict(img_info, id=id_map[img_info['id']])
             image_id = img_info['id']
             stem = Path(img_info['file_name']).stem
             image_id_to_split[image_id] = split
             stem_to_image_id[stem] = (image_id, split)
             all_images_info.append(img_info)
         
-        # Offset IDs for val split to avoid collision
-        all_annotations.extend(data['annotations'])
+        # Give each source split disjoint IDs before combining annotations.
+        all_annotations.extend(dict(ann, image_id=id_map[ann['image_id']]) for ann in data['annotations'])
         
         print(f"  {split}: {len(data['images'])} images, "
               f"{len(data['annotations'])} annotations")
@@ -477,7 +479,7 @@ def main():
         full_image = load_sombench_image(tif_path)
         
         # Rasterise rim mask for the full image
-        full_mask = rasterise_rim_mask(all_annotations, image_id)
+        full_mask = rasterise_rim_mask(all_annotations, image_id, *full_image.shape)
         
         # Find best crater center
         cy, cx = find_best_crater_center(all_annotations, image_id, full_image.shape)

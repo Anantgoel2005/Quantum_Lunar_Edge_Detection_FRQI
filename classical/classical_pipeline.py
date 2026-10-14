@@ -55,7 +55,7 @@ if __name__ == "__main__":
     from PIL import Image
     
     # Test on all synthetic images
-    synthetic_dir = Path(r"E:\projects\Quantum_Image\data\synthetic\images")
+    synthetic_dir = (Path(__file__).resolve().parents[1] / 'data/synthetic/images')
     
     print("=" * 60)
     print("Classical Pipeline Test - All Synthetic Images")

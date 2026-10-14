@@ -1,0 +1,18 @@
+{
+  "trials": 3,
+  "shots_per_circuit": 8192,
+  "seed_start": 42,
+  "pr_auc_definition": "average_precision",
+  "qhed_circuits_per_trial": 4,
+  "positive_entries": 224,
+  "negative_entries": 238,
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-aer": "0.17.2",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "opencv-python": "5.0.0.93",
+    "Pillow": "10.4.0",
+    "scikit-learn": "1.9.1"
+  }
+}

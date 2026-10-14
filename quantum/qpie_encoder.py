@@ -14,6 +14,7 @@ For an NxN image: ceil(log2(N^2)) qubits for position.
 import numpy as np
 from qiskit import QuantumCircuit
 from qiskit.circuit.library import Initialize
+from quantum.simulation import validate_image
 
 
 def qpie_encode(image, normalize=True):
@@ -28,7 +29,7 @@ def qpie_encode(image, normalize=True):
         qc: QuantumCircuit with the image encoded as amplitudes
         n_qubits: number of qubits used for position encoding
     """
-    assert image.ndim == 2, f"Expected 2D image, got shape {image.shape}"
+    image = validate_image(image)
     
     h, w = image.shape
     n_pixels = h * w
@@ -73,6 +74,7 @@ def qpie_encode_with_ancilla(image):
         n_pos_qubits: number of position qubits
         ancilla_idx: index of ancilla qubit
     """
+    image = validate_image(image)
     h, w = image.shape
     n_pixels = h * w
     n_pos_qubits = int(np.ceil(np.log2(n_pixels)))
@@ -112,7 +114,7 @@ if __name__ == "__main__":
     from pathlib import Path
     from PIL import Image
     
-    img_path = Path(r"E:\projects\Quantum_Image\data\synthetic\images\circle_4x4.png")
+    img_path = (Path(__file__).resolve().parents[1] / 'data/synthetic/images/circle_4x4.png')
     img = np.array(Image.open(img_path)).astype(np.float64)
     
     qc, n_qubits = qpie_encode(img)

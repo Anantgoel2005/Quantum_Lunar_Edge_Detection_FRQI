@@ -25,17 +25,20 @@ def get_noise_model(noise_type="ideal", params=None):
     """
     if noise_type == "ideal":
         return None
+    if noise_type not in ('depolarizing', 'readout', 'gate', 'combined'):
+        raise ValueError(f'Unknown noise type: {noise_type}')
     
     if params is None:
         params = {}
     
     noise_model = NoiseModel()
+    single_error = None
     
     if noise_type == "depolarizing" or noise_type == "combined":
         p = params.get('depolarizing_p', 0.01)
         # Single-qubit depolarizing
         error_1q = depolarizing_error(p, 1)
-        noise_model.add_all_qubit_quantum_error(error_1q, ['h', 'x', 'ry', 'rz'])
+        single_error = error_1q
         # Two-qubit depolarizing (cx only; ccx is 3-qubit so needs separate handling)
         error_2q = depolarizing_error(p, 2)
         noise_model.add_all_qubit_quantum_error(error_2q, ['cx'])
@@ -50,7 +53,10 @@ def get_noise_model(noise_type="ideal", params=None):
         # Coherent over-rotation error approximated as small depolarizing
         p_gate = params.get('gate_p', 0.005)
         gate_error = depolarizing_error(p_gate, 1)
-        noise_model.add_all_qubit_quantum_error(gate_error, ['h', 'ry'])
+        single_error = gate_error if single_error is None else single_error.compose(gate_error)
+
+    if single_error is not None:
+        noise_model.add_all_qubit_quantum_error(single_error, ['u'])
     
     return noise_model
 

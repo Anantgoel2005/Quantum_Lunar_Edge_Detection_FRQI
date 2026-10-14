@@ -1,0 +1,128 @@
+"""Build the automatic full-image detector and upload interface."""
+
+import csv
+
+import html
+
+import json
+
+import shutil
+
+from pathlib import Path
+
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+OUTPUT = ROOT/'results/real_case/row0'
+
+
+
+
+
+def main():
+
+    data = json.loads((OUTPUT/'run_metadata.json').read_text(encoding='utf-8'))
+
+    with (OUTPUT/'metrics.csv').open(newline='') as handle:
+
+        metrics = list(csv.DictReader(handle))
+
+    rows = ''.join('<tr><td>'+html.escape(row['method'])+'</td>'+''.join('<td>'+format(float(row[key]),'.3f')+'</td>'
+
+        for key in ['f1_exact','f1_1px','f1_2px'])+'</tr>' for row in metrics)
+
+    page = '''<!doctype html>
+
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Automatic quantum lunar edge detection</title>
+
+<style>
+
+:root {color-scheme:light dark;--bg:light-dark(#f8fafb,#10171c);--fg:light-dark(#162936,#e8f0f5);--muted:light-dark(#526875,#a5bac6);--line:light-dark(#cbd7df,#334b59);--accent:light-dark(#116d82,#79d7e7);--surface:light-dark(#e4eef2,#1c2c35);--negative:light-dark(#b75c18,#f6b168);--gate-ink:light-dark(#ffffff,#102129);}
+
+*{box-sizing:border-box}input[type=file]{max-width:100%;min-width:0}body{margin:0;background:var(--bg);color:var(--fg);font:15px system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:32px 24px}h1{font-size:28px;font-weight:500;margin:0 0 8px}h2{font-size:19px;font-weight:500;margin:24px 0 12px}p{line-height:1.5}.subtitle,.note{color:var(--muted)}.controls{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:24px 0 16px}button{font:inherit;border:0;border-radius:7px;padding:10px 16px;background:var(--fg);color:var(--bg);cursor:pointer}button:disabled{opacity:.5;cursor:wait}.status{font-variant-numeric:tabular-nums}.progress{height:6px;background:var(--surface);margin:14px 0}.progress div{height:100%;background:var(--accent);width:100%}.facts{display:flex;gap:24px;flex-wrap:wrap;color:var(--muted);font-variant-numeric:tabular-nums}.images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}figure{margin:0;min-width:0}figcaption{margin:0 0 10px}figure img{width:100%;height:auto;display:block;image-rendering:auto}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}a{color:var(--accent)}.flow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.flow span{background:var(--surface);padding:8px 12px}.flow b{font-weight:400}.files{display:flex;gap:20px;flex-wrap:wrap;margin:20px 0}.table-scroll{overflow-x:auto}.small{font-size:13px}footer{margin-top:32px;border-top:1px solid var(--line);padding-top:16px}
+
+.gate-panel{margin:24px 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.gate-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.gate-head h2{margin:0}.gate-controls{display:flex;gap:8px;flex-wrap:wrap}.gate-controls button{background:var(--surface);color:var(--fg);padding:8px 12px}.gate-grid{display:grid;grid-template-columns:minmax(0,1fr) 248px;gap:28px;align-items:start;margin-top:16px}.gate-svg{display:block;width:100%;height:264px;color:var(--fg)}.gate-svg text{fill:var(--fg);font-size:12px}.gate-stage{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-variant-numeric:tabular-nums;min-height:24px}.gate-state{display:block;width:100%;aspect-ratio:1;max-width:256px;margin:10px 0}.gate-legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}.gate-legend i{display:inline-block;width:10px;height:10px;background:var(--accent)}.gate-legend i.negative{background:var(--negative)}.gate-detail{margin:10px 0 0;font-size:13px;color:var(--muted);overflow-wrap:anywhere}.gate-active{animation:gate-flash .25s ease-out}.source-image{position:relative}.block-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.block-overlay rect{fill:none;stroke:var(--accent);stroke-width:3;vector-effect:non-scaling-stroke}.gate-loading{color:var(--muted)}@keyframes gate-flash{from{opacity:.45}to{opacity:1}}@media(prefers-reduced-motion:reduce){.gate-active{animation:none}}@media(max-width:900px){.gate-grid{grid-template-columns:minmax(0,1fr) 190px;gap:14px}}@media(max-width:650px){.gate-grid{grid-template-columns:1fr}.gate-state{max-width:256px}.gate-detail{font-size:12px}main{padding:22px 14px}.images{grid-template-columns:1fr}h1{font-size:23px}th,td{padding:9px 5px;font-size:13px}.facts{gap:12px}.controls{gap:10px}}
+
+</style></head><body><main>
+
+<h1>Automatic quantum lunar edge detection</h1>
+
+<div id="context-label" class="subtitle">SomBench metadata row 0 · M1290203799CE_r5872_c1112 · complete 512 × 512 tile</div>
+
+<div class="controls"><label for="upload">Your image</label><input id="upload" type="file" accept=".png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff"><button id="upload-run" type="button">Upload, preprocess &amp; run live</button></div>
+
+<p class="note small">PNG, JPEG, WebP, BMP or TIFF · up to 20 MB and 16 million pixels. Larger images are fitted within 512 × 512 pixels while preserving their aspect ratio. The whole working image is processed automatically.</p>
+
+<section id="preprocessing" hidden><h2>Preprocessing completed</h2><p id="preprocessing-note" class="note"></p><div class="images"><figure><figcaption>Original · working-size preview</figcaption><img id="original-preview" alt="Uploaded image before grayscale preprocessing"></figure><figure><figcaption>Preprocessed · actual quantum input</figcaption><img id="prepared-preview" alt="Contrast normalized and denoised grayscale quantum input"></figure></div></section>
+
+<div class="controls"><button id="run" type="button">Run quantum detection on the full tile</button><span id="status" class="status" role="status">Complete</span></div>
+
+<div class="progress" role="progressbar" aria-label="Completed quantum tiles" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div id="bar"></div></div>
+
+<div class="facts"><span id="circuits">5,476 circuits</span><span id="shots">44,859,392 shots</span><span>8 qubits per circuit</span><span id="elapsed">93.1 s</span></div>
+
+<section id="gate-trace-panel" class="gate-panel" aria-label="Live gate checkpoint visualization">
+
+<div class="gate-head"><h2>Live quantum gates</h2><div class="gate-controls"><button data-trace="pause" type="button" disabled>Pause animation</button><button data-trace="replay" type="button" disabled>Replay latest block slowly</button></div></div>
+
+<div class="gate-detail" data-trace="source" role="status">Waiting for actual gate checkpoints from the detector</div>
+
+<div class="gate-grid"><div><div class="gate-stage"><span data-trace="pass">Four circuit passes per block</span><span data-trace="gate-label">QPIE → controlled shift → H → measurement</span></div><svg class="gate-svg" data-trace="diagram" role="img" aria-label="Eight-qubit live quantum gate diagram"></svg><div class="gate-detail" data-trace="block">Block locations advance automatically</div><div class="gate-detail" data-trace="timing"></div><div class="gate-detail" data-trace="incoming"></div></div>
+
+<div><div class="small" data-trace="state-label">Actual saved statevector</div><svg class="gate-state" data-trace="state" role="img" aria-label="Saved amplitudes or observed measurement probability grid"></svg><div class="gate-legend"><i></i>Positive / measured <i class="negative"></i>Negative amplitude</div><div class="gate-detail" data-trace="norm"></div><div class="gate-detail" data-trace="measurement"></div><div class="gate-detail" data-trace="outcomes"></div></div></div>
+
+<p class="note small">Animation plays exact statevectors saved after the actual gates on the first block of each completed Aer batch. It is a slowed visual playback of live backend checkpoints, not a per-gate hardware clock. Measurement frames show the same circuit counts used for edge detection. Initialization is the native preparation block executed by this simulator.</p>
+
+</section>
+
+<h2>Full-image quantum output</h2>
+
+<div class="images"><figure><figcaption id="source-caption">Original grayscale image · mean of five TIFF bands</figcaption><div class="source-image"><img id="source-preview" src="input.png" alt="Complete real lunar terrain tile with craters and shadows"><svg class="block-overlay" viewBox="0 0 512 512" aria-label="Automatically traced block position"><rect id="active-block" width="14" height="14" style="display:none"></rect></svg></div></figure><figure><figcaption id="live-caption">QHED strength from measured circuit counts</figcaption><img id="live" src="live_strength.png" alt="Quantum edge strength reconstructed from measurement counts across the full tile"></figure></div>
+
+<h2>What actually runs</h2>
+
+<div class="flow" aria-label="Quantum processing workflow"><span>QPIE image preparation</span><b>→</b><span>Controlled coordinate shift</span><b>→</b><span>Hadamard interference</span><b>→</b><span>Measurement</span></div>
+
+<p class="note">Every 16 × 16 block runs four Qiskit circuits. Overlapping halos retain neighboring pixels at block boundaries. The entire image is processed automatically, and the live strength map updates from completed circuit measurements.</p>
+
+<p class="note small">Execution uses a local ideal Qiskit Aer statevector simulator. It is not a quantum hardware run. Aer executes image initialization as a supported preparation instruction; a decomposed circuit example is available below.</p>
+
+<section id="finished"><h2>Latest completed edge map</h2><div class="images"><figure><figcaption>Automatic thresholded quantum edges</figcaption><img id="edges" src="quantum_edges.png" alt="Automatically detected edges of the complete lunar tile"></figure><figure><figcaption id="overlay-caption">Catalog reference: green · measured edges: magenta · overlap: yellow</figcaption><img id="overlay" src="overlay.png" alt="Full-image overlay of measured quantum edges and approximate catalog crater outlines"></figure></div>
+
+<section id="detector-comparison"><h2>Quantum vs classical edge detection</h2>
+<p class="note">All four methods use the same grayscale working image. Quantum QHED, Sobel and Robinson use automatic Otsu thresholds; Canny uses median-based automatic thresholds. Each panel shows the final binary edge map.</p>
+<div class="images"><figure><figcaption>Quantum QHED · measured circuit counts</figcaption><img id="compare-quantum" src="quantum_edges.png" alt="Measured quantum edge map"></figure><figure><figcaption>Sobel · 3 × 3 gradient</figcaption><img id="compare-sobel" src="sobel_edges.png" alt="Sobel edge map on the same input"></figure><figure><figcaption>Canny · automatic thresholds</figcaption><img id="compare-canny" src="canny_edges.png" alt="Canny edge map on the same input"></figure><figure><figcaption>Robinson · eight compass directions</figcaption><img id="compare-robinson" src="robinson_edges.png" alt="Robinson edge map on the same input"></figure></div>
+<div class="table-scroll"><table><thead><tr><th>Method</th><th>Edge pixels</th><th>Image coverage</th></tr></thead><tbody id="comparison-stats"></tbody></table></div>
+<p class="note small">Coverage describes the fraction of pixels marked as edges; it does not measure accuracy. Catalog boundary accuracy is reported below when reference labels are available.</p>
+<p class="small"><a href="detector_comparison.json">Download comparison details</a> · <a href="sobel_edges.png">Sobel PNG</a> · <a href="canny_edges.png">Canny PNG</a> · <a href="robinson_edges.png">Robinson PNG</a></p></section>
+<div id="benchmark"><h2>Boundary F1 against approximate catalog rims</h2><div class="table-scroll"><table><thead><tr><th>Method</th><th>Exact</th><th>Within 1 px</th><th>Within 2 px</th></tr></thead><tbody id="metrics">__METRIC_ROWS__</tbody></table></div>
+
+<p class="note small">122 catalog annotations. This is an edge-detection demonstration on one train-split tile. The circular catalog polygons are approximate references; the output does not identify crater objects or prove quantum advantage.</p></div></section>
+
+<div class="files"><a href="report.md">Run report</a><a href="measurement_counts.jsonl.gz">Actual circuit counts</a><a href="representative_circuit.qasm">Primitive circuit example</a><a href="run_metadata.json">Provenance and execution details</a><a href="gate_trace.jsonl.gz">Actual gate checkpoint archive</a></div>
+
+<footer id="dataset-credit" class="note small">Source: <a href="https://huggingface.co/datasets/nasa-ibm-ai4science/Sombench-WAC-Crater-Detection">NASA-IBM AI4Science SomBench</a>; Robbins (2019) crater catalog. Dataset license: CC BY 4.0.</footer>
+
+<script src="gate_trace_view.js"></script>
+
+<script src="live_pipeline_view.js"></script></main></body></html>'''
+
+    (OUTPUT/'index.html').write_text(page.replace('__METRIC_ROWS__',rows),encoding='utf-8')
+
+    for asset in ('gate_trace_view.js','live_pipeline_view.js'):
+
+        shutil.copyfile(ROOT/'visualization'/asset,OUTPUT/asset)
+
+    print(OUTPUT/'index.html')
+
+
+
+
+
+if __name__ == '__main__':
+
+    main()
+

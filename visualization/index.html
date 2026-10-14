@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quantum circuit live</title><style>
+:root {color-scheme:light dark; --background:light-dark(#ffffff,#101318); --foreground:light-dark(#17202a,#eef2f6); --muted:light-dark(#e8edf1,#27313b); --border:light-dark(#bfc8d0,#455361); --viz-series-1:light-dark(#167486,#6dd5e5); --viz-series-2:light-dark(#b45713,#ffb870); --primary:var(--foreground); --primary-foreground:var(--background); --accent:var(--muted); }
+body {background:var(--background);color:var(--foreground);font:14px system-ui,sans-serif;margin:0;padding:24px;}
+main {max-width:1000px;margin:auto;} h2 {font-size:22px;font-weight:500;margin:0 0 18px;} .viz-row,.viz-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0;} .viz-controls .form-label{display:flex;gap:8px;flex-direction:column;flex:1;min-width:180px;} .btn{border:1px solid var(--border);background:transparent;color:var(--foreground);padding:8px 12px;border-radius:6px;font:inherit;cursor:pointer;} .btn-primary{background:var(--primary);color:var(--primary-foreground);} .form-select{background:var(--background);color:var(--foreground);border:1px solid var(--border);border-radius:6px;padding:8px;font:inherit;} .form-range{width:100%;accent-color:var(--foreground);} .btn.viz-tile{padding:0;border:0;border-radius:0;} .text-small{font-size:12px;} .tabular-nums{font-variant-numeric:tabular-nums;} a{color:var(--foreground);}
+@media(max-width:500px){body{padding:14px;}}
+</style></head><body><main><div id="lunar-quantum-live">
+  <h2>Quantum edge detection, live</h2>
+  <div class="viz-controls">
+    <label class="form-label">Image <select class="form-select" data-control="image"><option value="split">Sharp boundary</option><option value="circle">Crater rim</option><option value="ramp">Row ramp</option><option value="lunar">Lunar patch</option><option value="edited" disabled>Edited pixels</option></select></label>
+    <label class="form-label">Circuit pass <select class="form-select" data-control="pass"><option value="0">Horizontal · even pairs</option><option value="1" selected>Horizontal · shifted pairs</option><option value="2">Vertical · even pairs</option><option value="3">Vertical · shifted pairs</option></select></label>
+  </div>
+  <div class="viz-row">
+    <button class="btn btn-primary" data-action="run" type="button">Run circuit</button>
+    <button class="btn" data-action="step" type="button">Next gate</button>
+    <button class="btn" data-action="restart" type="button">Restart</button>
+    <span class="tabular-nums" data-status="stage" aria-live="polite">Ready</span>
+  </div>
+  <svg class="ql-circuit" role="img" aria-label="Six-qubit circuit with image preparation, coordinate shift, Hadamard interference, and measurement"></svg>
+  <div class="ql-fields">
+    <figure><figcaption>Input pixels · click to edit</figcaption><div class="ql-pixels" data-grid="image" role="group" aria-label="Editable eight by eight grayscale image"></div></figure>
+    <figure><figcaption data-status="state-title">Current amplitudes</figcaption><div class="ql-pixels" data-grid="state" role="img" aria-label="Signed real amplitudes at each basis state"></div></figure>
+    <figure><figcaption>Sampled edges · selected pass</figcaption><div class="ql-pixels" data-grid="sampled" role="img" aria-label="Accumulating measured edge probabilities"></div></figure>
+    <figure><figcaption>Exact edges · all four passes</figcaption><div class="ql-pixels" data-grid="exact" role="img" aria-label="Exact combined edge probabilities from four circuits"></div></figure>
+  </div>
+  <div class="viz-row text-small"><span class="ql-swatch ql-positive"></span><span>Positive amplitude</span><span class="ql-swatch ql-negative"></span><span>Negative amplitude</span><span>Heatmaps scaled within each view</span></div>
+  <div class="viz-controls">
+    <label class="form-label">Shots per selected circuit: <span class="tabular-nums" data-status="limit">2048</span><input class="form-range" data-control="shots" type="range" min="256" max="8192" step="256" value="2048"></label>
+    <label class="form-label">Playback <select class="form-select" data-control="speed"><option value="800">Slow</option><option value="400" selected>Normal</option><option value="100">Fast</option></select></label>
+  </div>
+  <div class="viz-row tabular-nums"><span data-status="shots">0 shots</span><span data-status="edge">0 edge outcomes</span><span data-status="norm">State norm: 1.000000</span></div>
+  <div class="text-small" data-status="detail" aria-live="polite">6 position qubits · 64 basis states · ideal simulation</div>
+</div>
+<style>
+#lunar-quantum-live .ql-circuit { display:block; width:100%; height:250px; margin:12px 0; color:var(--foreground); }
+#lunar-quantum-live .ql-fields { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+#lunar-quantum-live figure { margin:0; min-width:0; }
+#lunar-quantum-live figcaption { margin-bottom:8px; }
+#lunar-quantum-live .ql-pixels { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:2px; width:100%; }
+#lunar-quantum-live .ql-cell { aspect-ratio:1; min-width:0; background:var(--muted); position:relative; }
+#lunar-quantum-live .ql-cell::after { content:''; position:absolute; inset:0; background:var(--viz-series-1); opacity:var(--strength,0); pointer-events:none; }
+#lunar-quantum-live .ql-cell.ql-neg::after { background:var(--viz-series-2); }
+#lunar-quantum-live .ql-cell.ql-last { outline:2px solid var(--foreground); outline-offset:-2px; }
+#lunar-quantum-live .ql-swatch { width:12px; height:12px; display:inline-block; }
+#lunar-quantum-live .ql-positive { background:var(--viz-series-1); }
+#lunar-quantum-live .ql-negative { background:var(--viz-series-2); }
+#lunar-quantum-live .ql-circuit text { fill:var(--foreground); }
+@media(max-width:700px) { #lunar-quantum-live .ql-fields { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('lunar-quantum-live');
+  const select = name => root.querySelector(`[data-control="${name}"]`);
+  const label = (name, value) => { root.querySelector(`[data-status="${name}"]`).textContent = value; };
+  const action = name => root.querySelector(`[data-action="${name}"]`);
+  const svg = root.querySelector('.ql-circuit');
+  const N = 8, SQRT2 = Math.sqrt(2);
+  let pixels = [], pass = 1, gateIndex = -1, state = [], interference = [], operations = [];
+  let measured = 0, accepted = 0, edgeCounts = new Array(64).fill(0), running = false, timer = null, last = -1;
+  let rng = 42, limit = 2048, speed = 400, preset = 'split';
+  const lunar = [103, 105, 105, 104, 105, 108, 112, 117, 102, 103, 102, 100, 101, 103, 108, 113, 97, 101, 99, 98, 98, 99, 104, 110, 95, 96, 96, 96, 96, 99, 104, 109, 94, 93, 96, 97, 98, 101, 105, 111, 94, 93, 96, 98, 100, 103, 108, 113, 94, 94, 98, 99, 102, 105, 110, 115, 95, 96, 99, 100, 103, 106, 110, 115];
+  function random() { rng = (1664525 * rng + 1013904223) >>> 0; return rng / 4294967296; }
+  function input(name) {
+    return Array.from({length:64}, (_,i) => {
+      const x=i%8, y=Math.floor(i/8), radius=Math.hypot(x-3.5,y-3.5);
+      if(name==='split') return x>=4?255:0;
+      if(name==='circle') return radius<2.8?210:35;
+      if(name==='ramp') return Math.round(y/7*255);
+      return lunar[i];
+    });
+  }
+  function normalize(values) {
+    const norm = Math.sqrt(values.reduce((sum,x)=>sum+x*x,0));
+    return norm ? values.map(x=>x/norm) : values.map(()=>1/8);
+  }
+  function applyGate(values, gate) {
+    if(gate.kind==='prepare') return normalize(pixels);
+    const result=values.slice();
+    if(gate.kind==='h') {
+      const stride=1<<gate.target;
+      for(let i=0;i<64;i++) if(!(i&stride)) {
+        result[i]=(values[i]+values[i+stride])/SQRT2;
+        result[i+stride]=(values[i]-values[i+stride])/SQRT2;
+      }
+    } else if(gate.kind==='x') {
+      const stride=1<<gate.target;
+      const controls=gate.controls||[];
+      for(let i=0;i<64;i++) if(!(i&stride)&&controls.every(q=>i&(1<<q))) {
+        result[i]=values[i+stride]; result[i+stride]=values[i];
+      }
+    }
+    return result;
+  }
+  function gates(p) {
+    const base=p<2?0:3, shifted=p%2;
+    const list=[{kind:'prepare',name:'Prepare image'}];
+    if(shifted) {
+      list.push({kind:'x',target:base+2,controls:[base,base+1],name:`CCX q${base},q${base+1} → q${base+2}`});
+      list.push({kind:'x',target:base+1,controls:[base],name:`CX q${base} → q${base+1}`});
+      list.push({kind:'x',target:base,controls:[],name:`X q${base} · shift complete`});
+    }
+    list.push({kind:'h',target:base,name:`H q${base} · interference`});
+    list.push({kind:'measure',name:'Measure all qubits'});
+    return list;
+  }
+  function destination(index, p) {
+    const stride=p<2?1:8;
+    if(!(index&stride)) return -1;
+    const base=index&~stride, coordinate=p<2?base%8:Math.floor(base/8);
+    const anchor=(coordinate+1-p%2+8)%8;
+    return anchor===0?-1:base+(anchor-coordinate)*stride;
+  }
+  function calculate(p, values=pixels) {
+    // Values are supplied explicitly for numerical cross-checks.
+    let v=normalize(values);
+    for(const gate of gates(p).slice(1,-1)) v=applyGate(v,gate);
+    const edge=new Array(64).fill(0);
+    v.forEach((a,i)=>{const d=destination(i,p);if(d>=0)edge[d]+=a*a;});
+    return {amplitudes:v,edge};
+  }
+  function exactCombined() {
+    const views=[0,1,2,3].map(p=>calculate(p).edge);
+    return Array.from({length:64},(_,i)=>Math.max(...views.map(v=>v[i])));
+  }
+  const cells={};
+  for(const kind of ['image','state','sampled','exact']) {
+    const grid=root.querySelector(`[data-grid="${kind}"]`);
+    cells[kind]=Array.from({length:64},(_,i)=>{
+      const cell=document.createElement(kind==='image'?'button':'div');
+      cell.className=kind==='image'?'btn btn-ghost viz-tile ql-cell':'ql-cell';
+      if(kind==='image') { cell.type='button'; cell.addEventListener('click',()=>{
+        pixels[i]=pixels[i]>=128?0:255; preset='edited'; select('image').value='edited'; restart(); save();
+      }); }
+      grid.appendChild(cell); return cell;
+    });
+  }
+  function drawGrid(kind,values,signed=false) {
+    const max=Math.max(...values.map(Math.abs),1e-20);
+    values.forEach((value,i)=>{
+      const cell=cells[kind][i], caption=`Row ${Math.floor(i/8)}, column ${i%8}: ${kind==='image'?value.toFixed(0):value.toFixed(6)}`;
+      cell.style.setProperty('--strength',Math.abs(value)/max);
+      cell.classList.toggle('ql-neg',signed&&value<0);
+      cell.classList.toggle('ql-last',kind==='state'&&i===last);
+      cell.setAttribute('data-tooltip',caption); cell.setAttribute('aria-label',caption);
+    });
+  }
+  function drawCircuit() {
+    const width=Math.max(svg.clientWidth,300), height=250;
+    svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+    const x0=60, right=width-12, gap=(right-x0)/(operations.length+1);
+    let body='<title>Live six-qubit QHED circuit</title>';
+    for(let q=0;q<6;q++) {
+      const y=28+q*35;
+      body+=`<text x="0" y="${y+4}">q${q} ${q<3?'col':'row'}</text><line x1="${x0}" y1="${y}" x2="${right}" y2="${y}" stroke="var(--border)"/>`;
+    }
+    operations.forEach((gate,i)=>{
+      const x=x0+(i+1)*gap, active=i===gateIndex, fill=active?'var(--viz-series-1)':'var(--muted)';
+      if(gate.kind==='prepare') {
+        body+=`<rect x="${x-17}" y="14" width="34" height="203" rx="3" fill="${fill}" fill-opacity="${active?0.35:1}"/><text x="${x}" y="119" text-anchor="middle">Init</text>`;
+      } else if(gate.kind==='measure') {
+        for(let q=0;q<6;q++)body+=`<rect x="${x-13}" y="${15+q*35}" width="26" height="26" rx="3" fill="${fill}" fill-opacity="${active?0.35:1}"/><text x="${x}" y="${33+q*35}" text-anchor="middle">M</text>`;
+      } else {
+        const y=28+gate.target*35;
+        if(gate.controls&&gate.controls.length) {
+          const top=28+Math.min(...gate.controls)*35;
+          body+=`<line x1="${x}" y1="${top}" x2="${x}" y2="${y}" stroke="var(--foreground)"/>`;
+          for(const q of gate.controls)body+=`<circle cx="${x}" cy="${28+q*35}" r="4" fill="var(--foreground)"/>`;
+        }
+        body+=`<rect x="${x-13}" y="${y-13}" width="26" height="26" rx="3" fill="${fill}" fill-opacity="${active?0.35:1}"/><text x="${x}" y="${y+5}" text-anchor="middle">${gate.kind==='h'?'H':'X'}</text>`;
+      }
+    });
+    svg.innerHTML=body;
+  }
+  function draw() {
+    drawCircuit(); drawGrid('image',pixels); drawGrid('state',state,true);
+    drawGrid('sampled',edgeCounts.map(x=>measured?x/measured:0)); drawGrid('exact',exactCombined());
+    label('stage',gateIndex<0?'Ready · |000000⟩':operations[gateIndex].name);
+    label('state-title',measured?'Last measured state':'Current real amplitudes');
+    label('shots',`${measured.toLocaleString()} / ${limit.toLocaleString()} shots`);
+    label('edge',`${accepted.toLocaleString()} edge outcomes`);
+    label('norm',`State norm: ${state.reduce((sum,a)=>sum+a*a,0).toFixed(6)}`);
+    label('limit',limit); action('run').textContent=running?'Pause':(measured>=limit?'Run again':'Run circuit');
+    label('detail',last<0?'6 position qubits · 64 basis states · ideal simulation':`Last outcome: |${last.toString(2).padStart(6,'0')}⟩ · ${destination(last,pass)>=0?'edge accepted':'sum or boundary outcome discarded'}`);
+  }
+  function stop() { running=false; clearTimeout(timer); timer=null; }
+  function restart() {
+    stop(); gateIndex=-1; measured=0; accepted=0; last=-1; rng=42;
+    state=new Array(64).fill(0); state[0]=1; edgeCounts=new Array(64).fill(0);
+    operations=gates(pass); interference=calculate(pass).amplitudes; draw();
+  }
+  function sample(batch) {
+    const probabilities=interference.map(a=>a*a);
+    for(let k=0;k<batch&&measured<limit;k++) {
+      const r=random(); let sum=0, index=63;
+      for(let i=0;i<64;i++){sum+=probabilities[i];if(r<sum){index=i;break;}}
+      const d=destination(index,pass);
+      if(d>=0){edgeCounts[d]++;accepted++;}
+      last=index; measured++;
+    }
+    state=new Array(64).fill(0); state[last]=1;
+  }
+  function advance() {
+    if(gateIndex<operations.length-1) {
+      gateIndex++;
+      const gate=operations[gateIndex];
+      if(gate.kind==='measure') sample(1); else state=applyGate(state,gate);
+    } else sample(Math.min(64,limit-measured));
+    if(measured>=limit)stop(); draw();
+  }
+  function tick() {
+    if(!running)return;
+    advance();
+    if(running)timer=setTimeout(tick,gateIndex===operations.length-1?Math.max(30,speed/4):speed);
+  }
+  function save() {
+    if(window.openai&&window.openai.setWidgetState)window.openai.setWidgetState({
+      modelContent:{image:preset,pass,shots:limit},privateContent:{pixels,speed}
+    }).catch(()=>{});
+  }
+  function restore(saved) {
+    if(!saved)return;
+    const model=saved.modelContent||{},privateState=saved.privateContent||{};
+    pass=Number.isInteger(model.pass)&&model.pass>=0&&model.pass<=3?model.pass:1;
+    limit=Number.isInteger(model.shots)&&model.shots>=256&&model.shots<=8192?model.shots:2048;
+    preset=['split','circle','ramp','lunar','edited'].includes(model.image)?model.image:'split';
+    pixels=Array.isArray(privateState.pixels)&&privateState.pixels.length===64&&privateState.pixels.every(x=>Number.isFinite(x)&&x>=0&&x<=255)?privateState.pixels.slice():input(preset==='edited'?'split':preset);
+    speed=[100,400,800].includes(privateState.speed)?privateState.speed:400;
+    select('pass').value=pass; select('shots').value=limit; select('speed').value=speed;
+    select('image').value=preset; restart();
+  }
+  action('run').addEventListener('click',()=>{
+    if(running){stop();draw();return;}
+    if(measured>=limit)restart(); running=true;tick();
+  });
+  action('step').addEventListener('click',()=>{stop();if(measured>=limit)restart();advance();});
+  action('restart').addEventListener('click',restart);
+  select('image').addEventListener('change',()=>{preset=select('image').value;pixels=input(preset);restart();save();});
+  select('pass').addEventListener('change',()=>{pass=Number(select('pass').value);restart();save();});
+  select('shots').addEventListener('input',()=>{limit=Number(select('shots').value);if(measured>=limit)stop();draw();save();});
+  select('speed').addEventListener('change',()=>{speed=Number(select('speed').value);save();});
+  new ResizeObserver(drawCircuit).observe(svg);
+  window.addEventListener('openai:set_globals',event=>{if(event.detail&&event.detail.globals&&event.detail.globals.widgetState)restore(event.detail.globals.widgetState);});
+  // Inspection hook for cross-checking this simulator against Qiskit fixtures.
+  root.quantumSimulator={calculate,gates,applyGate,destination,getState:()=>({pixels:pixels.slice(),pass,gateIndex,measured,accepted,state:state.slice(),edges:edgeCounts.slice()})};
+  pixels=input('split'); restart();
+  if(window.openai&&window.openai.widgetState)restore(window.openai.widgetState);
+})();
+</script>
+<p>Ideal local statevector simulation. Each shot repeats state preparation before measurement. Preparation is shown as one block; its primitive gate cost is included in the Python resource analysis.</p></main></body></html>

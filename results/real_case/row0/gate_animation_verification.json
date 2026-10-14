@@ -1,0 +1,12 @@
+{
+  "browser_errors": [],
+  "gate_animation_advances": true,
+  "pause_preserves_backend_execution": true,
+  "measurement_frames_from_actual_counts": true,
+  "trace_batches": 86,
+  "traced_inference_circuits": 344,
+  "checkpoint_norms_valid": true,
+  "traces_match_inference_audit": true,
+  "image_selection_controls": 0,
+  "mobile_overflow": false
+}

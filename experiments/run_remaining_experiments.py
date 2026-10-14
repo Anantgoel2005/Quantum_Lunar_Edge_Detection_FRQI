@@ -10,9 +10,10 @@ from pathlib import Path
 from PIL import Image
 import cv2
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from classical.finite_difference import forward_gradient, quantized_gradient
 from classical.sobel import sobel_edge, sobel_edge_binary
 from classical.canny import canny_edge_auto
 from classical.robinson_compass import robinson_edge_binary
@@ -23,7 +24,7 @@ from quantum.noise_models import get_experiment_noise_configs
 from preprocessing.augmentor import (add_gaussian_noise, add_gaussian_blur,
                                      scale_contrast, add_illumination_gradient)
 
-RESULTS_DIR = PROJECT_ROOT / "results" / "tables"
+RESULTS_DIR = PROJECT_ROOT / "results" / "corrected" / "tables"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 N_TRIALS = 10
 DEFAULT_SHOTS = 8192
@@ -59,29 +60,29 @@ def load_sombench_patches(size=8):
     return patches
 
 
-def run_quantum_qhed(image, shots, noise_model=None):
+def run_quantum_qhed(image, shots, noise_model=None, seed_simulator=None):
     combined, h_map, v_map = run_qhed_combined(
-        image.astype(np.float64), shots=shots, noise_model=noise_model
+        image.astype(np.float64), shots=shots, noise_model=noise_model, seed_simulator=seed_simulator
     )
     nonzero = combined[combined > 0]
     thresh = np.median(nonzero) if len(nonzero) > 0 else 0.5
     binary = (combined >= thresh).astype(np.uint8) * 255
-    continuous = (combined * 255).astype(np.uint8)
+    continuous = combined
     return binary, continuous
 
 
-def run_quantum_neqr(image, shots, noise_model=None):
+def run_quantum_neqr(image, shots, noise_model=None, seed_simulator=None):
     edge_map, recon, qc = quantum_gradient_from_neqr(
-        image, intensity_bits=4, shots=shots, noise_model=noise_model
+        image, intensity_bits=4, shots=shots, noise_model=noise_model, seed_simulator=seed_simulator
     )
     nonzero = edge_map[edge_map > 0]
     thresh = np.median(nonzero) if len(nonzero) > 0 else 0.5
     binary = (edge_map >= thresh).astype(np.uint8) * 255
-    continuous = (edge_map * 255).astype(np.uint8)
+    continuous = edge_map
     return binary, continuous
 
 
-def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None):
+def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None, seed_simulator=None):
     if method == "Sobel":
         binary, _ = sobel_edge_binary(image)
         continuous = sobel_edge(image)
@@ -91,9 +92,14 @@ def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None):
     elif method == "Robinson":
         binary, continuous, _ = robinson_edge_binary(image)
     elif method == "QPIE-QHED":
-        binary, continuous = run_quantum_qhed(image, shots, noise_model)
+        binary, continuous = run_quantum_qhed(image, shots, noise_model, seed_simulator)
     elif method == "NEQR-Gradient":
-        binary, continuous = run_quantum_neqr(image, shots, noise_model)
+        binary, continuous = run_quantum_neqr(image, shots, noise_model, seed_simulator)
+    elif method in ("Forward-Gradient", "Quantized-Gradient"):
+        continuous = forward_gradient(image) if method == "Forward-Gradient" else quantized_gradient(image)
+        positive = continuous[continuous > 0]
+        threshold = np.median(positive) if len(positive) else 0.5
+        binary = (continuous >= threshold).astype(np.uint8) * 255
     else:
         raise ValueError(f"Unknown method: {method}")
     return compute_all_metrics(binary, continuous, mask, method)
@@ -101,8 +107,8 @@ def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None):
 
 def run_trials(image, mask, method, n_trials=N_TRIALS, shots=DEFAULT_SHOTS, noise_model=None):
     results = []
-    for _ in range(n_trials):
-        m = evaluate_method(image, mask, method, shots, noise_model)
+    for t in range(n_trials):
+        m = evaluate_method(image, mask, method, shots, noise_model, seed_simulator=42 + t)
         results.append(m)
     keys = ['f1_exact', 'f1_1px', 'f1_2px', 'precision_exact', 'recall_exact', 'iou', 'chamfer', 'pr_auc']
     agg = {'method': method}
@@ -206,7 +212,7 @@ def experiment_8():
     print("=" * 60)
 
     results = []
-    methods = ["Sobel", "Canny", "Robinson", "QPIE-QHED", "NEQR-Gradient"]
+    methods = ["Sobel", "Canny", "Robinson", "Forward-Gradient", "Quantized-Gradient", "QPIE-QHED", "NEQR-Gradient"]
 
     for size in [8, 16]:
         patches = load_sombench_patches(size)

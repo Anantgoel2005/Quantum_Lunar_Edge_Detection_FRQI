@@ -15,7 +15,7 @@ from PIL import Image
 import json
 
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def load_synthetic(name, size):

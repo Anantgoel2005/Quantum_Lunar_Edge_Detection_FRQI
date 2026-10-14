@@ -26,9 +26,10 @@ from pathlib import Path
 from collections import defaultdict
 from PIL import Image
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from classical.finite_difference import forward_gradient, quantized_gradient
 from classical.sobel import sobel_edge, sobel_edge_binary
 from classical.canny import canny_edge_auto
 from classical.robinson_compass import robinson_edge_binary
@@ -37,7 +38,7 @@ from quantum.qhed_circuit import run_qhed, run_qhed_combined
 from quantum.quantum_gradient import quantum_gradient_from_neqr
 from quantum.noise_models import get_noise_model, get_experiment_noise_configs
 
-RESULTS_DIR = PROJECT_ROOT / "results" / "tables"
+RESULTS_DIR = PROJECT_ROOT / "results" / "corrected" / "tables"
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 SEED = 42
@@ -77,10 +78,10 @@ def load_sombench_patches(size=8):
     return patches
 
 
-def run_quantum_qhed(image, shots, noise_model=None):
+def run_quantum_qhed(image, shots, noise_model=None, seed_simulator=None):
     """Run QPIE+QHED and return binary edge map + continuous map."""
     combined, h_map, v_map = run_qhed_combined(
-        image.astype(np.float64), shots=shots, noise_model=noise_model
+        image.astype(np.float64), shots=shots, noise_model=noise_model, seed_simulator=seed_simulator
     )
     # Threshold at median of non-zero values
     nonzero = combined[combined > 0]
@@ -89,14 +90,14 @@ def run_quantum_qhed(image, shots, noise_model=None):
     else:
         thresh = 0.5
     binary = (combined >= thresh).astype(np.uint8) * 255
-    continuous = (combined * 255).astype(np.uint8)
+    continuous = combined
     return binary, continuous
 
 
-def run_quantum_neqr(image, shots, noise_model=None):
+def run_quantum_neqr(image, shots, noise_model=None, seed_simulator=None):
     """Run NEQR+Gradient and return binary edge map + continuous map."""
     edge_map, recon, qc = quantum_gradient_from_neqr(
-        image, intensity_bits=4, shots=shots, noise_model=noise_model
+        image, intensity_bits=4, shots=shots, noise_model=noise_model, seed_simulator=seed_simulator
     )
     nonzero = edge_map[edge_map > 0]
     if len(nonzero) > 0:
@@ -104,11 +105,11 @@ def run_quantum_neqr(image, shots, noise_model=None):
     else:
         thresh = 0.5
     binary = (edge_map >= thresh).astype(np.uint8) * 255
-    continuous = (edge_map * 255).astype(np.uint8)
+    continuous = edge_map
     return binary, continuous
 
 
-def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None):
+def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None, seed_simulator=None):
     """Run a single method and return metrics dict."""
     if method == "Sobel":
         binary, continuous = sobel_edge_binary(image)
@@ -119,9 +120,14 @@ def evaluate_method(image, mask, method, shots=DEFAULT_SHOTS, noise_model=None):
     elif method == "Robinson":
         binary, continuous, _ = robinson_edge_binary(image)
     elif method == "QPIE-QHED":
-        binary, continuous = run_quantum_qhed(image, shots, noise_model)
+        binary, continuous = run_quantum_qhed(image, shots, noise_model, seed_simulator)
     elif method == "NEQR-Gradient":
-        binary, continuous = run_quantum_neqr(image, shots, noise_model)
+        binary, continuous = run_quantum_neqr(image, shots, noise_model, seed_simulator)
+    elif method in ("Forward-Gradient", "Quantized-Gradient"):
+        continuous = forward_gradient(image) if method == "Forward-Gradient" else quantized_gradient(image)
+        positive = continuous[continuous > 0]
+        threshold = np.median(positive) if len(positive) else 0.5
+        binary = (continuous >= threshold).astype(np.uint8) * 255
     else:
         raise ValueError(f"Unknown method: {method}")
     
@@ -132,7 +138,7 @@ def run_trials(image, mask, method, n_trials=N_TRIALS, shots=DEFAULT_SHOTS, nois
     """Run multiple trials and return mean/std metrics."""
     results = []
     for t in range(n_trials):
-        m = evaluate_method(image, mask, method, shots, noise_model)
+        m = evaluate_method(image, mask, method, shots, noise_model, seed_simulator=42 + t)
         results.append(m)
     
     # Aggregate
@@ -174,7 +180,7 @@ def experiment_1():
     print("=" * 60)
     
     patches = load_synthetic_patches(8)
-    methods = ["Sobel", "Canny", "Robinson", "QPIE-QHED", "NEQR-Gradient"]
+    methods = ["Sobel", "Canny", "Robinson", "Forward-Gradient", "Quantized-Gradient", "QPIE-QHED", "NEQR-Gradient"]
     results = []
     
     for p in patches:
@@ -279,7 +285,7 @@ def experiment_6():
     print("=" * 60)
     
     patches = load_synthetic_patches(8)
-    methods = ["Sobel", "Canny", "Robinson", "QPIE-QHED", "NEQR-Gradient"]
+    methods = ["Sobel", "Canny", "Robinson", "Forward-Gradient", "Quantized-Gradient", "QPIE-QHED", "NEQR-Gradient"]
     results = []
     
     for p in patches:
@@ -309,7 +315,7 @@ def experiment_8():
             continue
         
         print(f"\n  {size}x{size}: {len(patches)} patches")
-        methods = ["Sobel", "Canny", "Robinson", "QPIE-QHED", "NEQR-Gradient"]
+        methods = ["Sobel", "Canny", "Robinson", "Forward-Gradient", "Quantized-Gradient", "QPIE-QHED", "NEQR-Gradient"]
         
         for p in patches:
             for method in methods:
@@ -334,63 +340,30 @@ def experiment_8():
 
 
 def experiment_9():
-    """Experiment 9 -- Resource Scaling Analysis"""
-    print("\n" + "=" * 60)
-    print("EXPERIMENT 9: Resource Scaling")
-    print("=" * 60)
-    
-    from qiskit import transpile as qk_transpile
-    from qiskit_aer import AerSimulator
+    """Primitive preparation and operation costs, separately for every pass."""
+    from qiskit import transpile
     from quantum.qhed_circuit import build_qhed_circuit
     from quantum.neqr_encoder import neqr_encode_simplified
-    
+    rng = np.random.default_rng(42)
     results = []
-    
     for size in [4, 8]:
-        # Create a simple test image
-        img = np.random.randint(30, 200, (size, size), dtype=np.uint8)
-        
-        # QPIE-QHED resources
-        qc_qhed, n_qubits, _ = build_qhed_circuit(img)
-        sim = AerSimulator()
-        tc_qhed = qk_transpile(qc_qhed, sim)
-        
-        results.append({
-            'method': 'QPIE-QHED',
-            'size': size,
-            'n_qubits': n_qubits,
-            'circuit_depth': tc_qhed.depth(),
-            'gate_count': tc_qhed.count_ops(),
-            'cx_count': tc_qhed.count_ops().get('cx', 0),
-        })
-        
-        # NEQR resources
-        qc_neqr, n_pos, n_int = neqr_encode_simplified(img, intensity_bits=4)
-        total_neqr = n_pos + n_int
-        tc_neqr = qk_transpile(qc_neqr, sim)
-        
-        results.append({
-            'method': 'NEQR-Gradient',
-            'size': size,
-            'n_qubits': total_neqr,
-            'circuit_depth': tc_neqr.depth(),
-            'gate_count': tc_neqr.count_ops(),
-            'cx_count': tc_neqr.count_ops().get('cx', 0),
-        })
-        
-        print(f"  {size}x{size}:")
-        for r in results[-2:]:
-            print(f"    {r['method']:<15} qubits={r['n_qubits']:<4} depth={r['circuit_depth']:<8} CX={r['cx_count']}")
-    
-    # Save
-    path = RESULTS_DIR / "exp9_resource_scaling.csv"
-    with open(path, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(['method', 'size', 'n_qubits', 'circuit_depth', 'cx_count'])
-        for r in results:
-            writer.writerow([r['method'], r['size'], r['n_qubits'], 
-                           r['circuit_depth'], r['cx_count']])
-    print(f"  Saved: {path}")
+        image = rng.integers(30, 200, (size, size), dtype=np.uint8)
+        circuits = []
+        for direction in ['horizontal', 'vertical']:
+            for offset in [0, 1]:
+                qc, _, _ = build_qhed_circuit(image, direction, offset)
+                circuits.append(('QPIE-QHED', f'{direction}_{offset}', qc, 4))
+        qc, _, _ = neqr_encode_simplified(image, intensity_bits=4)
+        qc.measure_all()
+        circuits.append(('NEQR-Gradient', 'hybrid_reconstruction', qc, 1))
+        for method, circuit_pass, qc, circuits_per_trial in circuits:
+            compiled = transpile(qc, basis_gates=['u', 'cx'], seed_transpiler=42)
+            counts = compiled.count_ops()
+            results.append({'method': method, 'size': size, 'circuit_pass': circuit_pass,
+                'n_qubits': qc.num_qubits, 'circuit_depth': compiled.depth(),
+                'cx_count': counts.get('cx', 0), 'u_count': counts.get('u', 0),
+                'circuits_per_trial': circuits_per_trial, 'basis': 'u,cx'})
+    save_results(results, 'exp9_resource_scaling.csv')
     return results
 
 

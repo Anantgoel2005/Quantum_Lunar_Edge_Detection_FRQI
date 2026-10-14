@@ -107,7 +107,7 @@ def rasterise_all(split="test", mode="rim", rim_width=2):
     Returns:
         dict mapping image filename -> mask path
     """
-    PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+    PROJECT_ROOT = Path(__file__).resolve().parents[1]
     ann_path = PROJECT_ROOT / "data" / "sombench" / "annotations" / f"{split}.json"
     masks_dir = PROJECT_ROOT / "data" / "sombench" / "masks"
     masks_dir.mkdir(parents=True, exist_ok=True)
@@ -152,7 +152,7 @@ if __name__ == "__main__":
     print("=" * 60)
     
     for split in ["test", "val"]:
-        ann_path = Path(r"E:\projects\Quantum_Image\data\sombench\annotations") / f"{split}.json"
+        ann_path = (Path(__file__).resolve().parents[1] / 'data/sombench/annotations') / f"{split}.json"
         if not ann_path.exists():
             print(f"\n  {split}.json not found - skipping")
             continue

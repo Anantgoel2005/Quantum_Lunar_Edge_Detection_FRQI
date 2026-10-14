@@ -17,9 +17,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
-RESULTS_DIR = PROJECT_ROOT / "results" / "tables"
-FIGURES_DIR = PROJECT_ROOT / "results" / "figures"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+RESULTS_DIR = PROJECT_ROOT / "results" / "corrected" / "tables"
+FIGURES_DIR = PROJECT_ROOT / "results" / "corrected" / "figures"
 FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
 # Style settings
@@ -36,6 +36,8 @@ COLORS = {
     'Robinson': '#4CAF50',
     'QPIE-QHED': '#E91E63',
     'NEQR-Gradient': '#9C27B0',
+    'Forward-Gradient': '#607D8B',
+    'Quantized-Gradient': '#795548',
 }
 
 

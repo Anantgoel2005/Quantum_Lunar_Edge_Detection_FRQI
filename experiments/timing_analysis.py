@@ -1,11 +1,11 @@
 """
-Timing Analysis -- End-to-end vs quantum kernel timing (Objective 21)
+Timing Analysis -- End-to-end local CPU timing (Objective 21)
 
 Measures:
   - Total wall-clock time (encode + circuit + measure + reconstruct)
-  - Quantum kernel time only (circuit execution inside simulator)
   - Classical method time for comparison
-  - Reports both separately to avoid misleading speed claims
+  - Includes preparation, transpilation, execution, and reconstruction
+  - Excludes one warmup per method; no separate kernel timing is claimed
 """
 import numpy as np
 import time
@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 from PIL import Image
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from classical.sobel import sobel_edge_binary
@@ -23,13 +23,14 @@ from classical.robinson_compass import robinson_edge_binary
 from quantum.qhed_circuit import run_qhed_combined
 from quantum.quantum_gradient import quantum_gradient_from_neqr
 
-RESULTS_DIR = PROJECT_ROOT / "results" / "tables"
+RESULTS_DIR = PROJECT_ROOT / "results" / "corrected" / "tables"
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def time_method(image, method_name, n_runs=5):
     """Time a method over multiple runs and return mean/std."""
     times = []
-    for _ in range(n_runs):
+    for run in range(n_runs + 1):
         start = time.perf_counter()
         
         if method_name == "Sobel":
@@ -39,12 +40,13 @@ def time_method(image, method_name, n_runs=5):
         elif method_name == "Robinson":
             robinson_edge_binary(image)
         elif method_name == "QPIE-QHED":
-            run_qhed_combined(image.astype(np.float64), shots=8192)
+            run_qhed_combined(image.astype(np.float64), shots=8192, seed_simulator=42)
         elif method_name == "NEQR-Gradient":
-            quantum_gradient_from_neqr(image, intensity_bits=4, shots=8192)
+            quantum_gradient_from_neqr(image, intensity_bits=4, shots=8192, seed_simulator=42)
         
         elapsed = time.perf_counter() - start
-        times.append(elapsed)
+        if run > 0:
+            times.append(elapsed)
     
     return {
         'method': method_name,
@@ -57,7 +59,7 @@ def time_method(image, method_name, n_runs=5):
 
 def main():
     print("=" * 60)
-    print("TIMING ANALYSIS -- End-to-End vs Kernel")
+    print("TIMING ANALYSIS -- End-to-End CPU (warmup excluded)")
     print("=" * 60)
     
     results = []

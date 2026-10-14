@@ -61,7 +61,7 @@ if __name__ == "__main__":
     from pathlib import Path
     from PIL import Image
     
-    test_img_path = Path(r"E:\projects\Quantum_Image\data\synthetic\images\circle_8x8.png")
+    test_img_path = (Path(__file__).resolve().parents[1] / 'data/synthetic/images/circle_8x8.png')
     if test_img_path.exists():
         img = np.array(Image.open(test_img_path))
         edges = canny_edge(img)

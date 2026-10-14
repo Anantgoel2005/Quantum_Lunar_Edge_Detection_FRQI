@@ -1,4 +1,6 @@
 # Quantum Edge Detection Under Changing Image Conditions
+
+> **Implementation correction, 14 October 2026:** This document preserves the original research plan and historical claims. See `README.md` and `report/fixes_and_validation.md` for the corrected implementation and validation. NEQR currently uses quantum encoding and measurement followed by a **classical** gradient; a coherent quantum gradient remains a research objective. Original tables and figures are historical; new outputs are under `results/corrected/`.
 ### A Comparative Study of Two Quantum Representations and Classical Methods on Grayscale Lunar Crater Images
 
 ---
@@ -88,7 +90,7 @@ To implement two independent quantum edge detection pipelines -- QPIE amplitude 
 | 3 | Understand QPIE amplitude encoding and the canonical QHED circuit | [x] |
 | 4 | Implement QPIE + QHED pipeline in Qiskit | [x] |
 | 5 | Understand NEQR basis-state encoding and quantum gradient operators | [x] |
-| 6 | Implement NEQR + quantum gradient pipeline in Qiskit | [x] |
+| 6 | Implement NEQR + coherent quantum gradient pipeline in Qiskit (hybrid currently implemented) | [ ] |
 | 7 | Set up Qiskit AerSimulator in ideal and noisy modes | [x] |
 | 8 | Build synthetic ground truth dataset (lines, corners, circles, ellipses) | [x] |
 | 9 | Download and preprocess SomBench WAC Lunar Crater dataset | [x] |

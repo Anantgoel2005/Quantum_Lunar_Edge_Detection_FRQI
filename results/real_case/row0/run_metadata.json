@@ -1,0 +1,115 @@
+{
+  "provenance": {
+    "dataset": "nasa-ibm-ai4science/Sombench-WAC-Crater-Detection",
+    "dataset_revision": "20f800becb64a0c7ad314652a683f97f0281fe67",
+    "metadata_row_index": 0,
+    "annotation_split": "train",
+    "metadata": {
+      "PRODUCT_ID": "M1290203799CE",
+      "ROW": 5872,
+      "COL": 1112,
+      "LTM_CODE": "LTM_10N",
+      "WAC_VIS_TILE": "images/M1290203799CE_r5872_c1112.nc",
+      "CENTER_LATITUDE": 13.771920141761159,
+      "CENTER_LONGITUDE": -105.32202981444279,
+      "UPPER_LEFT_LONGITUDE": -106.19988111923357,
+      "UPPER_LEFT_LATITUDE": 14.61021216718391,
+      "LOWER_RIGHT_LONGITUDE": -104.45046268680528,
+      "LOWER_RIGHT_LATITUDE": 12.929982206497655,
+      "BOUNDS_XMIN": 185499.9999999997,
+      "BOUNDS_XMAX": 236699.9999999997,
+      "BOUNDS_YMIN": 391700.0000000007,
+      "BOUNDS_YMAX": 442900.0000000007,
+      "EMISSION_ANGLE": 1.17,
+      "INCIDENCE_ANGLE": 64.2,
+      "PHASE_ANGLE": 64.62,
+      "SUB_SOLAR_GROUND_AZIMUTH": 94.61944110652881,
+      "SUB_SOLAR_LATITUDE": 0.83,
+      "SUB_SOLAR_LONGITUDE": -42.24000000000001,
+      "DATASET": "train"
+    },
+    "source_urls": {
+      "image": "https://huggingface.co/datasets/nasa-ibm-ai4science/Sombench-WAC-Crater-Detection/resolve/20f800becb64a0c7ad314652a683f97f0281fe67/images_tiff/M1290203799CE_r5872_c1112.tif",
+      "annotations": "https://huggingface.co/datasets/nasa-ibm-ai4science/Sombench-WAC-Crater-Detection/resolve/20f800becb64a0c7ad314652a683f97f0281fe67/train.json",
+      "metadata": "https://huggingface.co/datasets/nasa-ibm-ai4science/Sombench-WAC-Crater-Detection/resolve/20f800becb64a0c7ad314652a683f97f0281fe67/metadata.parquet"
+    },
+    "sha256": {
+      "image": "913d7426d5be72237735f0f79cde2eb9f2a23cd2685acb32963a1a6bf6af14b9",
+      "annotations": "cd38bfa07d8ea2f0fc4b18a17caaf9d1a24be88585a8b1690e67b59bf7431523",
+      "metadata": "1bc6d66d254409ff9eff72d0d8388d42e5b0afbba883b21121d6faa8295c0c42"
+    },
+    "license": "CC-BY-4.0",
+    "attribution": "NASA-IBM AI4Science SomBench; Robbins (2019) crater catalog",
+    "label_kind": "catalog-derived circular polygons; approximate rim reference"
+  },
+  "loading": {
+    "raw_shape": [
+      512,
+      512,
+      5
+    ],
+    "raw_axes": "YXS",
+    "raw_dtype": "float32",
+    "band_count": 5,
+    "band_mode": "mean",
+    "percentiles": [
+      2,
+      98
+    ],
+    "scale_low": 0.012643303401768207,
+    "scale_high": 0.05740375879406927,
+    "valid_pixels": 262144,
+    "invalid_pixels": 0,
+    "image_shape": [
+      512,
+      512
+    ]
+  },
+  "execution": {
+    "measurement_shots": 44859392,
+    "accepted_edge_outcomes": 312576,
+    "circuits_executed": 5476,
+    "tiles": 1369,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 8,
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 42,
+    "subtract_tile_min": true,
+    "elapsed_seconds": 126.0303402999998,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "sqrt(2 * preparation_norm_squared * measured_probability), then global image scaling",
+    "maximum_measured_gradient": 156.21540867100788,
+    "initialization": "Aer-supported QPIE Initialize instruction",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": true,
+      "representative_blocks": 86,
+      "run_id": "88186beb46fe43d49c30a29624d06933",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "threshold": 0.08552424596884475,
+  "threshold_policy": "Otsu from measured full-image strengths; no label-based tuning",
+  "annotated_craters": 122,
+  "rim_width_pixels": 1,
+  "quantum_edge_pixels": 73340,
+  "representative_primitive_gates": {
+    "u": 256,
+    "cx": 247,
+    "reset": 8,
+    "measure": 8,
+    "barrier": 2
+  },
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-aer": "0.17.2",
+    "numpy": "2.5.1",
+    "tifffile": "2026.9.20",
+    "opencv-python": "5.0.0.93"
+  }
+}

@@ -1,0 +1,8 @@
+# Tested core environment for circuit tests and validation benchmark
+qiskit==2.5.1
+qiskit-aer==0.17.2
+numpy==2.5.1
+scipy==1.18.0
+opencv-python==5.0.0.93
+Pillow==10.4.0
+scikit-learn==1.9.1

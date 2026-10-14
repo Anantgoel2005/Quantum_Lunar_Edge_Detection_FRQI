@@ -22,7 +22,7 @@ from PIL import Image
 from pathlib import Path
 
 # Project paths
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SYNTHETIC_DIR = PROJECT_ROOT / "data" / "synthetic"
 IMAGES_DIR = SYNTHETIC_DIR / "images"
 MASKS_DIR = SYNTHETIC_DIR / "masks"

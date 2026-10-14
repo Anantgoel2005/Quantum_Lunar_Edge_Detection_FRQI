@@ -1,0 +1,17 @@
+{
+  "qiskit_fixtures": 12,
+  "maximum_amplitude_error": 5.551115123125783e-17,
+  "maximum_edge_error": 8.673617379884035e-18,
+  "browser_errors": [],
+  "completed_shots": 256,
+  "accepted_edge_outcomes": 32,
+  "mobile_overflow": false,
+  "interactions": [
+    "gate step",
+    "run to shot limit",
+    "pass change",
+    "image change",
+    "pixel editing"
+  ],
+  "dark_320px_overflow": false
+}

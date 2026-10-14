@@ -1,0 +1,11 @@
+method,size,circuit_pass,n_qubits,circuit_depth,cx_count,u_count,circuits_per_trial,basis
+QPIE-QHED,4,horizontal_0,4,26,11,16,4,"u,cx"
+QPIE-QHED,4,horizontal_1,4,28,12,17,4,"u,cx"
+QPIE-QHED,4,vertical_0,4,26,11,16,4,"u,cx"
+QPIE-QHED,4,vertical_1,4,28,12,17,4,"u,cx"
+NEQR-Gradient,4,hybrid_reconstruction,8,1250,661,840,1,"u,cx"
+QPIE-QHED,8,horizontal_0,6,118,57,64,4,"u,cx"
+QPIE-QHED,8,horizontal_1,6,128,62,72,4,"u,cx"
+QPIE-QHED,8,vertical_0,6,118,57,64,4,"u,cx"
+QPIE-QHED,8,vertical_1,6,128,62,72,4,"u,cx"
+NEQR-Gradient,8,hybrid_reconstruction,10,10492,6021,7853,1,"u,cx"

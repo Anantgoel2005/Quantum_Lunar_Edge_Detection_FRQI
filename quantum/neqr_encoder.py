@@ -19,6 +19,8 @@ For an NxN 8-bit image:
 import numpy as np
 from qiskit import QuantumCircuit, transpile
 from qiskit_aer import AerSimulator
+from quantum.simulation import validate_image, simulate_counts
+from quantum.reconstruction import neqr_counts_to_image
 
 
 def neqr_encode(image, intensity_bits=8):
@@ -37,6 +39,11 @@ def neqr_encode(image, intensity_bits=8):
         n_pos_qubits: number of position qubits
         n_int_qubits: number of intensity qubits
     """
+    image = validate_image(image)
+    if not isinstance(intensity_bits, int) or not 1 <= intensity_bits <= 8:
+        raise ValueError('intensity_bits must be between 1 and 8')
+    if np.any(image > (1 << intensity_bits) - 1):
+        raise ValueError('Intensity exceeds the requested bit depth; use neqr_encode_simplified')
     h, w = image.shape
     n_pixels = h * w
     n_pos = int(np.ceil(np.log2(n_pixels)))
@@ -115,13 +122,19 @@ def neqr_encode_simplified(image, intensity_bits=4):
         qc, n_pos, n_int
     """
     # Reduce bit depth
+    image = validate_image(image)
+    if not isinstance(intensity_bits, int) or not 1 <= intensity_bits <= 8:
+        raise ValueError('intensity_bits must be between 1 and 8')
+    if np.any(image > 255):
+        raise ValueError('Expected grayscale intensities between 0 and 255')
     max_val = 2 ** intensity_bits - 1
     reduced = (image.astype(np.float64) / 255.0 * max_val).astype(np.uint8)
     
     return neqr_encode(reduced, intensity_bits)
 
 
-def run_neqr_verify(image, intensity_bits=4, shots=8192):
+def run_neqr_verify(image, intensity_bits=4, shots=8192, noise_model=None,
+                    seed_simulator=None, return_float=False):
     """
     Encode image with NEQR and verify by measuring in computational basis.
     
@@ -134,50 +147,16 @@ def run_neqr_verify(image, intensity_bits=4, shots=8192):
     qc, n_pos, n_int = neqr_encode_simplified(image, intensity_bits)
     total = n_pos + n_int
     
-    # Add measurements
-    meas_qc = qc.copy()
-    meas_qc.add_register(
-        *[__import__('qiskit').circuit.ClassicalRegister(1) for _ in range(total)]
-    ) if meas_qc.num_clbits == 0 else None
-    
     # Simpler: create new circuit with classical bits
     full_qc = QuantumCircuit(total, total)
     full_qc.compose(qc, inplace=True)
     full_qc.measure(range(total), range(total))
     
-    sim = AerSimulator()
-    tc = transpile(full_qc, sim)
-    result = sim.run(tc, shots=shots).result()
-    counts = result.get_counts()
-    
-    # Reconstruct image from counts
-    max_val = 2 ** n_int - 1
-    reconstructed = np.zeros(2 ** n_pos)
-    total_counts = np.zeros(2 ** n_pos)
-    
-    for bitstring, count in counts.items():
-        bits = bitstring[::-1]  # Reverse for Qiskit ordering
-        
-        # Extract position and intensity
-        if len(bits) >= total:
-            int_bits = bits[:n_int]
-            pos_bits = bits[n_int:n_int + n_pos]
-            
-            pos_idx = int(pos_bits, 2) if pos_bits else 0
-            int_val = int(int_bits, 2) if int_bits else 0
-            
-            if pos_idx < len(reconstructed):
-                reconstructed[pos_idx] += int_val * count
-                total_counts[pos_idx] += count
-    
-    # Average intensity per position
-    mask = total_counts > 0
-    reconstructed[mask] /= total_counts[mask]
-    
-    # Scale back to 0-255
-    reconstructed = (reconstructed / max(max_val, 1) * 255).astype(np.uint8)
-    
-    return reconstructed[:n_pixels].reshape(h, w), counts, full_qc
+    counts = simulate_counts(full_qc, shots, noise_model, seed_simulator)
+    reconstructed = neqr_counts_to_image(counts, image.shape, n_int)
+    if not return_float:
+        reconstructed = np.rint(reconstructed).astype(np.uint8)
+    return reconstructed, counts, full_qc
 
 
 if __name__ == "__main__":
@@ -185,7 +164,7 @@ if __name__ == "__main__":
     from PIL import Image
     
     img = np.array(Image.open(
-        Path(r"E:\projects\Quantum_Image\data\synthetic\images\circle_4x4.png")
+        (Path(__file__).resolve().parents[1] / 'data/synthetic/images/circle_4x4.png')
     ))
     
     print(f"Testing NEQR on circle_4x4 (shape={img.shape})")

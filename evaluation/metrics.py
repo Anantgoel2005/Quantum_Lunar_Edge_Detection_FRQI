@@ -13,12 +13,12 @@ Classical baselines are NOT ground truth — they are evaluated the same way.
 """
 import numpy as np
 from scipy.ndimage import binary_dilation, distance_transform_edt
-from sklearn.metrics import precision_recall_curve, auc
+from sklearn.metrics import precision_recall_curve, average_precision_score
 
 
 def _binarize(edge_map, threshold=128):
     """Convert continuous edge map to binary (0/1)."""
-    if edge_map.max() <= 1.0 and edge_map.dtype in [np.float32, np.float64]:
+    if edge_map.max() <= 1.0:
         return (edge_map > 0.5).astype(np.uint8)
     return (edge_map >= threshold).astype(np.uint8)
 
@@ -126,7 +126,7 @@ def chamfer_distance(pred, gt):
 
 def pr_auc(pred_continuous, gt, num_thresholds=100):
     """
-    Compute Precision-Recall AUC over a range of thresholds.
+    Compute average precision (step-integrated PR area, including tied scores).
     
     Args:
         pred_continuous: continuous edge strength map (0-255 uint8 or 0-1 float)
@@ -146,11 +146,11 @@ def pr_auc(pred_continuous, gt, num_thresholds=100):
     if pred_flat.max() > 1.0:
         pred_flat = pred_flat / 255.0
     
-    if np.sum(gt_bin) == 0 or np.all(pred_flat == pred_flat[0]):
+    if np.sum(gt_bin) == 0:
         return 0.0, np.array([0]), np.array([0]), np.array([0])
     
     precisions, recalls, thresholds = precision_recall_curve(gt_bin, pred_flat)
-    auc_score = auc(recalls, precisions)
+    auc_score = average_precision_score(gt_bin, pred_flat)
     
     return auc_score, precisions, recalls, thresholds
 
@@ -213,8 +213,8 @@ if __name__ == "__main__":
     from classical.classical_pipeline import run_classical_pipeline
     
     # Test on circle_8x8 against its ground truth mask
-    img_path = Path(r"E:\projects\Quantum_Image\data\synthetic\images\circle_8x8.png")
-    mask_path = Path(r"E:\projects\Quantum_Image\data\synthetic\masks\circle_8x8_mask.png")
+    img_path = (Path(__file__).resolve().parents[1] / 'data/synthetic/images/circle_8x8.png')
+    mask_path = (Path(__file__).resolve().parents[1] / 'data/synthetic/masks/circle_8x8_mask.png')
     
     img = np.array(Image.open(img_path))
     gt = np.array(Image.open(mask_path))

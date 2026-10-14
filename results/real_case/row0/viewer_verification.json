@@ -1,0 +1,9 @@
+{
+  "browser_errors": [],
+  "automatic_full_tile_run": true,
+  "image_selection_controls": 0,
+  "observed_running_circuits": 64,
+  "completed_circuits": 5476,
+  "measured_shots": 44859392,
+  "mobile_overflow": false
+}

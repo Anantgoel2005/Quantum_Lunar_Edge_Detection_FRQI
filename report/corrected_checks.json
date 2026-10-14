@@ -1,0 +1,497 @@
+{
+  "versions": {
+    "python": "3.12.10",
+    "qiskit": "2.5.1",
+    "qiskit_aer": "0.17.2",
+    "numpy": "2.5.1"
+  },
+  "source_syntax": {
+    "parsed_files": 35,
+    "errors": 0
+  },
+  "neqr_roundtrip": {
+    "input": [
+      [
+        51,
+        17,
+        119,
+        0
+      ],
+      [
+        136,
+        238,
+        34,
+        170
+      ],
+      [
+        102,
+        187,
+        255,
+        68
+      ],
+      [
+        221,
+        85,
+        204,
+        153
+      ]
+    ],
+    "current_reconstruction": [
+      [
+        51,
+        17,
+        119,
+        0
+      ],
+      [
+        136,
+        238,
+        34,
+        170
+      ],
+      [
+        102,
+        187,
+        255,
+        68
+      ],
+      [
+        221,
+        85,
+        204,
+        153
+      ]
+    ],
+    "current_mae": 0.0,
+    "integer_decoding_mae": 0.0,
+    "observed_positions": 16,
+    "shots": 16384,
+    "gradient_branch_reconstruction_mae": 0.0
+  },
+  "qhed_position_decoding": {
+    "current_nonzero_positions": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "integer_decoded_nonzero_positions": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "maps_equal": true
+  },
+  "count_decoding": {
+    "input_counts": {
+      "001": 100
+    },
+    "expected_flat_index": 1,
+    "actual_flat_index": 1
+  },
+  "vertical_gradient": {
+    "selected_qubit": 3,
+    "required_row_lsb": 3,
+    "exact_edge_probability": 0.014285714285714282
+  },
+  "uncovered_pair_boundary": {
+    "description": "8x8 image: columns 0-3 dark, columns 4-7 bright",
+    "exact_horizontal_edge_probability": 5.004680467665246e-34,
+    "combined_nonzero_pixels": 8
+  },
+  "qhed_resource_comparison": {
+    "aer_native_depth": 3,
+    "aer_native_ops": {
+      "measure": 6,
+      "barrier": 2,
+      "initialize": 1,
+      "h": 1
+    },
+    "u_cx_depth": 118,
+    "u_cx_ops": {
+      "u": 64,
+      "cx": 57,
+      "reset": 6,
+      "measure": 6,
+      "barrier": 2
+    }
+  },
+  "classical_smoke": {
+    "sobel_magnitude": [
+      4,
+      4
+    ],
+    "sobel_binary": [
+      4,
+      4
+    ],
+    "canny": [
+      4,
+      4
+    ],
+    "robinson_magnitude": [
+      4,
+      4
+    ],
+    "robinson_binary": [
+      4,
+      4
+    ],
+    "robinson_direction": [
+      4,
+      4
+    ]
+  },
+  "table_audit": {
+    "classical_baseline_results.csv": {
+      "rows": 72,
+      "size_counts": {
+        "8": 27,
+        "16": 45
+      }
+    },
+    "exp10_failure_taxonomy.csv": {
+      "rows": 16,
+      "f1_by_method_size": [
+        {
+          "method": "QPIE-QHED",
+          "size": "all",
+          "n": 8,
+          "mean": 0.0822
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "all",
+          "n": 8,
+          "mean": 0.4640625
+        }
+      ]
+    },
+    "exp1_representation_ablation.csv": {
+      "rows": 40,
+      "size_counts": {
+        "8": 40
+      },
+      "f1_by_method_size": [
+        {
+          "method": "Sobel",
+          "size": "8",
+          "n": 8,
+          "mean": 0.873675
+        },
+        {
+          "method": "Canny",
+          "size": "8",
+          "n": 8,
+          "mean": 0.68615
+        },
+        {
+          "method": "Robinson",
+          "size": "8",
+          "n": 8,
+          "mean": 0.866325
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "8",
+          "n": 8,
+          "mean": 0.09042499999999999
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "8",
+          "n": 8,
+          "mean": 0.4640625
+        }
+      ]
+    },
+    "exp2_shot_sensitivity.csv": {
+      "rows": 42,
+      "f1_by_method_size": [
+        {
+          "method": "QPIE-QHED",
+          "size": "all",
+          "n": 21,
+          "mean": 0.08461428571428571
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "all",
+          "n": 21,
+          "mean": 0.5558333333333335
+        }
+      ]
+    },
+    "exp3_resolution_scaling.csv": {
+      "rows": 16,
+      "size_counts": {
+        "4": 4,
+        "8": 12
+      },
+      "f1_by_method_size": [
+        {
+          "method": "Sobel",
+          "size": "4",
+          "n": 1,
+          "mean": 0.4
+        },
+        {
+          "method": "Robinson",
+          "size": "4",
+          "n": 1,
+          "mean": 0.4
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "4",
+          "n": 1,
+          "mean": 0.3158
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "4",
+          "n": 1,
+          "mean": 0.6087
+        },
+        {
+          "method": "Sobel",
+          "size": "8",
+          "n": 3,
+          "mean": 0.7888999999999999
+        },
+        {
+          "method": "Robinson",
+          "size": "8",
+          "n": 3,
+          "mean": 0.8225666666666666
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "8",
+          "n": 3,
+          "mean": 0.0765
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "8",
+          "n": 3,
+          "mean": 0.5606333333333334
+        }
+      ]
+    },
+    "exp4_image_degradation.csv": {
+      "rows": 108,
+      "f1_by_method_size": [
+        {
+          "method": "Sobel",
+          "size": "all",
+          "n": 27,
+          "mean": 0.7906592592592591
+        },
+        {
+          "method": "Robinson",
+          "size": "all",
+          "n": 27,
+          "mean": 0.793711111111111
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "all",
+          "n": 27,
+          "mean": 0.18297777777777777
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "all",
+          "n": 27,
+          "mean": 0.45747037037037047
+        }
+      ]
+    },
+    "exp5_noise_simulation.csv": {
+      "rows": 40,
+      "f1_by_method_size": [
+        {
+          "method": "QPIE-QHED",
+          "size": "all",
+          "n": 20,
+          "mean": 0.26754500000000003
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "all",
+          "n": 20,
+          "mean": 0.4479849999999999
+        }
+      ]
+    },
+    "exp6_geometry_ablation.csv": {
+      "rows": 40,
+      "f1_by_method_size": [
+        {
+          "method": "Sobel",
+          "size": "all",
+          "n": 8,
+          "mean": 0.873675
+        },
+        {
+          "method": "Canny",
+          "size": "all",
+          "n": 8,
+          "mean": 0.68615
+        },
+        {
+          "method": "Robinson",
+          "size": "all",
+          "n": 8,
+          "mean": 0.866325
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "all",
+          "n": 8,
+          "mean": 0.0901125
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "all",
+          "n": 8,
+          "mean": 0.4640625
+        }
+      ]
+    },
+    "exp7_preprocessing.csv": {
+      "rows": 84,
+      "f1_by_method_size": [
+        {
+          "method": "Sobel",
+          "size": "all",
+          "n": 21,
+          "mean": 0.7648714285714284
+        },
+        {
+          "method": "Robinson",
+          "size": "all",
+          "n": 21,
+          "mean": 0.7986666666666666
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "all",
+          "n": 21,
+          "mean": 0.10023333333333334
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "all",
+          "n": 21,
+          "mean": 0.5110095238095239
+        }
+      ]
+    },
+    "exp8_sombench_benchmark.csv": {
+      "rows": 120,
+      "size_counts": {
+        "8": 45,
+        "16": 75
+      },
+      "f1_by_method_size": [
+        {
+          "method": "Sobel",
+          "size": "8",
+          "n": 9,
+          "mean": 0.32341111111111115
+        },
+        {
+          "method": "Canny",
+          "size": "8",
+          "n": 9,
+          "mean": 0.06605555555555556
+        },
+        {
+          "method": "Robinson",
+          "size": "8",
+          "n": 9,
+          "mean": 0.32238888888888895
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "8",
+          "n": 9,
+          "mean": 0.23121111111111115
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "8",
+          "n": 9,
+          "mean": 0.3124888888888889
+        },
+        {
+          "method": "Sobel",
+          "size": "16",
+          "n": 15,
+          "mean": 0.26119333333333333
+        },
+        {
+          "method": "Canny",
+          "size": "16",
+          "n": 15,
+          "mean": 0.09756666666666666
+        },
+        {
+          "method": "Robinson",
+          "size": "16",
+          "n": 15,
+          "mean": 0.2597733333333333
+        },
+        {
+          "method": "QPIE-QHED",
+          "size": "16",
+          "n": 15,
+          "mean": 0.11751333333333334
+        },
+        {
+          "method": "NEQR-Gradient",
+          "size": "16",
+          "n": 15,
+          "mean": 0.23201333333333332
+        }
+      ],
+      "unique_patches": 24
+    },
+    "exp9_resource_scaling.csv": {
+      "rows": 4,
+      "size_counts": {
+        "4": 2,
+        "8": 2
+      }
+    },
+    "grand_summary.csv": {
+      "rows": 5
+    },
+    "timing_analysis.csv": {
+      "rows": 10,
+      "size_counts": {
+        "4": 5,
+        "8": 5
+      }
+    }
+  },
+  "data_audit": {
+    "synthetic/images": 17,
+    "synthetic/masks": 17,
+    "sombench/patches": 58,
+    "sombench/masks": 58,
+    "sombench/images": 0,
+    "sombench/annotations": 0
+  }
+}

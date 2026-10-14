@@ -15,7 +15,7 @@ from pathlib import Path
 from tqdm import tqdm
 
 # Project paths
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SOMBENCH_DIR = PROJECT_ROOT / "data" / "sombench"
 IMAGES_DIR = SOMBENCH_DIR / "images"
 ANNOTATIONS_DIR = SOMBENCH_DIR / "annotations"

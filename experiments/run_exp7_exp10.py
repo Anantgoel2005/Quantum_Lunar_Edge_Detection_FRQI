@@ -12,7 +12,7 @@ from pathlib import Path
 from PIL import Image
 import cv2
 
-PROJECT_ROOT = Path(r"E:\projects\Quantum_Image")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from classical.sobel import sobel_edge, sobel_edge_binary
@@ -22,7 +22,8 @@ from quantum.qhed_circuit import run_qhed_combined
 from quantum.quantum_gradient import quantum_gradient_from_neqr
 from preprocessing.preprocessor import preprocess
 
-RESULTS_DIR = PROJECT_ROOT / "results" / "tables"
+RESULTS_DIR = PROJECT_ROOT / "results" / "corrected" / "tables"
+RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 N_TRIALS = 10
 DEFAULT_SHOTS = 8192
 
@@ -42,21 +43,21 @@ def load_synthetic_patches(size=8):
     return patches
 
 
-def run_quantum_qhed(image, shots=DEFAULT_SHOTS):
-    combined, _, _ = run_qhed_combined(image.astype(np.float64), shots=shots)
+def run_quantum_qhed(image, shots=DEFAULT_SHOTS, seed_simulator=42):
+    combined, _, _ = run_qhed_combined(image.astype(np.float64), shots=shots, seed_simulator=seed_simulator)
     nonzero = combined[combined > 0]
     thresh = np.median(nonzero) if len(nonzero) > 0 else 0.5
     binary = (combined >= thresh).astype(np.uint8) * 255
-    continuous = (combined * 255).astype(np.uint8)
+    continuous = combined
     return binary, continuous
 
 
-def run_quantum_neqr(image, shots=DEFAULT_SHOTS):
-    edge_map, recon, qc = quantum_gradient_from_neqr(image, intensity_bits=4, shots=shots)
+def run_quantum_neqr(image, shots=DEFAULT_SHOTS, seed_simulator=42):
+    edge_map, recon, qc = quantum_gradient_from_neqr(image, intensity_bits=4, shots=shots, seed_simulator=seed_simulator)
     nonzero = edge_map[edge_map > 0]
     thresh = np.median(nonzero) if len(nonzero) > 0 else 0.5
     binary = (edge_map >= thresh).astype(np.uint8) * 255
-    continuous = (edge_map * 255).astype(np.uint8)
+    continuous = edge_map
     return binary, continuous
 
 
@@ -97,9 +98,9 @@ def experiment_7():
                     elif method == "Robinson":
                         binary, continuous, _ = robinson_edge_binary(processed)
                     elif method == "QPIE-QHED":
-                        binary, continuous = run_quantum_qhed(processed)
+                        binary, continuous = run_quantum_qhed(processed, seed_simulator=42 + trial)
                     elif method == "NEQR-Gradient":
-                        binary, continuous = run_quantum_neqr(processed)
+                        binary, continuous = run_quantum_neqr(processed, seed_simulator=42 + trial)
                     
                     m = compute_all_metrics(binary, continuous, p['mask'], method)
                     f1_values.append(m['f1_exact'])
@@ -152,9 +153,11 @@ def experiment_10():
             f1_1px_list = []
             precision_list = []
             recall_list = []
+            predicted_pixels = []
             
             for trial in range(N_TRIALS):
-                binary, continuous = run_fn(p['image'])
+                binary, continuous = run_fn(p['image'], seed_simulator=42 + trial)
+                predicted_pixels.append(np.count_nonzero(binary))
                 m = compute_all_metrics(binary, continuous, p['mask'], method_name)
                 f1_exact_list.append(m['f1_exact'])
                 f1_1px_list.append(m['f1_1px'])
@@ -167,7 +170,7 @@ def experiment_10():
             mean_r = np.mean(recall_list)
             
             # Classify failure mode
-            if mean_f1 == 0 and mean_r == 0:
+            if np.mean(predicted_pixels) == 0:
                 failure_mode = "COMPLETE_MISS"
             elif mean_f1 == 0 and mean_p == 0:
                 failure_mode = "OVER_DETECTION"
