@@ -8,7 +8,7 @@ from PIL import Image,ImageDraw
 from playwright.sync_api import sync_playwright
 
 parser=argparse.ArgumentParser()
-parser.add_argument('--url',default='http://127.0.0.1:8766')
+parser.add_argument('--url',default='http://127.0.0.1:8768')
 URL=parser.parse_args().url.rstrip('/')
 ROOT=Path(__file__).resolve().parents[1]
 CHECK=ROOT/'results/upload_verification'
@@ -85,7 +85,7 @@ for name,values in expected.items():
     assert np.array_equal(actual,values),f'{name} comparison does not match the working input'
 comparison=json.loads((output/'detector_comparison.json').read_text())
 assert len(comparison['methods'])==4
-assert all(row['edge_pixels']==int(np.count_nonzero(np.asarray(Image.open(output/f"{('quantum' if row['method'].startswith('QPIE') else row['method'].lower())}_edges.png")))) for row in comparison['methods'])
+assert all(row['edge_pixels']==int(np.count_nonzero(np.asarray(Image.open(output/f"{('quantum' if row['method'].startswith('FRQI') else row['method'].lower())}_edges.png")))) for row in comparison['methods'])
 result={'output':str(output),'circuits':140,'shots':140*8192,'image_shape':[64,96],'browser_errors':errors,'invalid_upload_preserves_context':True}
 (CHECK/'verification.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
 print(json.dumps(result))

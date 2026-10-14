@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 import numpy as np
 import tifffile
-from quantum.full_image import run_full_image_qhed
+from quantum.qpie_full_image import run_full_image_qhed
 from classical.finite_difference import forward_gradient
 from preprocessing.real_image import load_real_tiff
 

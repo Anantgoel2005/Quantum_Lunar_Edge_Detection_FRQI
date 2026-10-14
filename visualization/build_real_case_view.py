@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-OUTPUT = ROOT/'results/real_case/row0'
+OUTPUT = ROOT/'results/variants/frqi/row0'
 
 
 
@@ -22,12 +22,10 @@ OUTPUT = ROOT/'results/real_case/row0'
 
 def main():
 
-    data = json.loads((OUTPUT/'run_metadata.json').read_text(encoding='utf-8'))
+    OUTPUT.mkdir(parents=True,exist_ok=True)
+    data = {}
 
-    with (OUTPUT/'metrics.csv').open(newline='') as handle:
-
-        metrics = list(csv.DictReader(handle))
-
+    metrics = []
     rows = ''.join('<tr><td>'+html.escape(row['method'])+'</td>'+''.join('<td>'+format(float(row[key]),'.3f')+'</td>'
 
         for key in ['f1_exact','f1_1px','f1_2px'])+'</tr>' for row in metrics)
@@ -36,7 +34,7 @@ def main():
 
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Automatic quantum lunar edge detection</title>
+<title>FRQI quantum lunar edge detection</title>
 
 <style>
 
@@ -48,7 +46,7 @@ def main():
 
 </style></head><body><main>
 
-<h1>Automatic quantum lunar edge detection</h1>
+<h1>FRQI quantum lunar edge detection</h1>
 
 <div id="context-label" class="subtitle">SomBench metadata row 0 · M1290203799CE_r5872_c1112 · complete 512 × 512 tile</div>
 
@@ -58,11 +56,11 @@ def main():
 
 <section id="preprocessing" hidden><h2>Preprocessing completed</h2><p id="preprocessing-note" class="note"></p><div class="images"><figure><figcaption>Original · working-size preview</figcaption><img id="original-preview" alt="Uploaded image before grayscale preprocessing"></figure><figure><figcaption>Preprocessed · actual quantum input</figcaption><img id="prepared-preview" alt="Contrast normalized and denoised grayscale quantum input"></figure></div></section>
 
-<div class="controls"><button id="run" type="button">Run quantum detection on the full tile</button><span id="status" class="status" role="status">Complete</span></div>
+<div class="controls"><button id="run" type="button">Run quantum detection on the full tile</button><span id="status" class="status" role="status">Ready</span></div>
 
 <div class="progress" role="progressbar" aria-label="Completed quantum tiles" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div id="bar"></div></div>
 
-<div class="facts"><span id="circuits">5,476 circuits</span><span id="shots">44,859,392 shots</span><span>8 qubits per circuit</span><span id="elapsed">93.1 s</span></div>
+<div class="facts"><span id="circuits">0 circuits</span><span id="shots">0 shots</span><span id="qubit-count">9 qubits per circuit</span><span id="elapsed">0.0 s</span></div>
 
 <section id="gate-trace-panel" class="gate-panel" aria-label="Live gate checkpoint visualization">
 
@@ -70,7 +68,7 @@ def main():
 
 <div class="gate-detail" data-trace="source" role="status">Waiting for actual gate checkpoints from the detector</div>
 
-<div class="gate-grid"><div><div class="gate-stage"><span data-trace="pass">Four circuit passes per block</span><span data-trace="gate-label">QPIE → controlled shift → H → measurement</span></div><svg class="gate-svg" data-trace="diagram" role="img" aria-label="Eight-qubit live quantum gate diagram"></svg><div class="gate-detail" data-trace="block">Block locations advance automatically</div><div class="gate-detail" data-trace="timing"></div><div class="gate-detail" data-trace="incoming"></div></div>
+<div class="gate-grid"><div><div class="gate-stage"><span data-trace="pass">Four circuit passes per block</span><span data-trace="gate-label">FRQI → controlled shift → H → measurement</span></div><svg class="gate-svg" data-trace="diagram" role="img" aria-label="Nine-qubit live quantum gate diagram"></svg><div class="gate-detail" data-trace="block">Block locations advance automatically</div><div class="gate-detail" data-trace="timing"></div><div class="gate-detail" data-trace="incoming"></div></div>
 
 <div><div class="small" data-trace="state-label">Actual saved statevector</div><svg class="gate-state" data-trace="state" role="img" aria-label="Saved amplitudes or observed measurement probability grid"></svg><div class="gate-legend"><i></i>Positive / measured <i class="negative"></i>Negative amplitude</div><div class="gate-detail" data-trace="norm"></div><div class="gate-detail" data-trace="measurement"></div><div class="gate-detail" data-trace="outcomes"></div></div></div>
 
@@ -80,21 +78,21 @@ def main():
 
 <h2>Full-image quantum output</h2>
 
-<div class="images"><figure><figcaption id="source-caption">Original grayscale image · mean of five TIFF bands</figcaption><div class="source-image"><img id="source-preview" src="input.png" alt="Complete real lunar terrain tile with craters and shadows"><svg class="block-overlay" viewBox="0 0 512 512" aria-label="Automatically traced block position"><rect id="active-block" width="14" height="14" style="display:none"></rect></svg></div></figure><figure><figcaption id="live-caption">QHED strength from measured circuit counts</figcaption><img id="live" src="live_strength.png" alt="Quantum edge strength reconstructed from measurement counts across the full tile"></figure></div>
+<div class="images"><figure><figcaption id="source-caption">Original grayscale image · mean of five TIFF bands</figcaption><div class="source-image"><img id="source-preview" src="input.png" alt="Complete real lunar terrain tile with craters and shadows"><svg class="block-overlay" viewBox="0 0 512 512" aria-label="Automatically traced block position"><rect id="active-block" width="14" height="14" style="display:none"></rect></svg></div></figure><figure><figcaption id="live-caption">FRQI strength from measured circuit counts</figcaption><img id="live" src="live_strength.png" alt="Quantum edge strength reconstructed from measurement counts across the full tile"></figure></div>
 
 <h2>What actually runs</h2>
 
-<div class="flow" aria-label="Quantum processing workflow"><span>QPIE image preparation</span><b>→</b><span>Controlled coordinate shift</span><b>→</b><span>Hadamard interference</span><b>→</b><span>Measurement</span></div>
+<div class="flow" aria-label="Quantum processing workflow"><span>FRQI image preparation</span><b>→</b><span>Controlled coordinate shift</span><b>→</b><span>Hadamard angle interference</span><b>→</b><span>Measurement</span></div>
 
 <p class="note">Every 16 × 16 block runs four Qiskit circuits. Overlapping halos retain neighboring pixels at block boundaries. The entire image is processed automatically, and the live strength map updates from completed circuit measurements.</p>
 
 <p class="note small">Execution uses a local ideal Qiskit Aer statevector simulator. It is not a quantum hardware run. Aer executes image initialization as a supported preparation instruction; a decomposed circuit example is available below.</p>
 
-<section id="finished"><h2>Latest completed edge map</h2><div class="images"><figure><figcaption>Automatic thresholded quantum edges</figcaption><img id="edges" src="quantum_edges.png" alt="Automatically detected edges of the complete lunar tile"></figure><figure><figcaption id="overlay-caption">Catalog reference: green · measured edges: magenta · overlap: yellow</figcaption><img id="overlay" src="overlay.png" alt="Full-image overlay of measured quantum edges and approximate catalog crater outlines"></figure></div>
+<section id="finished" hidden><h2>Latest completed edge map</h2><div class="images"><figure><figcaption>Automatic thresholded quantum edges</figcaption><img id="edges" src="quantum_edges.png" alt="Automatically detected edges of the complete lunar tile"></figure><figure><figcaption id="overlay-caption">Catalog reference: green · measured edges: magenta · overlap: yellow</figcaption><img id="overlay" src="overlay.png" alt="Full-image overlay of measured quantum edges and approximate catalog crater outlines"></figure></div>
 
-<section id="detector-comparison"><h2>Quantum vs classical edge detection</h2>
-<p class="note">All four methods use the same grayscale working image. Quantum QHED, Sobel and Robinson use automatic Otsu thresholds; Canny uses median-based automatic thresholds. Each panel shows the final binary edge map.</p>
-<div class="images"><figure><figcaption>Quantum QHED · measured circuit counts</figcaption><img id="compare-quantum" src="quantum_edges.png" alt="Measured quantum edge map"></figure><figure><figcaption>Sobel · 3 × 3 gradient</figcaption><img id="compare-sobel" src="sobel_edges.png" alt="Sobel edge map on the same input"></figure><figure><figcaption>Canny · automatic thresholds</figcaption><img id="compare-canny" src="canny_edges.png" alt="Canny edge map on the same input"></figure><figure><figcaption>Robinson · eight compass directions</figcaption><img id="compare-robinson" src="robinson_edges.png" alt="Robinson edge map on the same input"></figure></div>
+<section id="detector-comparison"><h2>FRQI vs classical edge detection</h2>
+<p class="note">All four methods use the same grayscale working image. FRQI QHED, Sobel and Robinson use automatic Otsu thresholds; Canny uses median-based automatic thresholds. Each panel shows the final binary edge map.</p>
+<div class="images"><figure><figcaption>FRQI QHED · measured circuit counts</figcaption><img id="compare-quantum" src="quantum_edges.png" alt="Measured quantum edge map"></figure><figure><figcaption>Sobel · 3 × 3 gradient</figcaption><img id="compare-sobel" src="sobel_edges.png" alt="Sobel edge map on the same input"></figure><figure><figcaption>Canny · automatic thresholds</figcaption><img id="compare-canny" src="canny_edges.png" alt="Canny edge map on the same input"></figure><figure><figcaption>Robinson · eight compass directions</figcaption><img id="compare-robinson" src="robinson_edges.png" alt="Robinson edge map on the same input"></figure></div>
 <div class="table-scroll"><table><thead><tr><th>Method</th><th>Edge pixels</th><th>Image coverage</th></tr></thead><tbody id="comparison-stats"></tbody></table></div>
 <p class="note small">Coverage describes the fraction of pixels marked as edges; it does not measure accuracy. Catalog boundary accuracy is reported below when reference labels are available.</p>
 <p class="small"><a href="detector_comparison.json">Download comparison details</a> · <a href="sobel_edges.png">Sobel PNG</a> · <a href="canny_edges.png">Canny PNG</a> · <a href="robinson_edges.png">Robinson PNG</a></p></section>

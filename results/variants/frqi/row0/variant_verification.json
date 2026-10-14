@@ -1,0 +1,15 @@
+{
+  "encoding": "FRQI",
+  "qubits": 9,
+  "browser_errors": [],
+  "native_shape": [
+    512,
+    512
+  ],
+  "circuits": 5476,
+  "shots": 44859392,
+  "trace_batches": 86,
+  "traces_match_inference_audit": true,
+  "mobile_overflow": false,
+  "all_four_comparison_panels": true
+}

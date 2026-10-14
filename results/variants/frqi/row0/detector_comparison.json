@@ -1,0 +1,34 @@
+{
+  "image_shape": [
+    512,
+    512
+  ],
+  "input_sha256": "f9d6989e35ba4e8ef8dcf838ba458a20b8c5e0d3a6c58ca056eda87cbc2cd4cd",
+  "comparison_scope": "All four methods use the same grayscale working input; edge coverage is not accuracy.",
+  "methods": [
+    {
+      "method": "FRQI-QHED (measured)",
+      "edge_pixels": 27561,
+      "edge_coverage_percent": 10.513687133789062,
+      "threshold_policy": "Otsu on measured quantum strength"
+    },
+    {
+      "method": "Sobel",
+      "edge_pixels": 50107,
+      "edge_coverage_percent": 19.114303588867188,
+      "threshold_policy": "3x3 Sobel magnitude, global normalization, Otsu"
+    },
+    {
+      "method": "Canny",
+      "edge_pixels": 37566,
+      "edge_coverage_percent": 14.330291748046875,
+      "threshold_policy": "Median-based automatic thresholds (sigma 0.33, minimum separation 20)"
+    },
+    {
+      "method": "Robinson",
+      "edge_pixels": 51001,
+      "edge_coverage_percent": 19.455337524414062,
+      "threshold_policy": "Eight 3x3 compass responses, global normalization, Otsu"
+    }
+  ]
+}

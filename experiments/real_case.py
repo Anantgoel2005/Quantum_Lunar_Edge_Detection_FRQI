@@ -15,6 +15,7 @@ sys.path.insert(0,str(ROOT))
 from preprocessing.real_image import load_real_tiff
 from preprocessing.annotation_rasteriser import rasterise_image_annotations
 from quantum.full_image import run_full_image_qhed
+from quantum.variant_circuit import ENCODING,variant_description
 from quantum.reconstruction import threshold_edge_map
 from classical.sobel import sobel_edge_binary
 from classical.canny import canny_edge_auto
@@ -81,7 +82,7 @@ def main():
             raise ValueError('TIFF dimensions do not match the annotation coordinate system')
         if not np.all(valid):
             raise ValueError('This case runner requires valid pixels across the whole tile')
-        output=args.output or ROOT/'results/real_case'/f"row{manifest['metadata_row_index']}"
+        output=args.output or ROOT/'results/variants'/ENCODING.lower()/f"row{manifest['metadata_row_index']}"
     output.mkdir(parents=True,exist_ok=True)
     save_gray(output/'input.png',image)
     save_gray(output/'live_strength.png',np.zeros_like(image))
@@ -121,7 +122,7 @@ def main():
         gt=rasterise_image_annotations(manifest['annotations'],manifest['image_info']['id'],*image.shape,mode='rim',rim_width=1)
         save_gray(output/'catalog_rims.png',gt)
         metrics=[compute_all_metrics(pred,scores,gt,name) for name,pred,scores in [
-            ('QPIE-QHED (measured)',binary,maps['strength']),('Sobel',sobel,sobel_strength),
+            ('FRQI-QHED (measured)',binary,maps['strength']),('Sobel',sobel,sobel_strength),
             ('Canny',canny,canny),('Robinson',robinson,rob_strength)]]
         with (output/'metrics.csv').open('w',newline='') as handle:
             writer=csv.DictWriter(handle,fieldnames=list(metrics[0]))
@@ -135,10 +136,10 @@ def main():
     from qiskit import transpile,qasm3
     compiled = transpile(representative,basis_gates=['u','cx'],optimization_level=0,seed_transpiler=args.seed)
     (output/'representative_circuit.qasm').write_text(qasm3.dumps(compiled),encoding='utf-8')
-    (output/'representative_circuit.txt').write_text(str(representative.draw(output='text',fold=120)),encoding='utf-8')
+    (output/'representative_circuit.txt').write_text('\n'.join(line.rstrip() for line in str(representative.draw(output='text',fold=120)).splitlines())+'\n',encoding='utf-8')
     provenance = {key:manifest[key] for key in ['dataset','dataset_revision','metadata_row_index','annotation_split','metadata','source_urls','sha256','license','attribution','label_kind']} if manifest else {'kind':'user_upload','source':str(raw_path.name)}
     metadata = {'provenance':provenance,'loading':loading,'execution':execution,'threshold':threshold,'detector_comparison':comparison,
-        'threshold_policy':'Otsu from measured full-image strengths; no label-based tuning',
+        'threshold_policy':'Otsu from measured full-image strengths; no label-based tuning','edge_operator':variant_description(),
         'annotated_craters':len(manifest['annotations']) if manifest else None,'rim_width_pixels':1,
         'quantum_edge_pixels':int(np.count_nonzero(binary)),
         'representative_primitive_gates':dict(compiled.count_ops()),
@@ -151,12 +152,12 @@ def main():
             f"Processed all {image.shape[0]}x{image.shape[1]} pixels using {execution['circuits_executed']:,} Qiskit circuits and {execution['measurement_shots']:,} measurement shots.",
             f"Elapsed circuit workload: {execution['elapsed_seconds']:.1f} seconds. No manual region selection was used.",'',
             'Every detected edge is reconstructed from Aer circuit counts. The full-image output does not use the analytical shortcut or a classical edge detector.',
-            'Classical processing prepares grayscale intensities, subtracts each tile minimum to improve amplitude contrast, calibrates measured probabilities, stitches halos and thresholds the final map.',
+            'Classical processing prepares grayscale intensities,  calibrates measured probabilities, stitches halos and thresholds the final map.',
             'Aer is an ideal local statevector simulator; this is not quantum hardware execution. Image preparation is executed with Aer\'s supported Initialize instruction. A decomposed preparation example is saved as QASM.','',
             '## Metrics against catalog-derived approximate rims','',
             '| Method | Exact F1 | 1px F1 | 2px F1 | Average precision |','| --- | ---: | ---: | ---: | ---: |']
         rows += [f"| {m['method']} | {m['f1_exact']:.4f} | {m['f1_1px']:.4f} | {m['f1_2px']:.4f} | {m['pr_auc']:.4f} |" for m in metrics]
-        rows += ['', 'Labels are circular catalog approximations, not pixel-perfect image-traced boundaries. This is a single train-split demonstration, not a held-out crater detection benchmark.',
+        rows += ['',variant_description(), 'Labels are circular catalog approximations, not pixel-perfect image-traced boundaries. This is a single train-split demonstration, not a held-out crater detection benchmark.',
             'Outputs are edge maps, not detected crater bounding boxes. Illumination, texture, catalog incompleteness and finite shot noise affect the results.','',
             '![Full image comparison](comparison.png)','',
             'Source: https://huggingface.co/datasets/nasa-ibm-ai4science/Sombench-WAC-Crater-Detection','']
@@ -164,8 +165,8 @@ def main():
         rows=['# Uploaded image: live quantum edge detection','',
               f'Working image: {image.shape[1]}x{image.shape[0]} pixels.',
               f"Executed {execution['circuits_executed']:,} Qiskit circuits and {execution['measurement_shots']:,} shots.",'',
-              'Preprocessing completes before QPIE encoding. Quantum edges come from actual circuit measurements.',
-              'No ground-truth labels were supplied, so accuracy metrics are unavailable.',
+              'Preprocessing completes before FRQI encoding. Quantum edges come from actual circuit measurements.',
+              'No ground-truth labels were supplied, so accuracy metrics are unavailable.',variant_description(),
               'Execution uses the local ideal Aer simulator. Gate animation uses actual saved checkpoints.','',
               '![Quantum edges](quantum_edges.png)']
     rows+=['','## Detector comparison on the same working input','',

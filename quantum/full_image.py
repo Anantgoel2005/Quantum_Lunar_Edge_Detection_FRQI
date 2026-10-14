@@ -1,6 +1,6 @@
 """Automatic full-image QHED from actual Aer circuit measurement counts.
 
-Each haloed image block is encoded into QPIE, executes both offsets along
+Each haloed image block is encoded into FRQI, executes both offsets along
 both axes, and is measured. No analytical gradient supplies the output.
 Aer retains its supported Initialize instruction in ideal execution.
 """
@@ -12,13 +12,14 @@ import uuid
 from pathlib import Path
 import numpy as np
 from qiskit_aer import AerSimulator
-from quantum.qhed_circuit import build_qhed_circuit, qhed_counts_to_edge_map
+from quantum.variant_circuit import (build_variant_circuit as build_qhed_circuit,
+    variant_counts_to_edge_map as qhed_counts_to_edge_map,measured_response_squared,ENCODING,INTENSITY_BITS,variant_description)
 from quantum.simulation import validate_image
 from quantum.gate_trace import instrument_circuit, make_trace_packet
 
 
 def run_full_image_qhed(image, tile_size=16, shots=8192, seed=42, batch_tiles=16,
-                        subtract_tile_min=True, audit_path=None, progress=None, snapshot=None,
+                        subtract_tile_min=False, audit_path=None, progress=None, snapshot=None,
                         gate_trace=None, trace_audit_path=None):
     image = validate_image(image)
     if not isinstance(tile_size,int) or tile_size < 4 or tile_size & (tile_size-1):
@@ -100,17 +101,17 @@ def run_full_image_qhed(image, tile_size=16, shots=8192, seed=42, batch_tiles=16
                 if direction == 'horizontal':
                     if x == 0: probability[:,1] = 0
                     h_probability[target] = np.maximum(h_probability[target],probability[crop])
-                    h_squared[target] = np.maximum(h_squared[target],2*norm*probability[crop])
+                    h_squared[target] = np.maximum(h_squared[target],measured_response_squared(probability[crop],tile_size*tile_size))
                 else:
                     if y == 0: probability[1,:] = 0
                     v_probability[target] = np.maximum(v_probability[target],probability[crop])
-                    v_squared[target] = np.maximum(v_squared[target],2*norm*probability[crop])
+                    v_squared[target] = np.maximum(v_squared[target],measured_response_squared(probability[crop],tile_size*tile_size))
                 totals['measurement_shots'] += measured
                 totals['accepted_edge_outcomes'] += int(round(probability.sum()*measured))
                 totals['circuits_executed'] += 1
                 if audit:
                     audit.write(json.dumps({'tile_y':y,'tile_x':x,'direction':direction,'pair_offset':pair_offset,
-                        'preparation_offset':offset,'preparation_norm_squared':norm,'shots':measured,
+                        'preparation_offset':offset,'preparation_norm_squared':norm,'encoding':ENCODING,'intensity_bits':None if ENCODING=='FRQI' else INTENSITY_BITS,'shots':measured,
                         'batch_seed':seed+batch_number,'job_id':job.job_id(),'counts':counts})+'\n')
             if progress:
                 progress(start+len(batch_positions),len(positions),totals['circuits_executed'],time.perf_counter()-started)
@@ -123,12 +124,13 @@ def run_full_image_qhed(image, tile_size=16, shots=8192, seed=42, batch_tiles=16
     maximum = float(magnitude.max())
     strength = magnitude/maximum if maximum else magnitude
     metadata = {**totals,'tiles':len(positions),'tile_size':tile_size,'core_size':core,
-        'qubits_per_circuit':int(math.log2(tile_size*tile_size)),'shots_per_circuit':shots,
+        'qubits_per_circuit':int(math.log2(tile_size*tile_size))+(1 if ENCODING=='FRQI' else INTENSITY_BITS),
+        'encoding':ENCODING,'intensity_bits':None if ENCODING=='FRQI' else INTENSITY_BITS,'edge_operator':variant_description(),'shots_per_circuit':shots,
         'batch_tiles':batch_tiles,'seed_start':seed,'subtract_tile_min':subtract_tile_min,
         'elapsed_seconds':time.perf_counter()-started,'backend':'Qiskit AerSimulator',
         'method':'statevector','ideal_simulation':True,'output_source':'measured circuit counts',
-        'normalization':'sqrt(2 * preparation_norm_squared * measured_probability), then global image scaling',
-        'maximum_measured_gradient':maximum,'initialization':'Aer-supported QPIE Initialize instruction',
+        'normalization':variant_description()+'; combine directional responses and scale globally',
+        'maximum_measured_gradient':maximum,'initialization':f'Aer-supported Initialize of the exact {ENCODING} state',
         'measurement_sampling_enabled':bool(simulator_metadata.get('measure_sampling')) if simulator_metadata else None}
     metadata['gate_trace'] = {'enabled':bool(gate_trace or trace_audit_path),
         'representative_blocks':math.ceil(len(positions)/batch_tiles) if gate_trace or trace_audit_path else 0,

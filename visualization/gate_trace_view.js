@@ -12,9 +12,9 @@
   function circuitTitle(c){return `${c.metadata.direction==='horizontal'?'Horizontal':'Vertical'} · ${c.metadata.pair_offset?'shifted':'even'} pairs`;}
   function stageName(gate){
     if(!gate)return 'Initial |0…0⟩';
-    if(gate.name==='initialize')return 'QPIE state preparation';
+    if(gate.name==='initialize')return 'FRQI state preparation';
     if(gate.name==='measure')return 'Measurement counts returned';
-    if(gate.name==='h')return `Hadamard interference on q${gate.target}`;
+    if(gate.name==='h')return `Hadamard angle interference on q${gate.target}`;
     const controls=gate.controls||[];
     return controls.length?`${controls.length===1?'CX':controls.length===2?'CCX':'MCX'} · ${controls.map(x=>'q'+x).join(', ')} → q${gate.target}`:`X on q${gate.target}`;
   }
@@ -26,7 +26,7 @@
     let output='<title>Actual QHED circuit gates for the automatically processed image block</title>';
     for(let bit=0;bit<n;bit++){
       const y=20+bit*29;
-      output+=`<text x="0" y="${y+4}">q${bit} ${bit<n/2?'col':'row'}</text><line x1="${left}" x2="${right}" y1="${y}" y2="${y}" stroke="var(--line)"/>`;
+      output+=`<text x="0" y="${y+4}">q${bit} ${escape(((circuit.metadata.qubit_roles||[])[bit]||'position').replace('column','col').replace('brightness angle','color').replace('intensity bit ','b'))}</text><line x1="${left}" x2="${right}" y1="${y}" y2="${y}" stroke="var(--line)"/>`;
     }
     const cursorX=activeGate<0?left:left+(activeGate+1)*spacing;
     output+=`<rect x="${cursorX-17}" y="5" width="34" height="${n*29}" fill="var(--accent)" opacity=".10" rx="4"/>`;
@@ -56,7 +56,7 @@
     diagram.setAttribute('data-circuit-name',circuit.name);
   }
   function drawState(circuit,point,measurement){
-    const count=1<<circuit.qubits,side=Math.sqrt(count),values=[],probabilities=[];
+    const count=1<<circuit.qubits,side=1<<Math.ceil(circuit.qubits/2),rows=Math.ceil(count/side),values=[],probabilities=[];
     if(measurement){
       for(let i=0;i<count;i++){
         const key=i.toString(2).padStart(circuit.qubits,'0'),p=(circuit.counts[key]||0)/circuit.shots;
@@ -72,7 +72,7 @@
       text('measurement','Statevector checkpoint from this inference circuit');
     }
     const maximum=Math.max(...values.map(Math.abs),1e-20),cell=16,size=side*cell;
-    stateSvg.setAttribute('viewBox',`0 0 ${size} ${size}`);
+    stateSvg.setAttribute('viewBox',`0 0 ${size} ${rows*cell}`);
     let markup='<title>Actual saved computational-basis state or measured outcome probabilities</title>';
     values.forEach((value,i)=>{
       const x=(i%side)*cell,y=Math.floor(i/side)*cell,opacity=Math.abs(value)/maximum;
@@ -88,6 +88,7 @@
   function display(item){
     if(!current||!item)return;
     const circuit=current.circuits[item.circuit],gate=circuit.gates[item.gate_index];
+    const counter=document.getElementById('qubit-count');if(counter)counter.textContent=`${circuit.qubits} qubits per circuit`+(circuit.metadata.encoding==='NEQR'?` · ${circuit.metadata.intensity_qubits}-bit brightness`:'');
     text('pass',`${item.circuit+1}/4 · ${circuitTitle(circuit)}`);
     text('gate-label',stageName(gate));
     root.setAttribute('data-trace-run',current.run_id);root.setAttribute('data-trace-sequence',current.sequence);
@@ -153,4 +154,3 @@
   root.traceInspector={state:()=>({sequence,runId,paused,playing,frame,currentCircuit:current&&frames.length?current.circuits[frames[Math.max(0,frame-1)].circuit].name:null,gateLabel:lastLabel}),poll};
   poll();setInterval(poll,500);
 })();
-

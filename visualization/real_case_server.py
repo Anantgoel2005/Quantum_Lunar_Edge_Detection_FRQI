@@ -18,7 +18,7 @@ from visualization.trace_store import write_json_atomic
 from preprocessing.upload_image import preprocess_upload,MAX_BYTES
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT/'results/real_case/row0'
+OUTPUT = ROOT/'results/variants/frqi/row0'
 
 
 class DetectionJob:
@@ -147,7 +147,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port',type=int,default=8766)
+    parser.add_argument('--port',type=int,default=8768)
     args = parser.parse_args()
     handler = partial(Handler,directory=str(OUTPUT))
     server = ThreadingHTTPServer(('127.0.0.1',args.port),handler)

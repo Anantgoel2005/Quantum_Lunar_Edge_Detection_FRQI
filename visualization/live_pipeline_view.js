@@ -12,7 +12,7 @@
   get('source-caption').textContent=custom?'Preprocessed quantum input':'Original grayscale image · mean of five TIFF bands';
   get('overlay-caption').textContent=custom?'Measured quantum edges · magenta':'Catalog reference: green · measured edges: magenta · overlap: yellow';
   document.querySelector('.block-overlay').setAttribute('viewBox',`0 0 ${shape[1]} ${shape[0]}`);
-  image('source-preview','input.png');image('live','live_strength.png');
+  if(custom){image('source-preview','input.png');image('live','live_strength.png');}
   if(custom){
    const p=c.preprocessing;
    get('preprocessing-note').textContent=`${p.original_size.join(' × ')} → ${p.working_size.join(' × ')} pixels. Orientation correction, white transparency background, grayscale, 2–98 percentile contrast normalization, and Gaussian noise reduction (σ = 0.8).`;
@@ -34,7 +34,9 @@
    get('bar').style.width=`${percentage}%`;document.querySelector('.progress').setAttribute('aria-valuenow',percentage.toFixed(0));
    get('finished').hidden=s.status!=='complete';
    if(s.status==='running'||previous!==s.status&&s.status==='complete')image('live','live_strength.png');
+   if(s.status==='running'&&previous!=='running')image('source-preview','input.png');
    if(previous!==s.status&&s.status==='complete'){
+    image('source-preview','input.png');
     image('edges','quantum_edges.png');image('overlay','overlay.png');
     for(const name of ['quantum','sobel','canny','robinson'])image(`compare-${name}`,`${name}_edges.png`);
     const comparisonResponse=await fetch('detector_comparison.json',{cache:'no-store'});

@@ -22,11 +22,11 @@ def run_baselines(image,output):
 
 
 def save_comparison(image,quantum_edges,baselines,output):
-    policies={'QPIE-QHED (measured)':'Otsu on measured quantum strength',
+    policies={'FRQI-QHED (measured)':'Otsu on measured quantum strength',
               'Sobel':'3x3 Sobel magnitude, global normalization, Otsu',
               'Canny':'Median-based automatic thresholds (sigma 0.33, minimum separation 20)',
               'Robinson':'Eight 3x3 compass responses, global normalization, Otsu'}
-    maps={'QPIE-QHED (measured)':quantum_edges,**{name:values[0] for name,values in baselines.items()}}
+    maps={'FRQI-QHED (measured)':quantum_edges,**{name:values[0] for name,values in baselines.items()}}
     summary={'image_shape':list(image.shape),'input_sha256':hashlib.sha256(image.tobytes()).hexdigest(),
              'comparison_scope':'All four methods use the same grayscale working input; edge coverage is not accuracy.',
              'methods':[{'method':name,'edge_pixels':int(np.count_nonzero(edges)),

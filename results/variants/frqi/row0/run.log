@@ -1,0 +1,100 @@
+Running full tile (512, 512), 5 input bands
+Quantum execution: 80/1369 tiles; 320 circuits; 10.7s
+Quantum execution: 160/1369 tiles; 640 circuits; 21.4s
+Quantum execution: 256/1369 tiles; 1024 circuits; 32.8s
+Quantum execution: 336/1369 tiles; 1344 circuits; 43.6s
+Quantum execution: 416/1369 tiles; 1664 circuits; 54.0s
+Quantum execution: 496/1369 tiles; 1984 circuits; 64.4s
+Quantum execution: 576/1369 tiles; 2304 circuits; 75.6s
+Quantum execution: 656/1369 tiles; 2624 circuits; 86.8s
+Quantum execution: 736/1369 tiles; 2944 circuits; 97.9s
+Quantum execution: 816/1369 tiles; 3264 circuits; 109.2s
+Quantum execution: 896/1369 tiles; 3584 circuits; 119.7s
+Quantum execution: 976/1369 tiles; 3904 circuits; 129.8s
+Quantum execution: 1056/1369 tiles; 4224 circuits; 140.3s
+Quantum execution: 1136/1369 tiles; 4544 circuits; 150.6s
+Quantum execution: 1216/1369 tiles; 4864 circuits; 161.1s
+Quantum execution: 1296/1369 tiles; 5184 circuits; 172.3s
+Quantum execution: 1369/1369 tiles; 5476 circuits; 182.7s
+C:\Users\anant\AppData\Local\Programs\Python\Python312\Lib\site-packages\qiskit\visualization\circuit\text.py:784: RuntimeWarning: The encoding cp1252 has a limited charset. Consider a different encoding in your environment. UTF-8 is being used instead
+  warn(
+{
+  "output": "C:\\Users\\anant\\Downloads\\Quantum Lunar Detection FRQI\\results\\variants\\frqi\\row0",
+  "execution": {
+    "measurement_shots": 44859392,
+    "accepted_edge_outcomes": 44580,
+    "circuits_executed": 5476,
+    "tiles": 1369,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 9,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 42,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 182.7415292000005,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 158.0182120711977,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": true,
+      "representative_blocks": 86,
+      "run_id": "f7e2c20ad77f47508310b46ad3251264",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": [
+    {
+      "method": "FRQI-QHED (measured)",
+      "f1_exact": 0.08300470505045011,
+      "precision_exact": 0.05536809259460832,
+      "recall_exact": 0.1657254561251086,
+      "f1_1px": 0.2769857319009793,
+      "f1_2px": 0.421425774505207,
+      "iou": 0.04329937860000568,
+      "chamfer": 7.200405866013224,
+      "pr_auc": 0.0387942107700074
+    },
+    {
+      "method": "Sobel",
+      "f1_exact": 0.1065497766163702,
+      "precision_exact": 0.0630650408126609,
+      "recall_exact": 0.34317984361424847,
+      "f1_1px": 0.31478855558969593,
+      "f1_2px": 0.4657656206414857,
+      "iou": 0.05627281631199359,
+      "chamfer": 6.509324357753114,
+      "pr_auc": 0.0550382913545
+    },
+    {
+      "method": "Canny",
+      "f1_exact": 0.07153546842262795,
+      "precision_exact": 0.04453495181813342,
+      "recall_exact": 0.18168983492615118,
+      "f1_1px": 0.24421128457693284,
+      "f1_2px": 0.37899295289602714,
+      "iou": 0.03709452118578302,
+      "chamfer": 7.7133497867414915,
+      "pr_auc": 0.03683529194076513
+    },
+    {
+      "method": "Robinson",
+      "f1_exact": 0.10699397100101314,
+      "precision_exact": 0.06315562439952158,
+      "recall_exact": 0.34980451781059946,
+      "f1_1px": 0.3160765050912848,
+      "f1_2px": 0.46719185415183345,
+      "iou": 0.05652067101846003,
+      "chamfer": 6.4765651741661,
+      "pr_auc": 0.05530587084418936
+    }
+  ]
+}
