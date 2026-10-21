@@ -6,6 +6,15 @@ FRQI uses eight position qubits plus one brightness-angle qubit. For pixel i, th
 
 ## Run locally
 
+Prerequisites: Git, **64-bit Python 3.12** (the tested version), and internet access for packages and the default dataset. Clone this repository and enter its directory first:
+
+```powershell
+git clone https://github.com/Anantgoel2005/Quantum_Lunar_Edge_Detection_FRQI.git
+cd Quantum_Lunar_Edge_Detection_FRQI
+```
+
+Confirm `python --version` reports Python 3.12. No environment activation, quantum account, API key or GPU is required; inference uses the local ideal Aer simulator.
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-real-case.txt
@@ -15,6 +24,10 @@ python -m venv .venv
 ```
 
 After setup, `./start_service.ps1` rebuilds the view and starts the service.
+
+Keep the server terminal open; press **Ctrl+C** to stop it. If PowerShell blocks the launcher, use the explicit Python build/server commands above. If the port is occupied, stop the existing server or pass `--port 8771` to the server command. Each version needs its own virtual environment; QPIE uses port 8766, FRQI 8768 and NEQR 8769.
+
+On macOS/Linux, use `python3.12 -m venv .venv` and replace `.\.venv\Scripts\python.exe` with `.venv/bin/python` in the commands. These platforms have not been validated here; compatible wheels for the pinned packages are required. Raw dataset TIFFs are excluded from Git and must be downloaded by the fetch command.
 
 Open `http://127.0.0.1:8768/`. Run the entire native 512x512 lunar tile or upload a PNG, JPEG, WebP, BMP or TIFF. Preprocessing corrects orientation/transparency, fits uploaded images within 512 pixels per side, converts to grayscale, stretches global 2–98 percentile contrast and lightly denoises them. Upload limits are 20 MB and 16 million decoded pixels/samples. Regions are processed automatically using 16x16 blocks with one-pixel halos and four directional/pair-offset circuit passes per block.
 
@@ -36,9 +49,11 @@ The FRQI lunar outputs go to `results/variants/frqi/row0/`. Historical QPIE outp
 .\.venv\Scripts\python.exe visualization/verify_upload.py
 ```
 
-32 tests pass, including exact encoded-state checks, both axes and pair offsets, constant-intensity cancellation, real measured halo stitching, and trace/count audit consistency. Browser upload validation uses installed Microsoft Edge and verifies actual inference, playback, measurement audit, all four comparison panels, invalid-file handling, and mobile layout. `tests/test_full_image.py` explicitly retains the original QPIE gradient-calibration tests; `tests/test_variant.py` verifies this variant's distinct operator.
+52 tests pass, including exact encoded-state checks, both axes and pair offsets, constant-intensity cancellation, real measured halo stitching, and trace/count audit consistency. Browser upload validation uses installed Microsoft Edge and verifies actual inference, playback, measurement audit, all four comparison panels, invalid-file handling, and mobile layout. `tests/test_full_image.py` explicitly retains the original QPIE gradient-calibration tests; `tests/test_variant.py` verifies this variant's distinct operator.
 
 ## Matched encoding benchmark
+
+These saved studies used historical four-bit NEQR. Multi-version drivers expect sibling folders named `Quantum_Lunar_Edge_Detection_QPIE`, `Quantum_Lunar_Edge_Detection_FRQI` and `Quantum_Lunar_Edge_Detection_NEQR`. Current eight-bit NEQR differs from the frozen sources; exact reproduction requires the archived four-bit version. This does not affect the live setup above.
 
 Run `.\.venv\Scripts\python.exe experiments/run_encoding_matrix.py` to execute or resume
 the QPIE/FRQI/NEQR benchmark. It uses eight fixed native 128x128 center crops from
