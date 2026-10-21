@@ -80,6 +80,7 @@ def main():
 
 <div class="images"><figure><figcaption id="source-caption">Original grayscale image · mean of five TIFF bands</figcaption><div class="source-image"><img id="source-preview" src="input.png" alt="Complete real lunar terrain tile with craters and shadows"><svg class="block-overlay" viewBox="0 0 512 512" aria-label="Automatically traced block position"><rect id="active-block" width="14" height="14" style="display:none"></rect></svg></div></figure><figure><figcaption id="live-caption">FRQI strength from measured circuit counts</figcaption><img id="live" src="live_strength.png" alt="Quantum edge strength reconstructed from measurement counts across the full tile"></figure></div>
 
+<p><a href="state_preparation.html">Inspect expanded state preparation · actual U/CX gates</a></p>
 <h2>What actually runs</h2>
 
 <div class="flow" aria-label="Quantum processing workflow"><span>FRQI image preparation</span><b>→</b><span>Controlled coordinate shift</span><b>→</b><span>Hadamard angle interference</span><b>→</b><span>Measurement</span></div>
@@ -110,7 +111,7 @@ def main():
 
     (OUTPUT/'index.html').write_text(page.replace('__METRIC_ROWS__',rows),encoding='utf-8')
 
-    for asset in ('gate_trace_view.js','live_pipeline_view.js'):
+    for asset in ('gate_trace_view.js','live_pipeline_view.js','state_preparation.html'):
 
         shutil.copyfile(ROOT/'visualization'/asset,OUTPUT/asset)
 

@@ -1,0 +1,239 @@
+{
+  "case": "102061",
+  "config": "NEQR16",
+  "method": "NEQR",
+  "seed": 4242,
+  "tile_size": 16,
+  "shots_per_circuit": 8192,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3276800,
+    "accepted_edge_outcomes": 618656,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 12,
+    "encoding": "NEQR",
+    "intensity_bits": 4,
+    "edge_operator": "NEQR quantum inequality between neighboring 4-bit intensities; not a gradient magnitude",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 4242,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 25.681848299999956,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "NEQR quantum inequality between neighboring 4-bit intensities; not a gradient magnitude; combine directional responses and scale globally",
+    "maximum_measured_gradient": 1.7230060940112777,
+    "initialization": "Aer-supported Initialize of the exact NEQR state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "7db1c47b1ef0487fac94d6883a65592b",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.08143110585452394,
+    "best_threshold": 0.8125,
+    "precision": 0.04415584415584416,
+    "recall": 0.5225806451612903,
+    "boundary_ap101": 0.03912494102810173,
+    "operator_rmse": 0.07257164866741345,
+    "evaluation_seconds": 2.1021659000000454
+  },
+  "boundary_counts": [
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4406.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4401.0
+    ],
+    [
+      529.0,
+      620.0,
+      155.0,
+      4405.0
+    ],
+    [
+      540.0,
+      620.0,
+      160.0,
+      4437.0
+    ],
+    [
+      531.0,
+      620.0,
+      158.0,
+      4487.0
+    ],
+    [
+      546.0,
+      620.0,
+      164.0,
+      4680.0
+    ],
+    [
+      552.0,
+      620.0,
+      174.0,
+      5036.0
+    ],
+    [
+      548.0,
+      620.0,
+      167.0,
+      4957.0
+    ],
+    [
+      527.0,
+      620.0,
+      149.0,
+      4406.0
+    ],
+    [
+      508.0,
+      620.0,
+      140.0,
+      3637.0
+    ],
+    [
+      467.0,
+      620.0,
+      129.0,
+      3267.0
+    ],
+    [
+      449.0,
+      620.0,
+      120.0,
+      3009.0
+    ],
+    [
+      446.0,
+      620.0,
+      116.0,
+      2908.0
+    ],
+    [
+      431.0,
+      620.0,
+      111.0,
+      2803.0
+    ],
+    [
+      400.0,
+      620.0,
+      104.0,
+      2532.0
+    ],
+    [
+      324.0,
+      620.0,
+      85.0,
+      1925.0
+    ],
+    [
+      169.0,
+      620.0,
+      44.0,
+      1210.0
+    ],
+    [
+      96.0,
+      620.0,
+      26.0,
+      575.0
+    ],
+    [
+      35.0,
+      620.0,
+      9.0,
+      155.0
+    ],
+    [
+      10.0,
+      620.0,
+      4.0,
+      43.0
+    ],
+    [
+      0.0,
+      620.0,
+      0.0,
+      3.0
+    ]
+  ],
+  "input_pixel_sha256": "966b2ec59646779244d289a3172fa6b01dfe486cec2cde68c06456bb5019dad1",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

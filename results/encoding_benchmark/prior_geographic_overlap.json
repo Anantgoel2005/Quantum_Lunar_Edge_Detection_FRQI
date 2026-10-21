@@ -1,0 +1,14 @@
+{
+  "criterion": "Positive-area bounding-box overlap in same LTM_CODE: selected center crop vs full prior selected30 tile. Metadata bounds only, not proof of pixel-level independence.",
+  "overlaps": [
+    {
+      "benchmark": "M1470102809CE_r10600_c872",
+      "prior": "M1324611894CE_r10600_c360"
+    },
+    {
+      "benchmark": "M1291516692CE_r13040_c1080",
+      "prior": "M1107924572CE_r12136_c720"
+    }
+  ],
+  "selected_crops_with_overlap": 2
+}

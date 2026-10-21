@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "case": "170057",
+  "seed": 42,
+  "circuit_count_dictionaries_identical": 400,
+  "magnitude_strength_and_boundary_curves": "exactly equal",
+  "comparison": "Concurrent scheduler result versus fresh isolated worker"
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "markdown_tables": 8,
+  "table_rows_checked": 87,
+  "local_links_checked": 5,
+  "images": {
+    "average_precision.png": [
+      2520,
+      990
+    ],
+    "inputs.png": [
+      1800,
+      1050
+    ]
+  },
+  "duplicate_sections": false
+}

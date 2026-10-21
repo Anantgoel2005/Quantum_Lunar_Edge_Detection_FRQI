@@ -1,0 +1,543 @@
+{
+  "protocol_sha256": "4a6a9eb9314a6fa7f004eaef327a2bc5eebb97620e527f2d44e24c1bbf0af8d4",
+  "metadata_sha256": "1bc6d66d254409ff9eff72d0d8388d42e5b0afbba883b21121d6faa8295c0c42",
+  "annotations_sha256": "caf72eac333d62f06041949c3b4e4db67672b273a96694e2ac329b096bc82dff",
+  "cases": [
+    {
+      "metadata_row_index": 904,
+      "metadata": {
+        "PRODUCT_ID": "M1479507252CE",
+        "ROW": 5360,
+        "COL": 360,
+        "LTM_CODE": "LTM_2S",
+        "WAC_VIS_TILE": "images/M1479507252CE_r5360_c360.nc",
+        "CENTER_LATITUDE": -55.50302739623969,
+        "CENTER_LONGITUDE": -169.14745949894916,
+        "UPPER_LEFT_LONGITUDE": -170.39543397226197,
+        "UPPER_LEFT_LATITUDE": -54.55266843090888,
+        "LOWER_RIGHT_LONGITUDE": -167.83864890755225,
+        "LOWER_RIGHT_LATITUDE": -56.44229447218726,
+        "BOUNDS_XMIN": 67699.99999999927,
+        "BOUNDS_XMAX": 118899.99999999927,
+        "BOUNDS_YMIN": 782700.0000000005,
+        "BOUNDS_YMAX": 833900.0000000005,
+        "EMISSION_ANGLE": 1.18,
+        "INCIDENCE_ANGLE": 73.44,
+        "PHASE_ANGLE": 72.88,
+        "SUB_SOLAR_GROUND_AZIMUTH": 59.58693241859129,
+        "SUB_SOLAR_LATITUDE": 0.79,
+        "SUB_SOLAR_LONGITUDE": -112.22999999999999,
+        "DATASET": "test"
+      },
+      "stem": "M1479507252CE_r5360_c360",
+      "image_info": {
+        "id": 11,
+        "file_name": "images/M1479507252CE_r5360_c360.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "7f4d08ee335c9618f2a04e2727901202304e00a2a4fc6abca223403a7bc2610d",
+      "input_pixel_sha256": "79200a95f3b1a57028463b491bba80b7ef4e5b7c8ca9540f5826d0743b8da7c1",
+      "reference_pixel_sha256": "00ff62d2910f96e2fca711e033f33ef1a742006b4dc75647c7f12cd591c93dc9",
+      "reference_pixels_scored": 664,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.008170653525739908,
+        "scale_high": 0.03988258784264324,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 941,
+      "metadata": {
+        "PRODUCT_ID": "M1096151091CE",
+        "ROW": 10480,
+        "COL": 840,
+        "LTM_CODE": "LTM_30S",
+        "WAC_VIS_TILE": "images/M1096151091CE_r10480_c840.nc",
+        "CENTER_LATITUDE": -31.573136916794095,
+        "CENTER_LONGITUDE": 53.15653882106002,
+        "UPPER_LEFT_LONGITUDE": 52.20042340932123,
+        "UPPER_LEFT_LATITUDE": -30.70417362362582,
+        "LOWER_RIGHT_LONGITUDE": 54.130548626550315,
+        "LOWER_RIGHT_LATITUDE": -32.43590188003541,
+        "BOUNDS_XMIN": 150999.99999999983,
+        "BOUNDS_XMAX": 202199.99999999983,
+        "BOUNDS_YMIN": 1517000.0000000033,
+        "BOUNDS_YMAX": 1568200.0000000033,
+        "EMISSION_ANGLE": 1.16,
+        "INCIDENCE_ANGLE": 73.95,
+        "PHASE_ANGLE": 74.31,
+        "SUB_SOLAR_GROUND_AZIMUTH": 273.83438774728353,
+        "SUB_SOLAR_LATITUDE": -1.04,
+        "SUB_SOLAR_LONGITUDE": -20.569999999999993,
+        "DATASET": "test"
+      },
+      "stem": "M1096151091CE_r10480_c840",
+      "image_info": {
+        "id": 80,
+        "file_name": "images/M1096151091CE_r10480_c840.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "c4bd7f89cec2e661a2d3efaa2655a1e76be892b95500fe75f8a559f4934da6a6",
+      "input_pixel_sha256": "67520e3c2644825f204c1d62b29aef0356c732d97ed6fad1953a5f0ed0098c3a",
+      "reference_pixel_sha256": "873cf6cfd329c1204222e46a858e2a8b9d8f07b8af4d20a624d6d4f717c135df",
+      "reference_pixels_scored": 21,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.0004338167574314866,
+        "scale_high": 0.055025075718760474,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 933,
+      "metadata": {
+        "PRODUCT_ID": "M1244713418CE",
+        "ROW": 7408,
+        "COL": 120,
+        "LTM_CODE": "LTM_2S",
+        "WAC_VIS_TILE": "images/M1244713418CE_r7408_c120.nc",
+        "CENTER_LATITUDE": -59.428821376064334,
+        "CENTER_LONGITUDE": -166.17820018343303,
+        "UPPER_LEFT_LONGITUDE": -167.636616068185,
+        "UPPER_LEFT_LATITUDE": -58.502760018828255,
+        "LOWER_RIGHT_LONGITUDE": -164.63870663669448,
+        "LOWER_RIGHT_LATITUDE": -60.339076061369106,
+        "BOUNDS_XMIN": 129299.9999999995,
+        "BOUNDS_XMAX": 180499.9999999995,
+        "BOUNDS_YMIN": 669700.0000000002,
+        "BOUNDS_YMAX": 720900.0000000002,
+        "EMISSION_ANGLE": 1.16,
+        "INCIDENCE_ANGLE": 75.78,
+        "PHASE_ANGLE": 75.5,
+        "SUB_SOLAR_GROUND_AZIMUTH": 68.80317679299031,
+        "SUB_SOLAR_LATITUDE": -0.75,
+        "SUB_SOLAR_LONGITUDE": -100.26999999999998,
+        "DATASET": "test"
+      },
+      "stem": "M1244713418CE_r7408_c120",
+      "image_info": {
+        "id": 25,
+        "file_name": "images/M1244713418CE_r7408_c120.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "6dd930ed54f51099d4b4c6fed2f6b15bdcd768efa84e406462e98f58fbb31fe3",
+      "input_pixel_sha256": "1543a8345020b80a1cef97caf621c55efb2a1435909712d0e8ea7cb1603557d4",
+      "reference_pixel_sha256": "717f145a1ec4a536147dfc83d0dccffa4a17dc7ead3a67635e0fded528293891",
+      "reference_pixels_scored": 986,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.0009146172936307267,
+        "scale_high": 0.030509765855967992,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 926,
+      "metadata": {
+        "PRODUCT_ID": "M1470088764CE",
+        "ROW": 10600,
+        "COL": 632,
+        "LTM_CODE": "LTM_2S",
+        "WAC_VIS_TILE": "images/M1470088764CE_r10600_c632.nc",
+        "CENTER_LATITUDE": -71.18301978407922,
+        "CENTER_LONGITUDE": -166.33447891025878,
+        "UPPER_LEFT_LONGITUDE": -168.16411472191274,
+        "UPPER_LEFT_LATITUDE": -70.15786309339707,
+        "LOWER_RIGHT_LONGITUDE": -164.30545181821003,
+        "LOWER_RIGHT_LATITUDE": -72.19031680726948,
+        "BOUNDS_XMIN": 85499.9999999993,
+        "BOUNDS_XMAX": 136699.9999999993,
+        "BOUNDS_YMIN": 301500.00000000023,
+        "BOUNDS_YMAX": 352700.00000000023,
+        "EMISSION_ANGLE": 1.18,
+        "INCIDENCE_ANGLE": 75.54,
+        "PHASE_ANGLE": 76.12,
+        "SUB_SOLAR_GROUND_AZIMUTH": 62.844017714532285,
+        "SUB_SOLAR_LATITUDE": 0.95,
+        "SUB_SOLAR_LONGITUDE": 139.43,
+        "DATASET": "test"
+      },
+      "stem": "M1470088764CE_r10600_c632",
+      "image_info": {
+        "id": 5,
+        "file_name": "images/M1470088764CE_r10600_c632.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "a22846f3fe48229a03cd41846ac2cd2a2f854a4555a35482445fce6d5d343063",
+      "input_pixel_sha256": "e3534a3209fccad07dcd5eaff3137c289af65dc2e7af199699a57c2e5915a614",
+      "reference_pixel_sha256": "5b595fad174824b9f3c8f44ebc4b607316d4c0876f89d8d64a6118b7c3a056fe",
+      "reference_pixels_scored": 121,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.0003229906312189996,
+        "scale_high": 0.05421358205378055,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 920,
+      "metadata": {
+        "PRODUCT_ID": "M1470102809CE",
+        "ROW": 10600,
+        "COL": 872,
+        "LTM_CODE": "LTM_2S",
+        "WAC_VIS_TILE": "images/M1470102809CE_r10600_c872.nc",
+        "CENTER_LATITUDE": -70.19743758258953,
+        "CENTER_LONGITUDE": -167.86299988820736,
+        "UPPER_LEFT_LONGITUDE": -169.9183885553027,
+        "UPPER_LEFT_LATITUDE": -69.23989255621605,
+        "LOWER_RIGHT_LONGITUDE": -165.61070759576515,
+        "LOWER_RIGHT_LATITUDE": -71.13036108740332,
+        "BOUNDS_XMIN": 143899.9999999998,
+        "BOUNDS_XMAX": 195099.9999999998,
+        "BOUNDS_YMIN": 342700.0,
+        "BOUNDS_YMAX": 393900.0,
+        "EMISSION_ANGLE": 19.01,
+        "INCIDENCE_ANGLE": 74.87,
+        "PHASE_ANGLE": 81.13,
+        "SUB_SOLAR_GROUND_AZIMUTH": 63.93035617640527,
+        "SUB_SOLAR_LATITUDE": 0.96,
+        "SUB_SOLAR_LONGITUDE": 137.45,
+        "DATASET": "test"
+      },
+      "stem": "M1470102809CE_r10600_c872",
+      "image_info": {
+        "id": 23,
+        "file_name": "images/M1470102809CE_r10600_c872.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "4d52156299bc6d16601124c4c9e3ac007ca6f92dc8ecc4524f368e6def14fd39",
+      "input_pixel_sha256": "8cae6e4bb4873cd01b7ebd5298ec0a71d83a45ef13ac72982ce943913e248358",
+      "reference_pixel_sha256": "0c1ee48b9829b874777d325a8ea91aeca3acfd3cbc704888bd718bc7e4747471",
+      "reference_pixels_scored": 0,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.0003118877864544629,
+        "scale_high": 0.06070234875380992,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 965,
+      "metadata": {
+        "PRODUCT_ID": "M1278569102CE",
+        "ROW": 6232,
+        "COL": 9696,
+        "LTM_CODE": "LTM_6N",
+        "WAC_VIS_TILE": "images/M1278569102CE_r6232_c9696.nc",
+        "CENTER_LATITUDE": 67.43323643176902,
+        "CENTER_LONGITUDE": -136.787964481623,
+        "UPPER_LEFT_LONGITUDE": -136.6987329987438,
+        "UPPER_LEFT_LATITUDE": 66.28097590409354,
+        "LOWER_RIGHT_LONGITUDE": -136.88708645331596,
+        "LOWER_RIGHT_LATITUDE": 68.59007934908855,
+        "BOUNDS_XMIN": 2555.399999999441,
+        "BOUNDS_XMAX": 53755.39999999944,
+        "BOUNDS_YMIN": 976652.0000000005,
+        "BOUNDS_YMAX": 1027852.0000000005,
+        "EMISSION_ANGLE": 1.21,
+        "INCIDENCE_ANGLE": 79.41,
+        "PHASE_ANGLE": 79.38,
+        "SUB_SOLAR_GROUND_AZIMUTH": 110.6650535761493,
+        "SUB_SOLAR_LATITUDE": -1.47,
+        "SUB_SOLAR_LONGITUDE": 162.62,
+        "DATASET": "test"
+      },
+      "stem": "M1278569102CE_r6232_c9696",
+      "image_info": {
+        "id": 52,
+        "file_name": "images/M1278569102CE_r6232_c9696.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "8e11a3436d2500d4ef74f3bc13736ded4ef8ecae5af93dd7df96bc748b42d070",
+      "input_pixel_sha256": "a971fc1e016ef722db0af7b5e7e6aee83dd0320f8b389fedfff4e325803b0b8f",
+      "reference_pixel_sha256": "028a8ccc4b2b2db38bc240cd12651a52bc99d7c75db8583722bf51284abf7ba3",
+      "reference_pixels_scored": 1039,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.00023607439705665455,
+        "scale_high": 0.022115836922079316,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 962,
+      "metadata": {
+        "PRODUCT_ID": "M1291516692CE",
+        "ROW": 13040,
+        "COL": 1080,
+        "LTM_CODE": "LTM_30S",
+        "WAC_VIS_TILE": "images/M1291516692CE_r13040_c1080.nc",
+        "CENTER_LATITUDE": -11.613351052825367,
+        "CENTER_LONGITUDE": 54.059174641899645,
+        "UPPER_LEFT_LONGITUDE": 53.205350161183844,
+        "UPPER_LEFT_LATITUDE": -10.76224181041077,
+        "LOWER_RIGHT_LONGITUDE": 54.9182175952581,
+        "LOWER_RIGHT_LATITUDE": -12.462762495278676,
+        "BOUNDS_XMIN": 166799.99999999985,
+        "BOUNDS_XMAX": 217999.99999999985,
+        "BOUNDS_YMIN": -377599.99999999953,
+        "BOUNDS_YMAX": -326399.99999999953,
+        "EMISSION_ANGLE": 1.17,
+        "INCIDENCE_ANGLE": 79.03,
+        "PHASE_ANGLE": 79.37,
+        "SUB_SOLAR_GROUND_AZIMUTH": 90.69018676732613,
+        "SUB_SOLAR_LATITUDE": 1.15,
+        "SUB_SOLAR_LONGITUDE": 132.09,
+        "DATASET": "test"
+      },
+      "stem": "M1291516692CE_r13040_c1080",
+      "image_info": {
+        "id": 90,
+        "file_name": "images/M1291516692CE_r13040_c1080.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "4928ffd9aa60bea88f131c286c7dcfd75155d9995344991173896252bf9da9c4",
+      "input_pixel_sha256": "36a8f6519ec84f79f2b6d1f55903932305a7d5ea580d6160335fe73110a5ae59",
+      "reference_pixel_sha256": "e73516a97a3e8070a3b19a11addd5e88436b4dd618ff1129bd5dd8b542016f8d",
+      "reference_pixels_scored": 212,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.005999336518347264,
+        "scale_high": 0.015973110731691116,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    },
+    {
+      "metadata_row_index": 910,
+      "metadata": {
+        "PRODUCT_ID": "M1413824165CE",
+        "ROW": 7920,
+        "COL": 120,
+        "LTM_CODE": "LTM_2S",
+        "WAC_VIS_TILE": "images/M1413824165CE_r7920_c120.nc",
+        "CENTER_LATITUDE": -66.78237896114916,
+        "CENTER_LONGITUDE": -165.88564585378626,
+        "UPPER_LEFT_LONGITUDE": -167.4311606872752,
+        "UPPER_LEFT_LATITUDE": -65.76897522578216,
+        "LOWER_RIGHT_LONGITUDE": -164.20953568987747,
+        "LOWER_RIGHT_LATITUDE": -67.78168880694099,
+        "BOUNDS_XMIN": 59699.999999999796,
+        "BOUNDS_XMAX": 110899.9999999998,
+        "BOUNDS_YMIN": 432900.00000000023,
+        "BOUNDS_YMAX": 484100.00000000023,
+        "EMISSION_ANGLE": 1.17,
+        "INCIDENCE_ANGLE": 70.06,
+        "PHASE_ANGLE": 70.91,
+        "SUB_SOLAR_GROUND_AZIMUTH": 46.44667492437884,
+        "SUB_SOLAR_LATITUDE": 1.53,
+        "SUB_SOLAR_LONGITUDE": 155.98,
+        "DATASET": "test"
+      },
+      "stem": "M1413824165CE_r7920_c120",
+      "image_info": {
+        "id": 29,
+        "file_name": "images/M1413824165CE_r7920_c120.nc",
+        "width": 512,
+        "height": 512
+      },
+      "crop_xywh": [
+        192,
+        192,
+        128,
+        128
+      ],
+      "source_image_sha256": "e82b8f6c3cfea61575d2dfdd0fa9fcae46b6c43b6bffcf06db0622d04d4684eb",
+      "input_pixel_sha256": "e42516b279be2fe3f711c0d8297bf6af01db7f8e418d308e7bfeafe03f19a512",
+      "reference_pixel_sha256": "99be2d6fa61d0b70e1a62602eaaad126867f9c11d3937fe2dda131f4a262bb4a",
+      "reference_pixels_scored": 158,
+      "loading": {
+        "raw_shape": [
+          512,
+          512,
+          5
+        ],
+        "raw_axes": "YXS",
+        "raw_dtype": "float32",
+        "band_count": 5,
+        "band_mode": "mean",
+        "percentiles": [
+          2,
+          98
+        ],
+        "scale_low": 0.0064401242155581705,
+        "scale_high": 0.031052088417112808,
+        "valid_pixels": 262144,
+        "invalid_pixels": 0,
+        "image_shape": [
+          512,
+          512
+        ]
+      }
+    }
+  ]
+}

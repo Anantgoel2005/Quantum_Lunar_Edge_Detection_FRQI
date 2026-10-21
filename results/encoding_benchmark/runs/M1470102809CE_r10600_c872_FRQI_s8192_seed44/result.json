@@ -1,0 +1,60 @@
+{
+  "metrics": {
+    "f1_exact": 0.0,
+    "precision_exact": 0.0,
+    "recall_exact": 0.0,
+    "f1_1px": 0.0,
+    "f1_2px": 0.0,
+    "iou": 0.0,
+    "chamfer": null,
+    "pr_auc": 0.0,
+    "coverage": 0.045915712799167535,
+    "threshold": 0.18591033921257466,
+    "method": "FRQI",
+    "stem": "M1470102809CE_r10600_c872",
+    "shots": 8192,
+    "seed": 44,
+    "elapsed_seconds": 7.335338199991384,
+    "operator_rmse": 9.967944231756002,
+    "circuits": 400,
+    "measurement_shots": 3276800
+  },
+  "execution": {
+    "measurement_shots": 3276800,
+    "accepted_edge_outcomes": 1354,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 9,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 44,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 7.335338199991384,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 109.43702647365006,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "567dec0b713c4d3c97595b1556550b2b",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "input_pixel_sha256": "8cae6e4bb4873cd01b7ebd5298ec0a71d83a45ef13ac72982ce943913e248358",
+  "protocol_sha256": "4a6a9eb9314a6fa7f004eaef327a2bc5eebb97620e527f2d44e24c1bbf0af8d4",
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-aer": "0.17.2",
+    "numpy": "2.5.1"
+  }
+}

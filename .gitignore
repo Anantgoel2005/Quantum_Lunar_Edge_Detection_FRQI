@@ -38,9 +38,16 @@ data/sombench/real_case/repo.json
 # HuggingFace cache
 .cache/
 
+# BSDS development source files; derived benchmark artifacts retain provenance
+data/bsds500/
+
 # Jupyter
 .ipynb_checkpoints/
 
 # Private uploaded images and local upload verification artifacts
 results/user_images/
 results/upload_verification/
+
+# Interrupted experiment recovery files
+results/bsds_pilot/interrupted_artifacts/
+results/bsds_pilot/readme_recovery_sections.md

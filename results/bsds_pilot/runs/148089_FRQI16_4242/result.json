@@ -1,0 +1,239 @@
+{
+  "case": "148089",
+  "config": "FRQI16",
+  "method": "FRQI",
+  "seed": 4242,
+  "tile_size": 16,
+  "shots_per_circuit": 8192,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3276800,
+    "accepted_edge_outcomes": 15636,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 9,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 4242,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 18.355211200003396,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 186.65325343905127,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "fe503dd592de4e3aaf3ebb3e45349fa9",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.3232444196235801,
+    "best_threshold": 0.21875,
+    "precision": 0.23770491803278687,
+    "recall": 0.5049556598852374,
+    "boundary_ap101": 0.19684713791051936,
+    "operator_rmse": 20.270492408345028,
+    "evaluation_seconds": 0.2094465999980457
+  },
+  "boundary_counts": [
+    [
+      1352.0,
+      1917.0,
+      689.0,
+      3656.0
+    ],
+    [
+      1352.0,
+      1917.0,
+      689.0,
+      3656.0
+    ],
+    [
+      1352.0,
+      1917.0,
+      689.0,
+      3656.0
+    ],
+    [
+      1352.0,
+      1917.0,
+      689.0,
+      3656.0
+    ],
+    [
+      1352.0,
+      1917.0,
+      689.0,
+      3656.0
+    ],
+    [
+      1352.0,
+      1917.0,
+      689.0,
+      3656.0
+    ],
+    [
+      968.0,
+      1917.0,
+      464.0,
+      1952.0
+    ],
+    [
+      968.0,
+      1917.0,
+      464.0,
+      1952.0
+    ],
+    [
+      968.0,
+      1917.0,
+      464.0,
+      1952.0
+    ],
+    [
+      679.0,
+      1917.0,
+      317.0,
+      1177.0
+    ],
+    [
+      679.0,
+      1917.0,
+      317.0,
+      1177.0
+    ],
+    [
+      679.0,
+      1917.0,
+      317.0,
+      1177.0
+    ],
+    [
+      501.0,
+      1917.0,
+      217.0,
+      748.0
+    ],
+    [
+      498.0,
+      1917.0,
+      212.0,
+      730.0
+    ],
+    [
+      402.0,
+      1917.0,
+      166.0,
+      535.0
+    ],
+    [
+      305.0,
+      1917.0,
+      123.0,
+      383.0
+    ],
+    [
+      305.0,
+      1917.0,
+      123.0,
+      383.0
+    ],
+    [
+      237.0,
+      1917.0,
+      90.0,
+      263.0
+    ],
+    [
+      165.0,
+      1917.0,
+      63.0,
+      168.0
+    ],
+    [
+      149.0,
+      1917.0,
+      56.0,
+      153.0
+    ],
+    [
+      129.0,
+      1917.0,
+      47.0,
+      109.0
+    ],
+    [
+      94.0,
+      1917.0,
+      31.0,
+      79.0
+    ],
+    [
+      76.0,
+      1917.0,
+      23.0,
+      52.0
+    ],
+    [
+      48.0,
+      1917.0,
+      16.0,
+      33.0
+    ],
+    [
+      35.0,
+      1917.0,
+      10.0,
+      19.0
+    ],
+    [
+      30.0,
+      1917.0,
+      9.0,
+      18.0
+    ],
+    [
+      11.0,
+      1917.0,
+      3.0,
+      9.0
+    ],
+    [
+      7.0,
+      1917.0,
+      2.0,
+      7.0
+    ],
+    [
+      7.0,
+      1917.0,
+      2.0,
+      5.0
+    ],
+    [
+      7.0,
+      1917.0,
+      2.0,
+      2.0
+    ],
+    [
+      7.0,
+      1917.0,
+      2.0,
+      2.0
+    ]
+  ],
+  "input_pixel_sha256": "a9f9d2190ea6c075cf99050c368242c73f4529ed984e93b9dd01e2eab50b7d06",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

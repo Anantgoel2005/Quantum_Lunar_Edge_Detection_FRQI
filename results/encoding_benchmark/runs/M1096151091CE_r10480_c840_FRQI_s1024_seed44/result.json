@@ -1,0 +1,60 @@
+{
+  "metrics": {
+    "f1_exact": 0.008830022075055188,
+    "precision_exact": 0.004629629629629629,
+    "recall_exact": 0.09523809523809523,
+    "f1_1px": 0.013495276653171389,
+    "f1_2px": 0.013559322033898306,
+    "iou": 0.004434589800443459,
+    "chamfer": 33.00162374310113,
+    "pr_auc": 0.0016766090950967815,
+    "coverage": 0.02809573361082206,
+    "threshold": 0.23005345616261588,
+    "method": "FRQI",
+    "stem": "M1096151091CE_r10480_c840",
+    "shots": 1024,
+    "seed": 44,
+    "elapsed_seconds": 2.701818000001367,
+    "operator_rmse": 23.281541327610803,
+    "circuits": 400,
+    "measurement_shots": 409600
+  },
+  "execution": {
+    "measurement_shots": 409600,
+    "accepted_edge_outcomes": 654,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 9,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 1024,
+    "batch_tiles": 16,
+    "seed_start": 44,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 2.701818000001367,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 255.00000000000003,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "ac72d63877d64d12be8c6868ee269dd7",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "input_pixel_sha256": "67520e3c2644825f204c1d62b29aef0356c732d97ed6fad1953a5f0ed0098c3a",
+  "protocol_sha256": "4a6a9eb9314a6fa7f004eaef327a2bc5eebb97620e527f2d44e24c1bbf0af8d4",
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-aer": "0.17.2",
+    "numpy": "2.5.1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "records_checked": 340,
+  "metric_cells_recomputed": 750,
+  "classical_control_maps_freshly_recomputed": 100,
+  "paired_bootstrap_intervals_recomputed": 4,
+  "raw_asset_hashes": 40,
+  "input_reference_pixel_hashes": 40,
+  "raw_image_and_MAT_crops_independently_rederived": 20,
+  "frozen_live_sources": 24,
+  "frozen_pilot_sources": 2,
+  "execution_driver_hash": "8c0ebe55e39549f7ba59449400083f0f1311c1872930e0e43a7952d99fe8db85",
+  "verifier_sha256": "5a22432a49f208e2c41da07dbdb5b4b69de13407b2cef017959f1b48f10c379b",
+  "independence": "Separate summary arithmetic, imports neither pilot aggregation nor boundary matching code"
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "quantum_runs_replayed": 144,
+  "circuits_replayed": 57600,
+  "measurement_shots_replayed": 265420800,
+  "maximum_absolute_magnitude_error": 5.684341886080802e-14,
+  "verifier_sha256": "dcda198e697c44c360205e42f4ef75e1637217ff94dd95a31d7cfb8069156469",
+  "independence": "Direct bit decoding and calibration; imports no project detector or reconstruction code"
+}

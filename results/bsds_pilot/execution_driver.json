@@ -1,0 +1,7 @@
+{
+  "driver": "run_bsds_parallel.py",
+  "sha256": "8c0ebe55e39549f7ba59449400083f0f1311c1872930e0e43a7952d99fe8db85",
+  "parallelism": "Three persistent isolated encoding processes, Aer max_parallel_threads=1 per detector",
+  "scheduling": "Frozen task shuffle filtered within each method; completed smoke result reused with matching protocol",
+  "timing_limit": "Concurrent host execution; no runtime or hardware speed ranking permitted"
+}

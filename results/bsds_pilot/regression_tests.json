@@ -1,0 +1,17 @@
+{
+  "FRQI": {
+    "tests": 44,
+    "seconds": 9.514,
+    "status": "passed",
+    "command": "python -u -m unittest discover -s tests -v"
+  },
+  "NEQR": {
+    "tests": 32,
+    "seconds": 10.305,
+    "status": "passed",
+    "command": "python -u -m unittest discover -s tests"
+  },
+  "total_unique_tests": 76,
+  "matcher_cases": 50,
+  "post_interruption_targeted_tests": 6
+}

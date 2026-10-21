@@ -38,6 +38,87 @@ The FRQI lunar outputs go to `results/variants/frqi/row0/`. Historical QPIE outp
 
 32 tests pass, including exact encoded-state checks, both axes and pair offsets, constant-intensity cancellation, real measured halo stitching, and trace/count audit consistency. Browser upload validation uses installed Microsoft Edge and verifies actual inference, playback, measurement audit, all four comparison panels, invalid-file handling, and mobile layout. `tests/test_full_image.py` explicitly retains the original QPIE gradient-calibration tests; `tests/test_variant.py` verifies this variant's distinct operator.
 
+## Matched encoding benchmark
+
+Run `.\.venv\Scripts\python.exe experiments/run_encoding_matrix.py` to execute or resume
+the QPIE/FRQI/NEQR benchmark. It uses eight fixed native 128x128 center crops from
+distinct SomBench test products, excludes product IDs represented in the earlier
+30-image selection, and compares three seeds at 1,024 and 8,192 shots per circuit.
+All three methods receive identical pixels and disable block-minimum subtraction.
+Sobel, Canny, Robinson, exact gradient, and exact quantized inequality are included.
+
+Results and the frozen protocol are in `results/encoding_benchmark/`.
+Run `experiments/verify_encoding_counts.py` to independently replay every saved
+measurement audit, and `experiments/plot_encoding_benchmark.py` to export the figure.
+Run `experiments/analyse_encoding_benchmark.py` last to append the metadata-based
+geographic overlap sensitivity analysis and shot-budget comparisons to the report.
+The original `experiments/benchmark_encodings.py` command is also supported, using
+a new isolated interpreter per run; the persistent driver amortizes imports while
+executing the identical randomized task order serially.
+
+This is a crop-scale benchmark against approximate catalog rims. It does not establish
+full-image crater-detection performance, geographical independence, or hardware speedup.
+
+## BSDS500 development pilot
+
+The BSDS pilot uses 20 fixed validation-only native crops with all human boundary
+annotations. It compares QPIE, FRQI and NEQR, then tests smaller blocks at matched
+total shot budgets and QPIE block-minimum subtraction on five preselected cases.
+Test image and annotation downloads are explicitly rejected. To prepare and run:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-bsds.txt
+.\.venv\Scripts\python.exe data/bsds500_setup.py
+.\.venv\Scripts\python.exe experiments/run_bsds_parallel.py
+.\.venv\Scripts\python.exe experiments/verify_bsds_summary.py
+.\.venv\Scripts\python.exe experiments/bsds_outputs.py
+```
+
+Results are in `results/bsds_pilot/`. `experiments/bsds_pilot.py --verify-only`
+independently replays all measured maps and recomputes boundary matching curves.
+The evaluator uses validated SciPy one-to-one assignment and multi-annotator
+matching with Guo-Hall thinning. Crop-scale development metrics and the 31-point
+threshold grid are not official full-image BSDS500 scores. Boundary AP101 also
+differs from the pixel average precision in the lunar benchmark.
+
+
+## QPIE block-minimum subtraction follow-up
+
+The separate `results/bsds_qpie_offset20/` experiment extends subtraction to all
+20 pilot validation crops, adding 45 runs while retaining the original pilot.
+It compares the remaining 15 images separately from the five that motivated
+the experiment, using paired image-level F1 and gradient RMSE.
+
+```powershell
+.\.venv\Scripts\python.exe experiments/run_bsds_offset20.py
+.\.venv\Scripts\python.exe experiments/analyse_bsds_offset20.py
+```
+
+The serial driver `experiments/bsds_offset20.py --verify-only` independently
+replays all 120 paired records. Run the analysis command afterward to verify
+summary arithmetic and regenerate the final interpretation. The report links
+`validated_summary.json`, where improvement counts respect each metric's direction.
+
+## Controlled output filtering
+
+`results/bsds_filtering/` compares the saved QPIE baseline/subtraction maps and
+the equally filtered exact-gradient magnitude at fixed Gaussian sigma 0, 0.5
+and 1 pixel. Sobel/Robinson remain unchanged references. No new simulations are
+required. Both filtered-target estimation error and original-target filter bias
+are reported, together with paired image-level excess F1 gain over the exact control.
+
+```powershell
+.\.venv\Scripts\python.exe experiments/bsds_filtering.py
+.\.venv\Scripts\python.exe experiments/verify_bsds_filtering.py
+.\.venv\Scripts\python.exe experiments/bsds_filtering_outputs.py
+```
+
+This is a development-grid study on the existing validation crops; the whole
+grid is reported and detector defaults remain unchanged.
+
 ## Provenance
 
 Upstream: [SamradhSahni/Quantum_Lunar_Edge_Detection](https://github.com/SamradhSahni/Quantum_Lunar_Edge_Detection). Variant: [FRQI](https://github.com/Anantgoel2005/Quantum_Lunar_Edge_Detection_FRQI). SomBench dataset and Robbins crater catalog attribution are preserved in the run manifest and report; dataset license is CC BY 4.0. No new source-code license is introduced. See `README_QPIE_HISTORY.md` and inherited `report/` documents for the original analysis, limitations and results.
+
+
+The live page links to expanded state preparation for the representative first image block. It displays actual U/CX/reset gates, exact rotation angles, paged circuit diagrams and full preparation QASM/JSON exports. A completed new input regenerates its own preparation export.

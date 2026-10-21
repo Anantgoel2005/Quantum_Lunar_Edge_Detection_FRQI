@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "quantum_runs": 240,
+  "records_recomputed": 340,
+  "circuits_replayed": 165120,
+  "shots_replayed": 786383040,
+  "max_magnitude_error": 8.526512829121202e-14,
+  "test_image_annotation_files_downloaded": 0,
+  "checks": [
+    "frozen sources",
+    "complete matrix",
+    "unique audit identities",
+    "shot totals",
+    "preparation offsets/norms",
+    "independent bit-level replay",
+    "encoding qubits",
+    "input hashes",
+    "operator RMSE",
+    "all31threshold count curves and summary metrics recomputed"
+  ]
+}

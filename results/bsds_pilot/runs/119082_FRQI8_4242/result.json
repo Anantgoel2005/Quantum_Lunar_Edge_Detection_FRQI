@@ -1,0 +1,239 @@
+{
+  "case": "119082",
+  "config": "FRQI8",
+  "method": "FRQI",
+  "seed": 4242,
+  "tile_size": 8,
+  "shots_per_circuit": 1692,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3275712,
+    "accepted_edge_outcomes": 15238,
+    "circuits_executed": 1936,
+    "tiles": 484,
+    "tile_size": 8,
+    "core_size": 6,
+    "qubits_per_circuit": 7,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 1692,
+    "batch_tiles": 16,
+    "seed_start": 4242,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 17.637531799999977,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 248.92029661847687,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "d3d4b84b71ca463c9bfc87f113bebf4e",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.48824439702158196,
+    "best_threshold": 0.1875,
+    "precision": 0.5271238485158649,
+    "recall": 0.45470629865534323,
+    "boundary_ap101": 0.3742802857780355,
+    "operator_rmse": 14.896907455346971,
+    "evaluation_seconds": 0.35951640000001817
+  },
+  "boundary_counts": [
+    [
+      1624.0,
+      2826.0,
+      677.0,
+      1601.0
+    ],
+    [
+      1624.0,
+      2826.0,
+      677.0,
+      1601.0
+    ],
+    [
+      1624.0,
+      2826.0,
+      677.0,
+      1601.0
+    ],
+    [
+      1624.0,
+      2826.0,
+      677.0,
+      1601.0
+    ],
+    [
+      1624.0,
+      2826.0,
+      677.0,
+      1601.0
+    ],
+    [
+      1285.0,
+      2826.0,
+      515.0,
+      977.0
+    ],
+    [
+      1285.0,
+      2826.0,
+      515.0,
+      977.0
+    ],
+    [
+      1285.0,
+      2826.0,
+      515.0,
+      977.0
+    ],
+    [
+      1136.0,
+      2826.0,
+      444.0,
+      744.0
+    ],
+    [
+      1107.0,
+      2826.0,
+      434.0,
+      715.0
+    ],
+    [
+      1051.0,
+      2826.0,
+      406.0,
+      632.0
+    ],
+    [
+      938.0,
+      2826.0,
+      358.0,
+      514.0
+    ],
+    [
+      885.0,
+      2826.0,
+      336.0,
+      483.0
+    ],
+    [
+      838.0,
+      2826.0,
+      314.0,
+      435.0
+    ],
+    [
+      722.0,
+      2826.0,
+      268.0,
+      361.0
+    ],
+    [
+      621.0,
+      2826.0,
+      228.0,
+      301.0
+    ],
+    [
+      525.0,
+      2826.0,
+      184.0,
+      249.0
+    ],
+    [
+      460.0,
+      2826.0,
+      159.0,
+      213.0
+    ],
+    [
+      386.0,
+      2826.0,
+      132.0,
+      172.0
+    ],
+    [
+      269.0,
+      2826.0,
+      93.0,
+      127.0
+    ],
+    [
+      195.0,
+      2826.0,
+      73.0,
+      102.0
+    ],
+    [
+      166.0,
+      2826.0,
+      64.0,
+      84.0
+    ],
+    [
+      112.0,
+      2826.0,
+      45.0,
+      60.0
+    ],
+    [
+      77.0,
+      2826.0,
+      33.0,
+      46.0
+    ],
+    [
+      58.0,
+      2826.0,
+      27.0,
+      36.0
+    ],
+    [
+      37.0,
+      2826.0,
+      20.0,
+      25.0
+    ],
+    [
+      27.0,
+      2826.0,
+      14.0,
+      18.0
+    ],
+    [
+      15.0,
+      2826.0,
+      9.0,
+      11.0
+    ],
+    [
+      9.0,
+      2826.0,
+      6.0,
+      7.0
+    ],
+    [
+      6.0,
+      2826.0,
+      3.0,
+      3.0
+    ],
+    [
+      1.0,
+      2826.0,
+      1.0,
+      1.0
+    ]
+  ],
+  "input_pixel_sha256": "c9fd590b12b3db01df7ecf7baf1a35c29dff67a5a230bba1c8683ac99c23a878",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

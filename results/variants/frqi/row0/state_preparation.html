@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Actual state preparation circuit</title>
+<style>
+:root{color-scheme:light dark;--bg:#fff;--fg:#182235;--muted:#586577;--line:#ccd4df;--surface:#f0f4f9;--accent:#2563eb;--selected:#dbeafe}
+@media(prefers-color-scheme:dark){:root{--bg:#111827;--fg:#e5edf9;--muted:#acbbcf;--line:#41506a;--surface:#1d293d;--accent:#93c5fd;--selected:#24446d}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px system-ui,sans-serif}main{max-width:1280px;margin:auto;padding:28px 22px}h1{font-size:27px;margin:12px 0}p{line-height:1.5}a{color:var(--accent)}.muted{color:var(--muted)}.facts,.controls,.links{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.facts{font-variant-numeric:tabular-nums}.controls{margin:24px 0 14px}button,input{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:8px 12px}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}input{width:100px}figure{margin:0;border:1px solid var(--line);overflow:auto;max-height:72vh}svg{display:block;min-width:1040px;width:100%;color:var(--fg)}svg text{fill:var(--fg);font-size:12px}code{overflow-wrap:anywhere}#inspection{padding:16px 0;min-height:90px;border-bottom:1px solid var(--line)}#provenance{overflow-wrap:anywhere}#input{max-width:128px;max-height:100px;object-fit:contain;image-rendering:pixelated}.intro{display:flex;gap:22px;align-items:center}.gate{cursor:pointer}.gate:focus{outline:2px solid var(--accent)}.links{margin-top:20px}@media(max-width:600px){main{padding:20px 12px}h1{font-size:23px}.intro{align-items:flex-start}#input{max-width:72px}.controls{gap:10px}}
+</style></head><body><main>
+<a href="./">← Live edge detector</a>
+<div class="intro"><img id="input" src="input.png" alt="Working image used to prepare this state"><div><h1 id="title">Actual state preparation</h1><p id="status" role="status">Loading the exported circuit…</p></div></div>
+<div class="facts"><span id="width"></span><span id="count"></span><span id="depth"></span></div>
+<p class="muted">Expanded from the actual representative block’s <code>Initialize</code> instruction using Qiskit’s U/CX decomposition. This shows preparation only; the edge-detection shift, Hadamard and measurements follow afterward. It is an equivalent gate decomposition, not a recording of individual gates executing on hardware.</p>
+<div class="controls"><button id="previous" disabled>← Previous</button><label>Page <input id="page" type="number" min="1" value="1" disabled></label><span id="pages"></span><button id="next" disabled>Next →</button><span id="range"></span></div>
+<figure aria-label="Expanded quantum state preparation circuit"><svg id="circuit" role="img" aria-label="Primitive preparation gates"></svg></figure>
+<div id="inspection" aria-live="polite">Select a gate to inspect its qubits and exact rotation angles.</div>
+<p class="muted">● Control on 1 · ⊕ Controlled-X target · U(θ, φ, λ) general one-qubit rotation, angles in radians · |0⟩ reset. Each page continues the same circuit; qubits are not reset between pages.</p>
+<div class="links"><a href="state_preparation.qasm" download>Download full preparation QASM</a><a href="state_preparation.json" download>All gates and provenance</a></div>
+<p id="provenance" class="muted"></p>
+</main><script>
+(() => {
+ const el=id=>document.getElementById(id),svg=el('circuit');let data=null,page=0,selected=0;const size=20;
+ const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function inspect(index){
+  selected=index;const [name,qubits,parameters]=data.gates[index],panel=el('inspection');panel.replaceChildren();
+  const label=document.createElement('strong');label.textContent=`Instruction ${index+1}: ${name.toUpperCase()} · ${qubits.map(q=>'q'+q).join(' → ')}`;panel.append(label);
+  const detail=document.createElement('p');
+  detail.textContent=name==='u'?`θ = ${parameters[0]}, φ = ${parameters[1]}, λ = ${parameters[2]} radians`:name==='cx'?`Flip q${qubits[1]} when q${qubits[0]} is 1.`:`Reset q${qubits[0]} to |0⟩.`;
+  panel.append(detail);svg.querySelectorAll('[data-index]').forEach(g=>g.setAttribute('data-selected',Number(g.dataset.index)===index?'true':'false'));
+  svg.querySelectorAll('[data-index] rect').forEach(r=>r.setAttribute('fill',Number(r.parentElement.dataset.index)===index?'var(--selected)':'var(--surface)'));
+ }
+ function draw(){
+  const start=page*size,gates=data.gates.slice(start,start+size),height=65+data.qubits*32;
+  const left=170,step=44,width=Math.max(1040,left+step*(gates.length+1));svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.style.height=height+'px';
+  let html=`<title>${escape(data.encoding)} preparation instructions ${start+1} to ${start+gates.length}</title>`;
+  for(let q=0;q<data.qubits;q++){
+   const y=40+q*32;html+=`<text x="10" y="${y+4}">q${q} · ${escape(data.roles[q])}</text><line x1="${left-15}" x2="${width-12}" y1="${y}" y2="${y}" stroke="var(--line)"/>`;
+  }
+  gates.forEach(([name,qubits,parameters],j)=>{
+   const x=left+(j+1)*step,index=start+j;html+=`<g class="gate" data-index="${index}" tabindex="0" role="button" aria-label="Instruction ${index+1}, ${name}, ${qubits.map(q=>'q'+q).join(', ')}"><title>${index+1}: ${name} ${escape(parameters.join(', '))}</title><text x="${x}" y="16" text-anchor="middle">${index+1}</text>`;
+   if(name==='cx'){
+    const a=40+qubits[0]*32,b=40+qubits[1]*32;
+    html+=`<line x1="${x}" x2="${x}" y1="${a}" y2="${b}" stroke="var(--fg)"/><circle cx="${x}" cy="${a}" r="4" fill="var(--fg)"/><circle cx="${x}" cy="${b}" r="10" fill="var(--bg)" stroke="var(--fg)"/><path d="M${x-7} ${b}h14 M${x} ${b-7}v14" stroke="var(--fg)"/><rect x="${x-18}" y="${Math.min(a,b)-12}" width="36" height="${Math.abs(b-a)+24}" fill="transparent" opacity="0"/>`;
+   }else{
+    const y=40+qubits[0]*32;html+=`<rect x="${x-17}" y="${y-12}" width="34" height="24" rx="3" fill="var(--surface)" stroke="var(--fg)"/><text x="${x}" y="${y+4}" text-anchor="middle">${name==='reset'?'|0⟩':'U'}</text>`;
+   }
+   html+='</g>';
+  });svg.innerHTML=html;
+  svg.querySelectorAll('[data-index]').forEach(g=>{g.addEventListener('click',()=>inspect(Number(g.dataset.index)));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(Number(g.dataset.index));}});});
+  const total=Math.ceil(data.gates.length/size);el('page').value=page+1;el('page').max=total;el('page').disabled=false;
+  el('pages').textContent=`of ${total.toLocaleString()}`;el('range').textContent=`Instructions ${(start+1).toLocaleString()}–${(start+gates.length).toLocaleString()} of ${data.gates.length.toLocaleString()}`;
+  el('previous').disabled=page===0;el('next').disabled=page===total-1;
+  inspect(Math.min(Math.max(selected,start),start+gates.length-1));history.replaceState(null,'','#page='+(page+1));
+ }
+ function go(next){if(!data)return;page=Math.min(Math.max(0,next),Math.ceil(data.gates.length/size)-1);selected=page*size;draw();}
+ el('previous').onclick=()=>go(page-1);el('next').onclick=()=>go(page+1);el('page').onchange=()=>go((Number(el('page').value)||1)-1);
+ fetch('state_preparation.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Run an image first to export its preparation circuit.');return r.json();}).then(value=>{
+  data=value;if(!data.gates.length||data.gates.length!==data.instruction_count)throw Error('Preparation export is incomplete.');
+  el('title').textContent=`${data.encoding} · expanded state preparation`;
+  el('status').textContent=`Representative first ${data.tile_size}×${data.tile_size} haloed block at (0, 0).`+(data.example_only?' Preparation example; this export does not assert a completed full-image detection run.':' Exported from the completed detector run.');
+  el('width').textContent=`${data.qubits} qubits: ${data.position_qubits} position + ${data.brightness_qubits} brightness`;
+  el('count').textContent=`${data.instruction_count.toLocaleString()} primitive instructions`;el('depth').textContent=`Depth ${data.depth.toLocaleString()}`;
+  el('provenance').textContent=`Working-input PNG SHA-256: ${data.input_png_sha256}. ${data.subtract_tile_min?'Block minimum was subtracted before encoding.':'No block-minimum subtraction.'}`;
+  const match=location.hash.match(/page=(\d+)/);go(match?Number(match[1])-1:0);
+ }).catch(error=>{el('status').textContent=error.message;});
+})();
+</script></body></html>

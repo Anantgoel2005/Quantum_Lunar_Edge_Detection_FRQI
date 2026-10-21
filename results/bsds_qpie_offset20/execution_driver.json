@@ -1,0 +1,6 @@
+{
+  "driver": "run_bsds_offset20.py",
+  "sha256": "158f97bc514a4399a528a8bd28bf802b66b56f74e75a60dccd5e4b8fcb5e485e",
+  "processes": 3,
+  "scope": "Execution scheduling only; ideal simulator concurrency precludes runtime comparison"
+}

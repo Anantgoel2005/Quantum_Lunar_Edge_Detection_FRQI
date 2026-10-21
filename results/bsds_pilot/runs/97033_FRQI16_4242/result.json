@@ -1,0 +1,239 @@
+{
+  "case": "97033",
+  "config": "FRQI16",
+  "method": "FRQI",
+  "seed": 4242,
+  "tile_size": 16,
+  "shots_per_circuit": 8192,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3276800,
+    "accepted_edge_outcomes": 12321,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 9,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 4242,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 19.423662599999943,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 244.84725518766277,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "1d890dfcceb44788a4b6bdaaac91a750",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.42471608254976184,
+    "best_threshold": 0.1875,
+    "precision": 0.37279596977329976,
+    "recall": 0.49343832020997375,
+    "boundary_ap101": 0.273032066092205,
+    "operator_rmse": 15.282941105543435,
+    "evaluation_seconds": 0.34681970000019646
+  },
+  "boundary_counts": [
+    [
+      1467.0,
+      2286.0,
+      633.0,
+      2126.0
+    ],
+    [
+      1467.0,
+      2286.0,
+      633.0,
+      2126.0
+    ],
+    [
+      1467.0,
+      2286.0,
+      633.0,
+      2126.0
+    ],
+    [
+      1467.0,
+      2286.0,
+      633.0,
+      2126.0
+    ],
+    [
+      1467.0,
+      2286.0,
+      633.0,
+      2126.0
+    ],
+    [
+      1128.0,
+      2286.0,
+      444.0,
+      1191.0
+    ],
+    [
+      1128.0,
+      2286.0,
+      444.0,
+      1191.0
+    ],
+    [
+      874.0,
+      2286.0,
+      328.0,
+      809.0
+    ],
+    [
+      874.0,
+      2286.0,
+      328.0,
+      809.0
+    ],
+    [
+      699.0,
+      2286.0,
+      255.0,
+      559.0
+    ],
+    [
+      588.0,
+      2286.0,
+      205.0,
+      425.0
+    ],
+    [
+      576.0,
+      2286.0,
+      194.0,
+      394.0
+    ],
+    [
+      507.0,
+      2286.0,
+      168.0,
+      338.0
+    ],
+    [
+      420.0,
+      2286.0,
+      133.0,
+      263.0
+    ],
+    [
+      373.0,
+      2286.0,
+      115.0,
+      222.0
+    ],
+    [
+      312.0,
+      2286.0,
+      98.0,
+      185.0
+    ],
+    [
+      260.0,
+      2286.0,
+      81.0,
+      152.0
+    ],
+    [
+      203.0,
+      2286.0,
+      61.0,
+      118.0
+    ],
+    [
+      161.0,
+      2286.0,
+      48.0,
+      97.0
+    ],
+    [
+      98.0,
+      2286.0,
+      30.0,
+      64.0
+    ],
+    [
+      86.0,
+      2286.0,
+      26.0,
+      55.0
+    ],
+    [
+      64.0,
+      2286.0,
+      20.0,
+      43.0
+    ],
+    [
+      35.0,
+      2286.0,
+      12.0,
+      30.0
+    ],
+    [
+      23.0,
+      2286.0,
+      8.0,
+      26.0
+    ],
+    [
+      16.0,
+      2286.0,
+      6.0,
+      20.0
+    ],
+    [
+      11.0,
+      2286.0,
+      4.0,
+      12.0
+    ],
+    [
+      5.0,
+      2286.0,
+      2.0,
+      9.0
+    ],
+    [
+      0.0,
+      2286.0,
+      0.0,
+      3.0
+    ],
+    [
+      0.0,
+      2286.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      2286.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      2286.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "input_pixel_sha256": "d03e9273ea465504b1735abfee31a4400e8c6d45fcb2bb90c4c9934b61d8b4e0",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

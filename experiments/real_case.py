@@ -136,6 +136,8 @@ def main():
     from qiskit import transpile,qasm3
     compiled = transpile(representative,basis_gates=['u','cx'],optimization_level=0,seed_transpiler=args.seed)
     (output/'representative_circuit.qasm').write_text(qasm3.dumps(compiled),encoding='utf-8')
+    from visualization.state_preparation import export_preparation
+    export_preparation(compiled,output,execution)
     (output/'representative_circuit.txt').write_text('\n'.join(line.rstrip() for line in str(representative.draw(output='text',fold=120)).splitlines())+'\n',encoding='utf-8')
     provenance = {key:manifest[key] for key in ['dataset','dataset_revision','metadata_row_index','annotation_split','metadata','source_urls','sha256','license','attribution','label_kind']} if manifest else {'kind':'user_upload','source':str(raw_path.name)}
     metadata = {'provenance':provenance,'loading':loading,'execution':execution,'threshold':threshold,'detector_comparison':comparison,

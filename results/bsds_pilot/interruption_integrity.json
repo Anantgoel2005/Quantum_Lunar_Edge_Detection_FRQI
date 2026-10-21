@@ -1,0 +1,9 @@
+{
+  "valid_complete_runs": 28,
+  "bad_complete_runs": [
+    {
+      "folder": "167083_NEQR16_424242",
+      "error": "Not a gzipped file (b'F\\x92')"
+    }
+  ]
+}

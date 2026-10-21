@@ -1,0 +1,57 @@
+{
+  "metrics": {
+    "f1_exact": 0.0471311475409836,
+    "precision_exact": 0.07371794871794872,
+    "recall_exact": 0.03463855421686747,
+    "f1_1px": 0.21323529411764708,
+    "f1_2px": 0.39645866868667734,
+    "iou": 0.024134312696747113,
+    "chamfer": 5.914395259204782,
+    "pr_auc": 0.04381043526620193,
+    "coverage": 0.02029136316337149,
+    "threshold": 0.2597385356220985,
+    "method": "QPIE",
+    "stem": "M1479507252CE_r5360_c360",
+    "shots": 1024,
+    "seed": 42,
+    "elapsed_seconds": 1.6883299000037368,
+    "operator_rmse": 12.67885812653962,
+    "circuits": 400,
+    "measurement_shots": 409600
+  },
+  "execution": {
+    "measurement_shots": 409600,
+    "accepted_edge_outcomes": 611,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 8,
+    "shots_per_circuit": 1024,
+    "batch_tiles": 16,
+    "seed_start": 42,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 1.6883299000037368,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "sqrt(2 * preparation_norm_squared * measured_probability), then global image scaling",
+    "maximum_measured_gradient": 135.00911427566658,
+    "initialization": "Aer-supported QPIE Initialize instruction",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "d9c58f5b1cbf49b8aea2a56d3989b452",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "input_pixel_sha256": "79200a95f3b1a57028463b491bba80b7ef4e5b7c8ca9540f5826d0743b8da7c1",
+  "protocol_sha256": "4a6a9eb9314a6fa7f004eaef327a2bc5eebb97620e527f2d44e24c1bbf0af8d4",
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-aer": "0.17.2",
+    "numpy": "2.5.1"
+  }
+}

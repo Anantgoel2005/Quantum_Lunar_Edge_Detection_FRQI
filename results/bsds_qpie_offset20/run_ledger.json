@@ -1,0 +1,722 @@
+[
+  {
+    "case": "119082",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\119082_QPIE16_42"
+  },
+  {
+    "case": "119082",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\119082_QPIE16_4242"
+  },
+  {
+    "case": "119082",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\119082_QPIE16_424242"
+  },
+  {
+    "case": "119082",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\119082_QPIE16-offset_42"
+  },
+  {
+    "case": "119082",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\119082_QPIE16-offset_4242"
+  },
+  {
+    "case": "119082",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\119082_QPIE16-offset_424242"
+  },
+  {
+    "case": "97033",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\97033_QPIE16_42"
+  },
+  {
+    "case": "97033",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\97033_QPIE16_4242"
+  },
+  {
+    "case": "97033",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\97033_QPIE16_424242"
+  },
+  {
+    "case": "97033",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\97033_QPIE16-offset_42"
+  },
+  {
+    "case": "97033",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\97033_QPIE16-offset_4242"
+  },
+  {
+    "case": "97033",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\97033_QPIE16-offset_424242"
+  },
+  {
+    "case": "87046",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\87046_QPIE16_42"
+  },
+  {
+    "case": "87046",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\87046_QPIE16_4242"
+  },
+  {
+    "case": "87046",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\87046_QPIE16_424242"
+  },
+  {
+    "case": "87046",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\87046_QPIE16-offset_42"
+  },
+  {
+    "case": "87046",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\87046_QPIE16-offset_4242"
+  },
+  {
+    "case": "87046",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\87046_QPIE16-offset_424242"
+  },
+  {
+    "case": "296059",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\296059_QPIE16_42"
+  },
+  {
+    "case": "296059",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\296059_QPIE16_4242"
+  },
+  {
+    "case": "296059",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\296059_QPIE16_424242"
+  },
+  {
+    "case": "296059",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\296059_QPIE16-offset_42"
+  },
+  {
+    "case": "296059",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\296059_QPIE16-offset_4242"
+  },
+  {
+    "case": "296059",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\296059_QPIE16-offset_424242"
+  },
+  {
+    "case": "38092",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\38092_QPIE16_42"
+  },
+  {
+    "case": "38092",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\38092_QPIE16_4242"
+  },
+  {
+    "case": "38092",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\38092_QPIE16_424242"
+  },
+  {
+    "case": "38092",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\38092_QPIE16-offset_42"
+  },
+  {
+    "case": "38092",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\38092_QPIE16-offset_4242"
+  },
+  {
+    "case": "38092",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\38092_QPIE16-offset_424242"
+  },
+  {
+    "case": "170057",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\170057_QPIE16_42"
+  },
+  {
+    "case": "170057",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\170057_QPIE16_4242"
+  },
+  {
+    "case": "170057",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\170057_QPIE16_424242"
+  },
+  {
+    "case": "170057",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\170057_QPIE16-offset_42"
+  },
+  {
+    "case": "170057",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\170057_QPIE16-offset_4242"
+  },
+  {
+    "case": "170057",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\170057_QPIE16-offset_424242"
+  },
+  {
+    "case": "295087",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\295087_QPIE16_42"
+  },
+  {
+    "case": "295087",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\295087_QPIE16_4242"
+  },
+  {
+    "case": "295087",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\295087_QPIE16_424242"
+  },
+  {
+    "case": "295087",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\295087_QPIE16-offset_42"
+  },
+  {
+    "case": "295087",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\295087_QPIE16-offset_4242"
+  },
+  {
+    "case": "295087",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\295087_QPIE16-offset_424242"
+  },
+  {
+    "case": "376043",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\376043_QPIE16_42"
+  },
+  {
+    "case": "376043",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\376043_QPIE16_4242"
+  },
+  {
+    "case": "376043",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\376043_QPIE16_424242"
+  },
+  {
+    "case": "376043",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\376043_QPIE16-offset_42"
+  },
+  {
+    "case": "376043",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\376043_QPIE16-offset_4242"
+  },
+  {
+    "case": "376043",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\376043_QPIE16-offset_424242"
+  },
+  {
+    "case": "65033",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\65033_QPIE16_42"
+  },
+  {
+    "case": "65033",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\65033_QPIE16_4242"
+  },
+  {
+    "case": "65033",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\65033_QPIE16_424242"
+  },
+  {
+    "case": "65033",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\65033_QPIE16-offset_42"
+  },
+  {
+    "case": "65033",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\65033_QPIE16-offset_4242"
+  },
+  {
+    "case": "65033",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\65033_QPIE16-offset_424242"
+  },
+  {
+    "case": "78004",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\78004_QPIE16_42"
+  },
+  {
+    "case": "78004",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\78004_QPIE16_4242"
+  },
+  {
+    "case": "78004",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\78004_QPIE16_424242"
+  },
+  {
+    "case": "78004",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\78004_QPIE16-offset_42"
+  },
+  {
+    "case": "78004",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\78004_QPIE16-offset_4242"
+  },
+  {
+    "case": "78004",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\78004_QPIE16-offset_424242"
+  },
+  {
+    "case": "41069",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\41069_QPIE16_42"
+  },
+  {
+    "case": "41069",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\41069_QPIE16_4242"
+  },
+  {
+    "case": "41069",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\41069_QPIE16_424242"
+  },
+  {
+    "case": "41069",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\41069_QPIE16-offset_42"
+  },
+  {
+    "case": "41069",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\41069_QPIE16-offset_4242"
+  },
+  {
+    "case": "41069",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\41069_QPIE16-offset_424242"
+  },
+  {
+    "case": "167083",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\167083_QPIE16_42"
+  },
+  {
+    "case": "167083",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\167083_QPIE16_4242"
+  },
+  {
+    "case": "167083",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\167083_QPIE16_424242"
+  },
+  {
+    "case": "167083",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\167083_QPIE16-offset_42"
+  },
+  {
+    "case": "167083",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\167083_QPIE16-offset_4242"
+  },
+  {
+    "case": "167083",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\167083_QPIE16-offset_424242"
+  },
+  {
+    "case": "223061",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\223061_QPIE16_42"
+  },
+  {
+    "case": "223061",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\223061_QPIE16_4242"
+  },
+  {
+    "case": "223061",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\223061_QPIE16_424242"
+  },
+  {
+    "case": "223061",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\223061_QPIE16-offset_42"
+  },
+  {
+    "case": "223061",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\223061_QPIE16-offset_4242"
+  },
+  {
+    "case": "223061",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\223061_QPIE16-offset_424242"
+  },
+  {
+    "case": "102061",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\102061_QPIE16_42"
+  },
+  {
+    "case": "102061",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\102061_QPIE16_4242"
+  },
+  {
+    "case": "102061",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\102061_QPIE16_424242"
+  },
+  {
+    "case": "102061",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\102061_QPIE16-offset_42"
+  },
+  {
+    "case": "102061",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\102061_QPIE16-offset_4242"
+  },
+  {
+    "case": "102061",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\102061_QPIE16-offset_424242"
+  },
+  {
+    "case": "148089",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\148089_QPIE16_42"
+  },
+  {
+    "case": "148089",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\148089_QPIE16_4242"
+  },
+  {
+    "case": "148089",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\148089_QPIE16_424242"
+  },
+  {
+    "case": "148089",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\148089_QPIE16-offset_42"
+  },
+  {
+    "case": "148089",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\148089_QPIE16-offset_4242"
+  },
+  {
+    "case": "148089",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\148089_QPIE16-offset_424242"
+  },
+  {
+    "case": "208001",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\208001_QPIE16_42"
+  },
+  {
+    "case": "208001",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\208001_QPIE16_4242"
+  },
+  {
+    "case": "208001",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\208001_QPIE16_424242"
+  },
+  {
+    "case": "208001",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\208001_QPIE16-offset_42"
+  },
+  {
+    "case": "208001",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\208001_QPIE16-offset_4242"
+  },
+  {
+    "case": "208001",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\208001_QPIE16-offset_424242"
+  },
+  {
+    "case": "123074",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\123074_QPIE16_42"
+  },
+  {
+    "case": "123074",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\123074_QPIE16_4242"
+  },
+  {
+    "case": "123074",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\123074_QPIE16_424242"
+  },
+  {
+    "case": "123074",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\123074_QPIE16-offset_42"
+  },
+  {
+    "case": "123074",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\123074_QPIE16-offset_4242"
+  },
+  {
+    "case": "123074",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\123074_QPIE16-offset_424242"
+  },
+  {
+    "case": "101087",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\101087_QPIE16_42"
+  },
+  {
+    "case": "101087",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\101087_QPIE16_4242"
+  },
+  {
+    "case": "101087",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\101087_QPIE16_424242"
+  },
+  {
+    "case": "101087",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\101087_QPIE16-offset_42"
+  },
+  {
+    "case": "101087",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\101087_QPIE16-offset_4242"
+  },
+  {
+    "case": "101087",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\101087_QPIE16-offset_424242"
+  },
+  {
+    "case": "219090",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\219090_QPIE16_42"
+  },
+  {
+    "case": "219090",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\219090_QPIE16_4242"
+  },
+  {
+    "case": "219090",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\219090_QPIE16_424242"
+  },
+  {
+    "case": "219090",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\219090_QPIE16-offset_42"
+  },
+  {
+    "case": "219090",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\219090_QPIE16-offset_4242"
+  },
+  {
+    "case": "219090",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\219090_QPIE16-offset_424242"
+  },
+  {
+    "case": "108005",
+    "config": "QPIE16",
+    "seed": 42,
+    "path": "results\\bsds_pilot\\runs\\108005_QPIE16_42"
+  },
+  {
+    "case": "108005",
+    "config": "QPIE16",
+    "seed": 4242,
+    "path": "results\\bsds_pilot\\runs\\108005_QPIE16_4242"
+  },
+  {
+    "case": "108005",
+    "config": "QPIE16",
+    "seed": 424242,
+    "path": "results\\bsds_pilot\\runs\\108005_QPIE16_424242"
+  },
+  {
+    "case": "108005",
+    "config": "QPIE16-offset",
+    "seed": 42,
+    "path": "results\\bsds_qpie_offset20\\runs\\108005_QPIE16-offset_42"
+  },
+  {
+    "case": "108005",
+    "config": "QPIE16-offset",
+    "seed": 4242,
+    "path": "results\\bsds_qpie_offset20\\runs\\108005_QPIE16-offset_4242"
+  },
+  {
+    "case": "108005",
+    "config": "QPIE16-offset",
+    "seed": 424242,
+    "path": "results\\bsds_qpie_offset20\\runs\\108005_QPIE16-offset_424242"
+  }
+]

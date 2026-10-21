@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "local_links_checked": 6,
+  "main_table_rows_checked": 8,
+  "figures_visually_inspected": [
+    "inputs.png",
+    "boundary_results.png",
+    "efficiency_effects.png"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "source_files_hashed": 24,
+  "raw_images_hashed": 8,
+  "input_reference_pixel_hashes": 16,
+  "summary_cells_independently_recomputed": 132,
+  "summary_source": "runs.csv with independent grouping arithmetic, for primary8 and sensitivity6",
+  "scope": "No full-image or browser re-execution; benchmark changes do not alter live services"
+}

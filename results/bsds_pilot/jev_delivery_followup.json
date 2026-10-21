@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"status\":\"investigate\",\"concerns\":[],\"uncertain\":[\"complete\",\"claims_supported\",\"format_correct\"],\"advisory_only\":true,\"thresholds\":{\"revise_below\":0.3,\"proceed_at\":0.8,\"calibrated\":false},\"model\":\"jev-1.13.0\",\"answers\":{\"complete\":{\"type\":\"noul\",\"noul\":0.79},\"claims_supported\":{\"type\":\"noul\",\"noul\":0.66},\"format_correct\":{\"type\":\"noul\",\"noul\":0.74}},\"usage\":{\"input_tokens\":966,\"output_tokens\":54},\"rubric_version\":\"1\"}"
+    }
+  ]
+}

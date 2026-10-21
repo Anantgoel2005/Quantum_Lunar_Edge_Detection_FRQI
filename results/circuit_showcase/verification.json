@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "live_circuit_variants": 12,
+  "qubits": {
+    "QPIE": 8,
+    "FRQI": 9,
+    "NEQR": 12
+  },
+  "analytic_preparation_and_full_state_checks": 12,
+  "analytic_born_law_checks": 12,
+  "compiled_primitive_equivalence_checks": 3,
+  "legacy_helper_state_checks": 2,
+  "max_state_error": 6.990237433215068e-17,
+  "max_born_error": 3.0357660829594124e-18,
+  "generator_sha256": "afcceb55c8b3e96631b95d88edece40d2634245832311f0057fd5ae51c46e4b4",
+  "diagram_semantics": "Native Initialize is displayed as one preparation block; terminal measurements grouped in one column. Native gates and register order come from Qiskit builders.",
+  "source_files_unchanged": true
+}

@@ -39,7 +39,7 @@ class DetectionJob:
             source=output/'source.bin'
             source.write_bytes(body)
             info=preprocess_upload(source,output)
-            for asset in ('index.html','gate_trace_view.js','live_pipeline_view.js'):
+            for asset in ('index.html','gate_trace_view.js','live_pipeline_view.js','state_preparation.html'):
                 shutil.copyfile(OUTPUT/asset,output/asset)
             self.process=None
             self.output=output

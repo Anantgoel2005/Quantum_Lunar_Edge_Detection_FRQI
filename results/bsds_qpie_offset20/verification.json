@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "paired_records": 120,
+  "new_runs": 45,
+  "circuits_replayed": 48000,
+  "shots_replayed": 393216000,
+  "max_magnitude_error": 0.0,
+  "parent_files_unchanged": true,
+  "new_downloads": 0,
+  "test_content_accessed": false,
+  "checks": [
+    "source/version/input hashes",
+    "complete matrix",
+    "audit grid and totals",
+    "preparation offset/norm",
+    "independent bit-level magnitude replay",
+    "all31 boundary-count curves",
+    "operator RMSE",
+    "seed curves averaged before scoring"
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "case": "223061",
+  "config": "NEQR16",
+  "method": "NEQR",
+  "seed": 42,
+  "tile_size": 16,
+  "shots_per_circuit": 8192,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3276800,
+    "accepted_edge_outcomes": 947954,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 12,
+    "encoding": "NEQR",
+    "intensity_bits": 4,
+    "edge_operator": "NEQR quantum inequality between neighboring 4-bit intensities; not a gradient magnitude",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 42,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 27.01812760000007,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "NEQR quantum inequality between neighboring 4-bit intensities; not a gradient magnitude; combine directional responses and scale globally",
+    "maximum_measured_gradient": 1.6863421954040052,
+    "initialization": "Aer-supported Initialize of the exact NEQR state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "d7e65377d18843cd8b5309979f9a2c8b",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.43224987899480954,
+    "best_threshold": 0.8125,
+    "precision": 0.301966641772467,
+    "recall": 0.7602659366445053,
+    "boundary_ap101": 0.2703155644927223,
+    "operator_rmse": 0.08194549455841633,
+    "evaluation_seconds": 4.718663200000037
+  },
+  "boundary_counts": [
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1695.0,
+      2557.0,
+      1111.0,
+      4857.0
+    ],
+    [
+      1714.0,
+      2557.0,
+      1117.0,
+      4854.0
+    ],
+    [
+      1712.0,
+      2557.0,
+      1116.0,
+      4841.0
+    ],
+    [
+      1696.0,
+      2557.0,
+      1120.0,
+      4904.0
+    ],
+    [
+      1755.0,
+      2557.0,
+      1159.0,
+      5083.0
+    ],
+    [
+      1909.0,
+      2557.0,
+      1261.0,
+      5621.0
+    ],
+    [
+      2063.0,
+      2557.0,
+      1368.0,
+      5989.0
+    ],
+    [
+      2166.0,
+      2557.0,
+      1425.0,
+      6100.0
+    ],
+    [
+      2207.0,
+      2557.0,
+      1457.0,
+      5843.0
+    ],
+    [
+      2154.0,
+      2557.0,
+      1401.0,
+      5438.0
+    ],
+    [
+      2128.0,
+      2557.0,
+      1386.0,
+      5229.0
+    ],
+    [
+      2147.0,
+      2557.0,
+      1398.0,
+      5171.0
+    ],
+    [
+      2142.0,
+      2557.0,
+      1389.0,
+      5056.0
+    ],
+    [
+      2141.0,
+      2557.0,
+      1367.0,
+      4799.0
+    ],
+    [
+      1944.0,
+      2557.0,
+      1213.0,
+      4017.0
+    ],
+    [
+      1578.0,
+      2557.0,
+      966.0,
+      3079.0
+    ],
+    [
+      956.0,
+      2557.0,
+      577.0,
+      1770.0
+    ],
+    [
+      390.0,
+      2557.0,
+      233.0,
+      715.0
+    ],
+    [
+      125.0,
+      2557.0,
+      67.0,
+      207.0
+    ],
+    [
+      29.0,
+      2557.0,
+      14.0,
+      37.0
+    ]
+  ],
+  "input_pixel_sha256": "f98d7044e120e82a4bd56b68b90803aecd27ec3d485c4809738cbf9ffbccacae",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

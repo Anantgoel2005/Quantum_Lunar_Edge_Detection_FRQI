@@ -1,0 +1,574 @@
+{
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34",
+  "cases": [
+    {
+      "id": "119082",
+      "split": "val",
+      "image": "BSDS500/data/images/val/119082.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/119082.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 6,
+      "reference_pixels": [
+        330,
+        363,
+        368,
+        364,
+        715,
+        686
+      ],
+      "source_image_sha256": "8cf5ce02395627b797b3da7a3845bcb0da14d66942d422a1c898372b67536d4c",
+      "source_annotations_sha256": "a8ecccf1b8f25932c418e61df5d1177af7c9c09c80849b0551421a29c55a06f6",
+      "input_pixel_sha256": "c9fd590b12b3db01df7ecf7baf1a35c29dff67a5a230bba1c8683ac99c23a878",
+      "references_pixel_sha256": "f298ff2d8fda3cd63a899437ca8ee8d48d6c91ae80bf3ceb9551968fd1f1ab08"
+    },
+    {
+      "id": "97033",
+      "split": "val",
+      "image": "BSDS500/data/images/val/97033.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/97033.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        200,
+        574,
+        219,
+        610,
+        683
+      ],
+      "source_image_sha256": "0598c9c6d44af64c04e314f41c21453da7c4bb94adfda48f71548d98b4287d3e",
+      "source_annotations_sha256": "559dfee64b8c906b55b303e117af2ac18c8ebb1e7bafa259e0f1ea75fc495144",
+      "input_pixel_sha256": "d03e9273ea465504b1735abfee31a4400e8c6d45fcb2bb90c4c9934b61d8b4e0",
+      "references_pixel_sha256": "821177330193b982715bd882303dbeb925a971e44f5e9faac1267a16c0484312"
+    },
+    {
+      "id": "87046",
+      "split": "val",
+      "image": "BSDS500/data/images/val/87046.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/87046.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        475,
+        372,
+        338,
+        399,
+        343
+      ],
+      "source_image_sha256": "166d637f2602865b43c7f98926056172fc8df29d1daff62af96d80feabd43980",
+      "source_annotations_sha256": "bce4c16dfd2905491c9cd62c2c79b04b7a013ac5899f43eeb39098250162e8fc",
+      "input_pixel_sha256": "8f6b4133ca95b7c05eebd238c37dc3eebde9d7c44bf89100e6d87b1b892a6759",
+      "references_pixel_sha256": "083058e21f88c1ecc9833bb54d1e749838e87c812278519fefb330d7c99dfb59"
+    },
+    {
+      "id": "296059",
+      "split": "val",
+      "image": "BSDS500/data/images/val/296059.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/296059.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 6,
+      "reference_pixels": [
+        242,
+        234,
+        245,
+        263,
+        278,
+        250
+      ],
+      "source_image_sha256": "9601b534d81275e5e5844198567015105e5feb418e45a0cfa58545e2d472b955",
+      "source_annotations_sha256": "550545a6a85d7b24f79d1a57788f2e803e92baeee1a4c71c097ca68f01539208",
+      "input_pixel_sha256": "f0d810bade099d7544d0812fc01ee655d6f9c1f80fef137aedadc35121329f52",
+      "references_pixel_sha256": "6706f5f38bc6e95e7b09a604f0c292aba757ff9482c4a0b568b2d6e4a6d6dc4e"
+    },
+    {
+      "id": "38092",
+      "split": "val",
+      "image": "BSDS500/data/images/val/38092.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/38092.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        644,
+        714,
+        602,
+        785,
+        781
+      ],
+      "source_image_sha256": "3bdf276d8084f31744b5ea5a88296cd929e5ae09f7571c597f687b8b2f100037",
+      "source_annotations_sha256": "6012e7bb3a76ca175024748b6e756a23e384c76f32e3280546e1b0ef38ba43b6",
+      "input_pixel_sha256": "1659bec7fe5d1b1be33425b8264c18aed5067e3d021f3f06bb019d4d9b19ae96",
+      "references_pixel_sha256": "80bcdca318f4ab079f97c737a721b3efcc9413a4235950393c07d7227cff9af0"
+    },
+    {
+      "id": "170057",
+      "split": "val",
+      "image": "BSDS500/data/images/val/170057.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/170057.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        478,
+        482,
+        495,
+        555,
+        489
+      ],
+      "source_image_sha256": "a485834fbbc26a08067e0ffef314c2129541d548f9f8dbc0923086c9569ba6c7",
+      "source_annotations_sha256": "300e9287e89643ede76f65cc7775de67f7927ba716885c2f1090e99e18178ed4",
+      "input_pixel_sha256": "b8d395fa6945cc0625648d02b67c0c985a512c56cd2bc1063f9289261d7f16f0",
+      "references_pixel_sha256": "1277885c8fc5c3decdcbc0585dcddd22937d8c333fec361c65b6a07f53dd065e"
+    },
+    {
+      "id": "295087",
+      "split": "val",
+      "image": "BSDS500/data/images/val/295087.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/295087.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 7,
+      "reference_pixels": [
+        358,
+        246,
+        238,
+        350,
+        246,
+        233,
+        249
+      ],
+      "source_image_sha256": "6f5023c2d062b4078c174f703899cc36a29895608531e7d2d6e2d32997d39d4f",
+      "source_annotations_sha256": "eb49b56d88f84b5be993e8c716c4ae8d9e3692877ba41f1a7c781160014909b2",
+      "input_pixel_sha256": "8c7770013016191b828c1a8f99055352ca0f4823621a02f48985ca7b5f162d4c",
+      "references_pixel_sha256": "47384e0e2dbdfeed7f3d6952f9cb350725ea0bd057efafb2c48c55e4f8252135"
+    },
+    {
+      "id": "376043",
+      "split": "val",
+      "image": "BSDS500/data/images/val/376043.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/376043.mat",
+      "crop_xywh": [
+        96,
+        176,
+        128,
+        128
+      ],
+      "original_shape": [
+        481,
+        321
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        86,
+        237,
+        260,
+        0,
+        692
+      ],
+      "source_image_sha256": "96e30f229df06707d78c518d6d3de2233fb2b06b6245511d2896b67b13b10561",
+      "source_annotations_sha256": "57cea08331270fdb1fd14f3c0bc53e2d604f265ff02a86e7f0664295332b58d0",
+      "input_pixel_sha256": "5f2789bb85766aabeb589e254b05bd224cec8ae5f041ea595c03db011e4b4e45",
+      "references_pixel_sha256": "07c88019f211e9fcad377a5396273de56ac8cc7a6d79aa52d0809e095b2ff7e6"
+    },
+    {
+      "id": "65033",
+      "split": "val",
+      "image": "BSDS500/data/images/val/65033.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/65033.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 6,
+      "reference_pixels": [
+        778,
+        609,
+        740,
+        649,
+        609,
+        873
+      ],
+      "source_image_sha256": "7971752b0552d3f8df80cf83656d8f1b10fabefe4cfd1fb5434a97b784b23bff",
+      "source_annotations_sha256": "57c997c94f0cf87083e7f934254ec62386b4974f19301624cd49f35d5090619b",
+      "input_pixel_sha256": "3143484fbd5ba8de1349a0d18a6b1def4b43fadaa1d75b6f3dbabb28dd9800e5",
+      "references_pixel_sha256": "0992c8ea95a129fd10f0931811de4661ebb601ee9c090e9997b21cfb72171d98"
+    },
+    {
+      "id": "78004",
+      "split": "val",
+      "image": "BSDS500/data/images/val/78004.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/78004.mat",
+      "crop_xywh": [
+        96,
+        176,
+        128,
+        128
+      ],
+      "original_shape": [
+        481,
+        321
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        698,
+        380,
+        752,
+        547,
+        831
+      ],
+      "source_image_sha256": "14ab48ad51e27fb7e3b60bcdfba6d5354a4af957893455b5dd53e624da71b971",
+      "source_annotations_sha256": "ad6f3d760afae5ee31d8ecd58a46c14ce427dd50b5b48a70a438a0a35b5f7b41",
+      "input_pixel_sha256": "6ed541860339d1149e2fbbdeb968122ec7afab7ddca2cbecdfab2e050f19a8f5",
+      "references_pixel_sha256": "32bd2cc7b547a1e71ab5129cfaf11cbfcfc7c48e3b52b6594ab0e4af9c4e0d5b"
+    },
+    {
+      "id": "41069",
+      "split": "val",
+      "image": "BSDS500/data/images/val/41069.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/41069.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        242,
+        196,
+        199,
+        240,
+        307
+      ],
+      "source_image_sha256": "e440f8eca36a7e503e1f2e5bf4fd4a17d9fbf092cf490e7940c2d02ad90713d2",
+      "source_annotations_sha256": "5e7ac459180d052d8553665710ae14bc3fb16a8bf74c3a6917719cc23727b65c",
+      "input_pixel_sha256": "cdc7206d74bf14261920b8a46bae697a483c4519c81aecd084c9e86ae11ab09e",
+      "references_pixel_sha256": "2e1446485be95db2c19b5dbbe1aed81989314f34a8afec070d02f1a108e3cac8"
+    },
+    {
+      "id": "167083",
+      "split": "val",
+      "image": "BSDS500/data/images/val/167083.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/167083.mat",
+      "crop_xywh": [
+        96,
+        176,
+        128,
+        128
+      ],
+      "original_shape": [
+        481,
+        321
+      ],
+      "annotators": 6,
+      "reference_pixels": [
+        0,
+        415,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source_image_sha256": "0f09dd34a9d48f8650d1912cb4c4d1e90d33dd559223a27985cf6d6eda75ebe1",
+      "source_annotations_sha256": "94da8abeb4d939ec15efa9e386200369f5a0356c64b6d077498d2dd52ac1b1b5",
+      "input_pixel_sha256": "16382e0c61a01d86f467760bf335addf90ef4d71950299426948373ae418415a",
+      "references_pixel_sha256": "8c55476403ffb47ae8c7b5e287350f6811c6bd61c3e64a7b4915259e83fa34b2"
+    },
+    {
+      "id": "223061",
+      "split": "val",
+      "image": "BSDS500/data/images/val/223061.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/223061.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 7,
+      "reference_pixels": [
+        2,
+        2,
+        124,
+        477,
+        1227,
+        474,
+        251
+      ],
+      "source_image_sha256": "0246cf68cc5dba8185e0da2d5df04b90bee7b3f2ed85ab106913b929d115c139",
+      "source_annotations_sha256": "12d3794e18f22d6403b431adc01c44fe63422e65a5a9df017499607c9dba0b92",
+      "input_pixel_sha256": "f98d7044e120e82a4bd56b68b90803aecd27ec3d485c4809738cbf9ffbccacae",
+      "references_pixel_sha256": "c7c70942f9b912a2eb083b7ae09d47970af6fff6a34582386ecb0d085044b3d8"
+    },
+    {
+      "id": "102061",
+      "split": "val",
+      "image": "BSDS500/data/images/val/102061.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/102061.mat",
+      "crop_xywh": [
+        96,
+        176,
+        128,
+        128
+      ],
+      "original_shape": [
+        481,
+        321
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        124,
+        124,
+        124,
+        124,
+        124
+      ],
+      "source_image_sha256": "35ce0a9baaebae00c19f6abccd1d7b3ecd8f1c62003e178610b2179c082f0a8e",
+      "source_annotations_sha256": "9555fd3e2c92645b3103a889caa279279dd3e5edf0915eacde49bf1262e1c7a4",
+      "input_pixel_sha256": "966b2ec59646779244d289a3172fa6b01dfe486cec2cde68c06456bb5019dad1",
+      "references_pixel_sha256": "624a43f8d84b53fad9f52828ce750be23f4e9072fb4849a6f0d00b9759dee5fd"
+    },
+    {
+      "id": "148089",
+      "split": "val",
+      "image": "BSDS500/data/images/val/148089.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/148089.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 6,
+      "reference_pixels": [
+        418,
+        455,
+        245,
+        327,
+        232,
+        240
+      ],
+      "source_image_sha256": "d48e9934d24f6c96fcefa9db9b821a4803529786f50a088c78420454f597006f",
+      "source_annotations_sha256": "2c9896690a977b88b16a091d2f6922a12a12d9d5306303a39c88c8e03d7fbe42",
+      "input_pixel_sha256": "a9f9d2190ea6c075cf99050c368242c73f4529ed984e93b9dd01e2eab50b7d06",
+      "references_pixel_sha256": "f411c81fa944a4f192606ebb1db97a32f4dd4c25509b4ae4fce475d111f031ff"
+    },
+    {
+      "id": "208001",
+      "split": "val",
+      "image": "BSDS500/data/images/val/208001.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/208001.mat",
+      "crop_xywh": [
+        96,
+        176,
+        128,
+        128
+      ],
+      "original_shape": [
+        481,
+        321
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        582,
+        233,
+        861,
+        780,
+        426
+      ],
+      "source_image_sha256": "3056ff21b07978dfd9c7043a10b7eb024f5bce1612b15650b6dc8cb52b069800",
+      "source_annotations_sha256": "142f3703fd40a07d9cd76e2a1b60e3f3f83bb0960cee2a9f024a140fa07f6c55",
+      "input_pixel_sha256": "9c95d3076cd21cd47de9e4bce15d58b033df80c2ae22804b9d0dcf59f1544a5a",
+      "references_pixel_sha256": "7c30dbc7bd443f9a31a2dfca9eac1138286934c6aad664802b95f4b642c7af3b"
+    },
+    {
+      "id": "123074",
+      "split": "val",
+      "image": "BSDS500/data/images/val/123074.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/123074.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        382,
+        386,
+        402,
+        356,
+        527
+      ],
+      "source_image_sha256": "f47e336f7f3c4da54d5d95b6217e4381ea62a8ff12d061f39da48539794aa82a",
+      "source_annotations_sha256": "ae5bcf47e1506c922d7f6397fd2afc3f1363200173575518b4fd2210ef03ac6b",
+      "input_pixel_sha256": "cba873b58d5071e2e14f51d926f890e85f3d6d8913ecbc96c1908b0e03006635",
+      "references_pixel_sha256": "b66f9f1611e3b2bc70765e210a20ce19e10576ce9050f22b34f42109f0b1b746"
+    },
+    {
+      "id": "101087",
+      "split": "val",
+      "image": "BSDS500/data/images/val/101087.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/101087.mat",
+      "crop_xywh": [
+        96,
+        176,
+        128,
+        128
+      ],
+      "original_shape": [
+        481,
+        321
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        653,
+        719,
+        689,
+        983,
+        685
+      ],
+      "source_image_sha256": "d755a74144410290cff5e214bb7cbf352a8cb920d45fac3d992b9772ad92a017",
+      "source_annotations_sha256": "868248aab37e70c67fa7040052247279df10e90824425b8010974398b19d9d2c",
+      "input_pixel_sha256": "3620e1e68f4fc13057ed64425626f4d66b4c0d67f795f7ba59fce108028f5294",
+      "references_pixel_sha256": "a49b7b8bc8e4c40461df846f6cd431ba78747469e57faab244d165ee4399a3bf"
+    },
+    {
+      "id": "219090",
+      "split": "val",
+      "image": "BSDS500/data/images/val/219090.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/219090.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        323,
+        373,
+        316,
+        317,
+        349
+      ],
+      "source_image_sha256": "1f3f81c986fdca765d654d0ad05c6f7d68a0412ee4178bdfa0491558c03d6202",
+      "source_annotations_sha256": "b2e8791240d585449735471b39e30bf49a9e70cdbc0a4eed400fceb8c513aa92",
+      "input_pixel_sha256": "960c3b25d2c6b19c719e34a9fa7018ccd5e9690a770a519a53cf8fe920434126",
+      "references_pixel_sha256": "5260c33e2d86ce54bf83948b5c8d3a7d7892209439e434b042bf25590a9ee2b0"
+    },
+    {
+      "id": "108005",
+      "split": "val",
+      "image": "BSDS500/data/images/val/108005.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/108005.mat",
+      "crop_xywh": [
+        176,
+        96,
+        128,
+        128
+      ],
+      "original_shape": [
+        321,
+        481
+      ],
+      "annotators": 5,
+      "reference_pixels": [
+        233,
+        285,
+        287,
+        408,
+        484
+      ],
+      "source_image_sha256": "e0210b50350e928e35f048fe4b8ea54e58200c58ae3bb5ff619b2074b38fac01",
+      "source_annotations_sha256": "44ab4db4abeb4e8cc207638df849aa498b940370bbf3dcb46e22d924a4f941f9",
+      "input_pixel_sha256": "8827bcdf9544375246f225d71ccdf79af039cee44ac0127ba5f95abbe90284ae",
+      "references_pixel_sha256": "a5c1a100cd2e692b4a428da435d7edb8660f4712767c7edc2015f54a3895fc87"
+    }
+  ]
+}

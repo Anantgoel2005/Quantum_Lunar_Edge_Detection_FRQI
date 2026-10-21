@@ -1,0 +1,102 @@
+{
+  "explicit_neqr_2x2_2bit": {
+    "qubits": 4,
+    "position_qubits": 2,
+    "intensity_qubits": 2,
+    "operations": [
+      {
+        "name": "h",
+        "qubits": [
+          2
+        ],
+        "clbits": []
+      },
+      {
+        "name": "h",
+        "qubits": [
+          3
+        ],
+        "clbits": []
+      },
+      {
+        "name": "x",
+        "qubits": [
+          3
+        ],
+        "clbits": []
+      },
+      {
+        "name": "ccx",
+        "qubits": [
+          2,
+          3,
+          0
+        ],
+        "clbits": []
+      },
+      {
+        "name": "x",
+        "qubits": [
+          3
+        ],
+        "clbits": []
+      },
+      {
+        "name": "x",
+        "qubits": [
+          2
+        ],
+        "clbits": []
+      },
+      {
+        "name": "ccx",
+        "qubits": [
+          2,
+          3,
+          1
+        ],
+        "clbits": []
+      },
+      {
+        "name": "x",
+        "qubits": [
+          2
+        ],
+        "clbits": []
+      },
+      {
+        "name": "ccx",
+        "qubits": [
+          2,
+          3,
+          0
+        ],
+        "clbits": []
+      },
+      {
+        "name": "ccx",
+        "qubits": [
+          2,
+          3,
+          1
+        ],
+        "clbits": []
+      }
+    ],
+    "counts": {
+      "x": 4,
+      "ccx": 4,
+      "h": 2,
+      "barrier": 1
+    },
+    "state_verified": true
+  },
+  "qpie_2x2_ancilla_helper": {
+    "qubits": 3,
+    "position_qubits": 2,
+    "ancilla_index": 0,
+    "ancilla_is_zero": true,
+    "state_verified": true
+  },
+  "used_by_live_apps": false
+}

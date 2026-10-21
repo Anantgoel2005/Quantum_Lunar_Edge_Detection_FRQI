@@ -1,0 +1,18 @@
+test_binary_masks_and_constant_score_baseline (tests.test_quantum.QuantumCorrectness.test_binary_masks_and_constant_score_baseline) ... ok
+test_count_integer_order (tests.test_quantum.QuantumCorrectness.test_count_integer_order) ... ok
+test_exact_all_boundaries_rectangular_and_square (tests.test_quantum.QuantumCorrectness.test_exact_all_boundaries_rectangular_and_square) ... ok
+test_hybrid_matches_quantized_control (tests.test_quantum.QuantumCorrectness.test_hybrid_matches_quantized_control) ... ok
+test_invalid_inputs (tests.test_quantum.QuantumCorrectness.test_invalid_inputs) ... ok
+test_neqr_asymmetric_roundtrip (tests.test_quantum.QuantumCorrectness.test_neqr_asymmetric_roundtrip) ... ok
+test_noisy_primitive_execution (tests.test_quantum.QuantumCorrectness.test_noisy_primitive_execution) ... ok
+test_otsu_separates_clusters_without_rounding (tests.test_quantum.QuantumCorrectness.test_otsu_separates_clusters_without_rounding) ... ok
+test_seed_repeatability (tests.test_quantum.QuantumCorrectness.test_seed_repeatability) ... ok
+test_shifted_boundary_is_detected (tests.test_quantum.QuantumCorrectness.test_shifted_boundary_is_detected) ... ok
+test_uniform_image_has_no_edges (tests.test_quantum.QuantumCorrectness.test_uniform_image_has_no_edges) ... ok
+test_actual_checkpoints_match_gate_prefixes_and_counts (tests.test_gate_trace.GateTraceCorrectness.test_actual_checkpoints_match_gate_prefixes_and_counts) ... ok
+test_trace_matches_the_same_inference_audit (tests.test_gate_trace.GateTraceCorrectness.test_trace_matches_the_same_inference_audit) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 3.472s
+
+OK

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "independent_metric_cells": 187,
+  "bootstrap_intervals_checked": 9,
+  "new_circuits": 18000,
+  "new_simulator_shots": 147456000,
+  "paired_image_metrics": 40,
+  "parent_hashes_unchanged": true,
+  "original_baseline_and_initial5_reproduced": true,
+  "raw_positive_count_label_corrected": true,
+  "verifier_sha256": "36f4563ebc059d8419f4da6be8c374134cc1835e74e059b8c462a9ce6cefb216",
+  "driver_hash_verified": true,
+  "execution_driver_hash_verified": true
+}

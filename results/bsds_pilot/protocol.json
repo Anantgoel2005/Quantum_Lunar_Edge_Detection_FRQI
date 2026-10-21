@@ -1,0 +1,276 @@
+{
+  "schema": 1,
+  "dataset": "BSDS500",
+  "source": "https://github.com/BIDS/BSDS500",
+  "source_revision": "a04b7c6c3a9f0ace74bf205c72a43d32e1c72722",
+  "split": "val",
+  "cases": [
+    {
+      "id": "119082",
+      "split": "val",
+      "image": "BSDS500/data/images/val/119082.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/119082.mat"
+    },
+    {
+      "id": "97033",
+      "split": "val",
+      "image": "BSDS500/data/images/val/97033.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/97033.mat"
+    },
+    {
+      "id": "87046",
+      "split": "val",
+      "image": "BSDS500/data/images/val/87046.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/87046.mat"
+    },
+    {
+      "id": "296059",
+      "split": "val",
+      "image": "BSDS500/data/images/val/296059.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/296059.mat"
+    },
+    {
+      "id": "38092",
+      "split": "val",
+      "image": "BSDS500/data/images/val/38092.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/38092.mat"
+    },
+    {
+      "id": "170057",
+      "split": "val",
+      "image": "BSDS500/data/images/val/170057.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/170057.mat"
+    },
+    {
+      "id": "295087",
+      "split": "val",
+      "image": "BSDS500/data/images/val/295087.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/295087.mat"
+    },
+    {
+      "id": "376043",
+      "split": "val",
+      "image": "BSDS500/data/images/val/376043.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/376043.mat"
+    },
+    {
+      "id": "65033",
+      "split": "val",
+      "image": "BSDS500/data/images/val/65033.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/65033.mat"
+    },
+    {
+      "id": "78004",
+      "split": "val",
+      "image": "BSDS500/data/images/val/78004.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/78004.mat"
+    },
+    {
+      "id": "41069",
+      "split": "val",
+      "image": "BSDS500/data/images/val/41069.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/41069.mat"
+    },
+    {
+      "id": "167083",
+      "split": "val",
+      "image": "BSDS500/data/images/val/167083.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/167083.mat"
+    },
+    {
+      "id": "223061",
+      "split": "val",
+      "image": "BSDS500/data/images/val/223061.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/223061.mat"
+    },
+    {
+      "id": "102061",
+      "split": "val",
+      "image": "BSDS500/data/images/val/102061.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/102061.mat"
+    },
+    {
+      "id": "148089",
+      "split": "val",
+      "image": "BSDS500/data/images/val/148089.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/148089.mat"
+    },
+    {
+      "id": "208001",
+      "split": "val",
+      "image": "BSDS500/data/images/val/208001.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/208001.mat"
+    },
+    {
+      "id": "123074",
+      "split": "val",
+      "image": "BSDS500/data/images/val/123074.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/123074.mat"
+    },
+    {
+      "id": "101087",
+      "split": "val",
+      "image": "BSDS500/data/images/val/101087.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/101087.mat"
+    },
+    {
+      "id": "219090",
+      "split": "val",
+      "image": "BSDS500/data/images/val/219090.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/219090.mat"
+    },
+    {
+      "id": "108005",
+      "split": "val",
+      "image": "BSDS500/data/images/val/108005.jpg",
+      "annotations": "BSDS500/data/groundTruth/val/108005.mat"
+    }
+  ],
+  "selection": "SHA256 rank of validation image paths with prefix20261019; 20 cases; labels unopened at selection",
+  "crop": "Fixed native128x128center; PillowL grayscale; no resizing, contrast stretch or smoothing",
+  "annotations": "All human boundary masks retained separately; same native crop",
+  "seeds": [
+    42,
+    4242,
+    424242
+  ],
+  "configs": {
+    "QPIE16": [
+      "QPIE",
+      16,
+      8192,
+      false
+    ],
+    "FRQI16": [
+      "FRQI",
+      16,
+      8192,
+      false
+    ],
+    "NEQR16": [
+      "NEQR",
+      16,
+      8192,
+      false
+    ],
+    "QPIE8": [
+      "QPIE",
+      8,
+      1692,
+      false
+    ],
+    "FRQI8": [
+      "FRQI",
+      8,
+      1692,
+      false
+    ],
+    "NEQR8": [
+      "NEQR",
+      8,
+      1692,
+      false
+    ],
+    "QPIE16-offset": [
+      "QPIE",
+      16,
+      8192,
+      true
+    ]
+  },
+  "primary": "Three encodings, tile16,8192shots/circuit,20images,3seeds=180runs",
+  "efficiency_subset": [
+    "119082",
+    "97033",
+    "87046",
+    "296059",
+    "38092"
+  ],
+  "efficiency": "First5preselectedcases; tile8at1692shots/circuit, plusQPIE16minimumsubtraction,3seeds=60additionalruns",
+  "budget": {
+    "tile16": 3276800,
+    "tile8": 3275712,
+    "relative_shortfall_tile8": 0.00033203125
+  },
+  "thresholds": [
+    0.03125,
+    0.0625,
+    0.09375,
+    0.125,
+    0.15625,
+    0.1875,
+    0.21875,
+    0.25,
+    0.28125,
+    0.3125,
+    0.34375,
+    0.375,
+    0.40625,
+    0.4375,
+    0.46875,
+    0.5,
+    0.53125,
+    0.5625,
+    0.59375,
+    0.625,
+    0.65625,
+    0.6875,
+    0.71875,
+    0.75,
+    0.78125,
+    0.8125,
+    0.84375,
+    0.875,
+    0.90625,
+    0.9375,
+    0.96875
+  ],
+  "max_distance": 0.0075,
+  "distance_reference": "diagonal of scored124x124nativecrop (2pxborder excluded)",
+  "matching": "SciPy sparse maximum-cardinality then minimum-Euclidean-distance one-to-one assignment",
+  "thinning": "scikit-image Guo-Hall thin; precision matches any annotator; recall sums over annotators",
+  "ap": "101point interpolated boundaryAP; NOT pixelAP or certified MATLAB BSDS AP",
+  "scope": "Validation-only nativecrop development pilot,31thresholds; NO official full-image BSDS500 score",
+  "test_policy": "Do not download or read test image/annotation contents",
+  "f1_summary": "Per-image threshold curve averaged across seeds; primarymacro-bestF1 andAP. Also report pooled counts maxF1(ODS-style) and meanimagebestF1(OIS-style). Development optima, not locked test operating points.",
+  "source_hashes": {
+    "Quantum_Lunar_Edge_Detection_FRQI/quantum/variant_circuit.py": "56deb54523033e197fc0ae2713bd058bd89c570ae280d5e1738623576af82ffb",
+    "Quantum_Lunar_Edge_Detection_FRQI/quantum/full_image.py": "595c82d72ae09c4e8d5cb9f6d9d16186ed9d22b1ce4e4fbafa64334569999004",
+    "Quantum_Lunar_Edge_Detection_FRQI/quantum/qpie_full_image.py": "10012b0f1cc19a839642317d4ace62ff6d0eb39ec838af9d176b190d32b05aee",
+    "Quantum_Lunar_Edge_Detection_FRQI/quantum/qhed_circuit.py": "5d94a8490399f77aee11e2d7a8a61e1bbe6a7bb6d10071afbc6b7b64d3d5c430",
+    "Quantum_Lunar_Edge_Detection_FRQI/quantum/simulation.py": "9be75844e2ba597827834d77eb93ed3cfcfd9becc603d59f4e9fcf4be061f029",
+    "Quantum_Lunar_Edge_Detection_FRQI/quantum/reconstruction.py": "76c7d8f255aaafe8e557b9f2a7d0a6d538c3a5f49778eb057d69550cbc3feb78",
+    "Quantum_Lunar_Edge_Detection_FRQI/preprocessing/real_image.py": "202397a90fd9ceedc6f51f83fd507807b84ae7660cd9c4001771925c85805f51",
+    "Quantum_Lunar_Edge_Detection_FRQI/preprocessing/annotation_rasteriser.py": "9d9779f38173388a0367b5a202ed215d13f6859bc9af72e1e898da2baeb21f24",
+    "Quantum_Lunar_Edge_Detection_FRQI/evaluation/metrics.py": "5b268cfe2723b93435c9fc8dcd61d251b830e5754d0e9d4d5d239f261ec83710",
+    "Quantum_Lunar_Edge_Detection_FRQI/classical/sobel.py": "54aac69fedb48ab60a4a6afe4cb4de65744703be6c485f9af6f40e8f27d8484b",
+    "Quantum_Lunar_Edge_Detection_FRQI/classical/canny.py": "a7694cc9f7d7216accd958edf3104d938446c5af519215487a11ccee827d70da",
+    "Quantum_Lunar_Edge_Detection_FRQI/classical/robinson_compass.py": "1d8bc7b357260a7884d4d96ef9523b937a1410ad6c81cde1141b2a2b1c401c2d",
+    "Quantum_Lunar_Edge_Detection_NEQR/quantum/variant_circuit.py": "af3d338636417cc6c66e18b7874d182b0486acd583c0bcf2b17b6f4d96cf59fd",
+    "Quantum_Lunar_Edge_Detection_NEQR/quantum/full_image.py": "71fa1d36856c86bb5b419f5a406cd6d06519c27f8e26e44fb1eb0fc466dbdc19",
+    "Quantum_Lunar_Edge_Detection_NEQR/quantum/qpie_full_image.py": "10012b0f1cc19a839642317d4ace62ff6d0eb39ec838af9d176b190d32b05aee",
+    "Quantum_Lunar_Edge_Detection_NEQR/quantum/qhed_circuit.py": "5d94a8490399f77aee11e2d7a8a61e1bbe6a7bb6d10071afbc6b7b64d3d5c430",
+    "Quantum_Lunar_Edge_Detection_NEQR/quantum/simulation.py": "9be75844e2ba597827834d77eb93ed3cfcfd9becc603d59f4e9fcf4be061f029",
+    "Quantum_Lunar_Edge_Detection_NEQR/quantum/reconstruction.py": "76c7d8f255aaafe8e557b9f2a7d0a6d538c3a5f49778eb057d69550cbc3feb78",
+    "Quantum_Lunar_Edge_Detection_NEQR/preprocessing/real_image.py": "202397a90fd9ceedc6f51f83fd507807b84ae7660cd9c4001771925c85805f51",
+    "Quantum_Lunar_Edge_Detection_NEQR/preprocessing/annotation_rasteriser.py": "9d9779f38173388a0367b5a202ed215d13f6859bc9af72e1e898da2baeb21f24",
+    "Quantum_Lunar_Edge_Detection_NEQR/evaluation/metrics.py": "5b268cfe2723b93435c9fc8dcd61d251b830e5754d0e9d4d5d239f261ec83710",
+    "Quantum_Lunar_Edge_Detection_NEQR/classical/sobel.py": "54aac69fedb48ab60a4a6afe4cb4de65744703be6c485f9af6f40e8f27d8484b",
+    "Quantum_Lunar_Edge_Detection_NEQR/classical/canny.py": "a7694cc9f7d7216accd958edf3104d938446c5af519215487a11ccee827d70da",
+    "Quantum_Lunar_Edge_Detection_NEQR/classical/robinson_compass.py": "1d8bc7b357260a7884d4d96ef9523b937a1410ad6c81cde1141b2a2b1c401c2d"
+  },
+  "pilot_hashes": {
+    "experiments/bsds_pilot.py": "429612ec9948a9cb1d2db38bde3bf3061e66439e47a1a19f7bfa9853d8ec3192",
+    "evaluation/bsds_boundary.py": "f2f5fb63be6743b3a3ef3df9a6c69c5239fd64b60832f8622afbcaf1f5e2c708"
+  },
+  "versions": {
+    "qiskit": "2.5.1",
+    "qiskit-aer": "0.17.2",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "scikit-image": "0.26.0",
+    "Pillow": "10.4.0"
+  },
+  "attribution": "P. Arbelaez, M. Maire, C. Fowlkes, J. Malik: Contour Detection and Hierarchical Image Segmentation, TPAMI2011",
+  "terms": "Refer to original Berkeley dataset terms; no new dataset license asserted"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "records_recomputed": 184,
+  "quantum_runs": 144,
+  "unique_test_images": 8,
+  "total_circuits": 57600,
+  "total_shots": 265420800,
+  "checks": [
+    "complete matrix",
+    "input/protocol hashes",
+    "matched preparation",
+    "execution totals",
+    "400 unique audited circuits/run and exact shot sums",
+    "saved metric and threshold recomputation",
+    "operator RMSE recomputation",
+    "binary map equality",
+    "finite strength maps"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "guide_links_checked": 26,
+  "circuit_svg_documents": 12,
+  "decomposition_table_rows_checked": 3,
+  "qasm3_exports": 3,
+  "overview_visually_inspected": true
+}

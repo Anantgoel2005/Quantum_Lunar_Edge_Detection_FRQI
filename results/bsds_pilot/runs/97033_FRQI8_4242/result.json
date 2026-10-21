@@ -1,0 +1,239 @@
+{
+  "case": "97033",
+  "config": "FRQI8",
+  "method": "FRQI",
+  "seed": 4242,
+  "tile_size": 8,
+  "shots_per_circuit": 1692,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3275712,
+    "accepted_edge_outcomes": 12116,
+    "circuits_executed": 1936,
+    "tiles": 484,
+    "tile_size": 8,
+    "core_size": 6,
+    "qubits_per_circuit": 7,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 1692,
+    "batch_tiles": 16,
+    "seed_start": 4242,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 17.712992100000065,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 230.98939984013546,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "2dacd5e40047436a86270a7170fd864e",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.4292208718660424,
+    "best_threshold": 0.21875,
+    "precision": 0.39174311926605504,
+    "recall": 0.4746281714785652,
+    "boundary_ap101": 0.26679987057791266,
+    "operator_rmse": 16.65470017305507,
+    "evaluation_seconds": 0.2637772999999015
+  },
+  "boundary_counts": [
+    [
+      1412.0,
+      2286.0,
+      608.0,
+      1982.0
+    ],
+    [
+      1412.0,
+      2286.0,
+      608.0,
+      1982.0
+    ],
+    [
+      1412.0,
+      2286.0,
+      608.0,
+      1982.0
+    ],
+    [
+      1412.0,
+      2286.0,
+      608.0,
+      1982.0
+    ],
+    [
+      1412.0,
+      2286.0,
+      608.0,
+      1982.0
+    ],
+    [
+      1412.0,
+      2286.0,
+      608.0,
+      1982.0
+    ],
+    [
+      1085.0,
+      2286.0,
+      427.0,
+      1090.0
+    ],
+    [
+      1085.0,
+      2286.0,
+      427.0,
+      1090.0
+    ],
+    [
+      798.0,
+      2286.0,
+      289.0,
+      691.0
+    ],
+    [
+      798.0,
+      2286.0,
+      289.0,
+      691.0
+    ],
+    [
+      634.0,
+      2286.0,
+      221.0,
+      472.0
+    ],
+    [
+      634.0,
+      2286.0,
+      221.0,
+      472.0
+    ],
+    [
+      505.0,
+      2286.0,
+      170.0,
+      344.0
+    ],
+    [
+      483.0,
+      2286.0,
+      161.0,
+      314.0
+    ],
+    [
+      428.0,
+      2286.0,
+      139.0,
+      270.0
+    ],
+    [
+      343.0,
+      2286.0,
+      109.0,
+      206.0
+    ],
+    [
+      293.0,
+      2286.0,
+      91.0,
+      166.0
+    ],
+    [
+      229.0,
+      2286.0,
+      68.0,
+      131.0
+    ],
+    [
+      206.0,
+      2286.0,
+      63.0,
+      125.0
+    ],
+    [
+      188.0,
+      2286.0,
+      57.0,
+      113.0
+    ],
+    [
+      128.0,
+      2286.0,
+      41.0,
+      85.0
+    ],
+    [
+      101.0,
+      2286.0,
+      29.0,
+      67.0
+    ],
+    [
+      69.0,
+      2286.0,
+      20.0,
+      50.0
+    ],
+    [
+      48.0,
+      2286.0,
+      12.0,
+      39.0
+    ],
+    [
+      35.0,
+      2286.0,
+      9.0,
+      32.0
+    ],
+    [
+      21.0,
+      2286.0,
+      6.0,
+      24.0
+    ],
+    [
+      17.0,
+      2286.0,
+      5.0,
+      18.0
+    ],
+    [
+      10.0,
+      2286.0,
+      3.0,
+      13.0
+    ],
+    [
+      9.0,
+      2286.0,
+      2.0,
+      8.0
+    ],
+    [
+      4.0,
+      2286.0,
+      1.0,
+      4.0
+    ],
+    [
+      4.0,
+      2286.0,
+      1.0,
+      2.0
+    ]
+  ],
+  "input_pixel_sha256": "d03e9273ea465504b1735abfee31a4400e8c6d45fcb2bb90c4c9934b61d8b4e0",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

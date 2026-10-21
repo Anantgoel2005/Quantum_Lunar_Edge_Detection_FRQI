@@ -1,0 +1,554 @@
+{
+  "encoding": "QPIE",
+  "source": "Quantum_Lunar_Edge_Detection_QPIE\\quantum\\qhed_circuit.py",
+  "source_sha256": "5d94a8490399f77aee11e2d7a8a61e1bbe6a7bb6d10071afbc6b7b64d3d5c430",
+  "full_image_sha256": "10012b0f1cc19a839642317d4ace62ff6d0eb39ec838af9d176b190d32b05aee",
+  "max_state_error": 6.990237433215068e-17,
+  "max_born_error": 1.3010426069826053e-18,
+  "records": [
+    {
+      "id": "qpie_horizontal_0",
+      "encoding": "QPIE",
+      "direction": "horizontal",
+      "offset": 0,
+      "qubits": 8,
+      "position_qubits": 8,
+      "brightness_qubits": 0,
+      "h_target": 0,
+      "operations": [
+        {
+          "name": "initialize",
+          "qubits": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "clbits": []
+        },
+        {
+          "name": "h",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            2
+          ],
+          "clbits": [
+            2
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            3
+          ],
+          "clbits": [
+            3
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            4
+          ],
+          "clbits": [
+            4
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            5
+          ],
+          "clbits": [
+            5
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            6
+          ],
+          "clbits": [
+            6
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            7
+          ],
+          "clbits": [
+            7
+          ]
+        }
+      ],
+      "operation_counts": {
+        "measure": 8,
+        "barrier": 2,
+        "initialize": 1,
+        "h": 1
+      },
+      "initial_state_sha256": "04726f37b841a34390db1d2c85c331581f87e3f9f65e28ac74264ae8318765f3",
+      "state_error": 2.7755575615628914e-17,
+      "born_law_error": 5.421010862427522e-19
+    },
+    {
+      "id": "qpie_horizontal_1",
+      "encoding": "QPIE",
+      "direction": "horizontal",
+      "offset": 1,
+      "qubits": 8,
+      "position_qubits": 8,
+      "brightness_qubits": 0,
+      "h_target": 0,
+      "operations": [
+        {
+          "name": "initialize",
+          "qubits": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mcx",
+          "qubits": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "clbits": []
+        },
+        {
+          "name": "ccx",
+          "qubits": [
+            0,
+            1,
+            2
+          ],
+          "clbits": []
+        },
+        {
+          "name": "cx",
+          "qubits": [
+            0,
+            1
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "h",
+          "qubits": [
+            0
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            2
+          ],
+          "clbits": [
+            2
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            3
+          ],
+          "clbits": [
+            3
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            4
+          ],
+          "clbits": [
+            4
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            5
+          ],
+          "clbits": [
+            5
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            6
+          ],
+          "clbits": [
+            6
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            7
+          ],
+          "clbits": [
+            7
+          ]
+        }
+      ],
+      "operation_counts": {
+        "measure": 8,
+        "barrier": 3,
+        "initialize": 1,
+        "mcx": 1,
+        "ccx": 1,
+        "cx": 1,
+        "x": 1,
+        "h": 1
+      },
+      "initial_state_sha256": "04726f37b841a34390db1d2c85c331581f87e3f9f65e28ac74264ae8318765f3",
+      "state_error": 6.990237433215068e-17,
+      "born_law_error": 1.3010426069826053e-18,
+      "primitive_example": {
+        "counts": {
+          "u": 283,
+          "cx": 268,
+          "reset": 8,
+          "measure": 8,
+          "barrier": 3
+        },
+        "depth": 535,
+        "state_fidelity": 1.0000000000000022,
+        "basis": "u,cx plus reset/measure/barrier; optimization_level0"
+      }
+    },
+    {
+      "id": "qpie_vertical_0",
+      "encoding": "QPIE",
+      "direction": "vertical",
+      "offset": 0,
+      "qubits": 8,
+      "position_qubits": 8,
+      "brightness_qubits": 0,
+      "h_target": 4,
+      "operations": [
+        {
+          "name": "initialize",
+          "qubits": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "clbits": []
+        },
+        {
+          "name": "h",
+          "qubits": [
+            4
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            2
+          ],
+          "clbits": [
+            2
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            3
+          ],
+          "clbits": [
+            3
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            4
+          ],
+          "clbits": [
+            4
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            5
+          ],
+          "clbits": [
+            5
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            6
+          ],
+          "clbits": [
+            6
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            7
+          ],
+          "clbits": [
+            7
+          ]
+        }
+      ],
+      "operation_counts": {
+        "measure": 8,
+        "barrier": 2,
+        "initialize": 1,
+        "h": 1
+      },
+      "initial_state_sha256": "04726f37b841a34390db1d2c85c331581f87e3f9f65e28ac74264ae8318765f3",
+      "state_error": 1.3877787807814457e-17,
+      "born_law_error": 2.168404344971009e-19
+    },
+    {
+      "id": "qpie_vertical_1",
+      "encoding": "QPIE",
+      "direction": "vertical",
+      "offset": 1,
+      "qubits": 8,
+      "position_qubits": 8,
+      "brightness_qubits": 0,
+      "h_target": 4,
+      "operations": [
+        {
+          "name": "initialize",
+          "qubits": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "clbits": []
+        },
+        {
+          "name": "mcx",
+          "qubits": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "clbits": []
+        },
+        {
+          "name": "ccx",
+          "qubits": [
+            4,
+            5,
+            6
+          ],
+          "clbits": []
+        },
+        {
+          "name": "cx",
+          "qubits": [
+            4,
+            5
+          ],
+          "clbits": []
+        },
+        {
+          "name": "x",
+          "qubits": [
+            4
+          ],
+          "clbits": []
+        },
+        {
+          "name": "h",
+          "qubits": [
+            4
+          ],
+          "clbits": []
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            0
+          ],
+          "clbits": [
+            0
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            1
+          ],
+          "clbits": [
+            1
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            2
+          ],
+          "clbits": [
+            2
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            3
+          ],
+          "clbits": [
+            3
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            4
+          ],
+          "clbits": [
+            4
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            5
+          ],
+          "clbits": [
+            5
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            6
+          ],
+          "clbits": [
+            6
+          ]
+        },
+        {
+          "name": "measure",
+          "qubits": [
+            7
+          ],
+          "clbits": [
+            7
+          ]
+        }
+      ],
+      "operation_counts": {
+        "measure": 8,
+        "barrier": 3,
+        "initialize": 1,
+        "mcx": 1,
+        "ccx": 1,
+        "cx": 1,
+        "x": 1,
+        "h": 1
+      },
+      "initial_state_sha256": "04726f37b841a34390db1d2c85c331581f87e3f9f65e28ac74264ae8318765f3",
+      "state_error": 5.565010908770397e-17,
+      "born_law_error": 9.75781955236954e-19
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "driver": "run_encoding_matrix.py",
+  "sha256": "53da489095e726d160caecf220592ecb7aca890dabd14038d80aa7bdd3f80ff3",
+  "execution": "One persistent isolated subprocess per encoding; serial tasks in frozen random order",
+  "resume": "Earlier completed runs retained with exact same protocol hash",
+  "timing_limit": "First use includes cold in-call library behavior; later calls warm. No hardware speedup claim."
+}

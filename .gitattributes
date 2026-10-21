@@ -1,0 +1,6 @@
+
+# Preserve exported QASM byte hashes across platforms
+*.qasm -text
+# Generated SVG path formatting
+*.svg whitespace=-blank-at-eol
+results/circuit_showcase/*.txt whitespace=-blank-at-eol

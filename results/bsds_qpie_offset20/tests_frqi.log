@@ -1,0 +1,52 @@
+test_bootstrap_pairs_images_and_preserves_constant_difference (test_benchmark_encodings.BenchmarkDesign.test_bootstrap_pairs_images_and_preserves_constant_difference) ... ok
+test_exact_controls_distinguish_gradient_and_quantized_inequality (test_benchmark_encodings.BenchmarkDesign.test_exact_controls_distinguish_gradient_and_quantized_inequality) ... ok
+test_geographic_check_requires_positive_area_and_matching_projection (test_benchmark_encodings.BenchmarkDesign.test_geographic_check_requires_positive_area_and_matching_projection) ... ok
+test_scoring_excludes_crop_border_without_dropping_empty_reference (test_benchmark_encodings.BenchmarkDesign.test_scoring_excludes_crop_border_without_dropping_empty_reference) ... ok
+test_seed_repeats_are_not_independent_images (test_benchmark_encodings.BenchmarkDesign.test_seed_repeats_are_not_independent_images) ... ok
+test_selection_excludes_prior_products_and_duplicate_products (test_benchmark_encodings.BenchmarkDesign.test_selection_excludes_prior_products_and_duplicate_products) ... ok
+test_exact_identity_empty_and_no_possible_matches (test_bsds_boundary.BoundaryMatching.test_exact_identity_empty_and_no_possible_matches) ... ok
+test_frozen_task_matrix_and_no_test_download (test_bsds_boundary.BoundaryMatching.test_frozen_task_matrix_and_no_test_download) ... ok
+test_one_to_one_matching_does_not_count_both_nearby_predictions (test_bsds_boundary.BoundaryMatching.test_one_to_one_matching_does_not_count_both_nearby_predictions) ... ok
+test_perfect_and_empty_curves_are_bounded (test_bsds_boundary.BoundaryMatching.test_perfect_and_empty_curves_are_bounded) ... ok
+test_precision_union_and_recall_sum_over_annotators (test_bsds_boundary.BoundaryMatching.test_precision_union_and_recall_sum_over_annotators) ... ok
+test_random_small_assignments_match_independent_dense_solver (test_bsds_boundary.BoundaryMatching.test_random_small_assignments_match_independent_dense_solver) ... ok
+test_mismatched_or_seed_matrix_inputs_are_rejected (test_bsds_offset20.OffsetStatistics.test_mismatched_or_seed_matrix_inputs_are_rejected) ... ok
+test_pairing_preserves_common_image_effect (test_bsds_offset20.OffsetStatistics.test_pairing_preserves_common_image_effect) ... ok
+test_seed_curves_are_averaged_before_threshold_selection (test_bsds_offset20.OffsetStatistics.test_seed_curves_are_averaged_before_threshold_selection) ... ok
+test_actual_multispectral_axes (test_full_image.FullImageQuantum.test_actual_multispectral_axes) ... ok
+test_full_shape_halos_and_auditable_shots (test_full_image.FullImageQuantum.test_full_shape_halos_and_auditable_shots) ... ok
+test_same_configuration_repeats_counts (test_full_image.FullImageQuantum.test_same_configuration_repeats_counts) ... ok
+test_uniform_input_no_tile_boundary_edges (test_full_image.FullImageQuantum.test_uniform_input_no_tile_boundary_edges) ... ok
+test_actual_checkpoints_match_gate_prefixes_and_counts (test_gate_trace.GateTraceCorrectness.test_actual_checkpoints_match_gate_prefixes_and_counts) ... ok
+test_trace_matches_the_same_inference_audit (test_gate_trace.GateTraceCorrectness.test_trace_matches_the_same_inference_audit) ... ok
+test_binary_masks_and_constant_score_baseline (test_quantum.QuantumCorrectness.test_binary_masks_and_constant_score_baseline) ... ok
+test_count_integer_order (test_quantum.QuantumCorrectness.test_count_integer_order) ... ok
+test_exact_all_boundaries_rectangular_and_square (test_quantum.QuantumCorrectness.test_exact_all_boundaries_rectangular_and_square) ... ok
+test_hybrid_matches_quantized_control (test_quantum.QuantumCorrectness.test_hybrid_matches_quantized_control) ... ok
+test_invalid_inputs (test_quantum.QuantumCorrectness.test_invalid_inputs) ... ok
+test_neqr_asymmetric_roundtrip (test_quantum.QuantumCorrectness.test_neqr_asymmetric_roundtrip) ... ok
+test_noisy_primitive_execution (test_quantum.QuantumCorrectness.test_noisy_primitive_execution) ... ok
+test_otsu_separates_clusters_without_rounding (test_quantum.QuantumCorrectness.test_otsu_separates_clusters_without_rounding) ... ok
+test_seed_repeatability (test_quantum.QuantumCorrectness.test_seed_repeatability) ... ok
+test_shifted_boundary_is_detected (test_quantum.QuantumCorrectness.test_shifted_boundary_is_detected) ... ok
+test_uniform_image_has_no_edges (test_quantum.QuantumCorrectness.test_uniform_image_has_no_edges) ... ok
+test_fast_probabilities_match_qiskit (test_tiled.TiledCorrectness.test_fast_probabilities_match_qiskit) ... ok
+test_low_shot_neqr_reports_unseen_positions (test_tiled.TiledCorrectness.test_low_shot_neqr_reports_unseen_positions) ... ok
+test_native_shape_and_no_seam_errors (test_tiled.TiledCorrectness.test_native_shape_and_no_seam_errors) ... ok
+test_reproducible_sampling_and_invalid_tile_size (test_tiled.TiledCorrectness.test_reproducible_sampling_and_invalid_tile_size) ... ok
+test_uniform_image_no_artificial_tile_edges (test_tiled.TiledCorrectness.test_uniform_image_no_artificial_tile_edges) ... ok
+test_alpha_resize_and_stage_outputs (test_upload_image.UploadPreprocessingTests.test_alpha_resize_and_stage_outputs) ... ok
+test_flat_image_stays_flat (test_upload_image.UploadPreprocessingTests.test_flat_image_stays_flat) ... ok
+test_float_tiff (test_upload_image.UploadPreprocessingTests.test_float_tiff) ... ok
+test_orientation_correction (test_upload_image.UploadPreprocessingTests.test_orientation_correction) ... ok
+test_reject_invalid_and_too_small (test_upload_image.UploadPreprocessingTests.test_reject_invalid_and_too_small) ... ok
+test_sixteen_bit_tiff_preserves_contrast (test_upload_image.UploadPreprocessingTests.test_sixteen_bit_tiff_preserves_contrast) ... ok
+test_actual_measurements_halos_qubits_and_repeatability (test_variant.VariantCorrectness.test_actual_measurements_halos_qubits_and_repeatability) ... ok
+test_all_neighbor_interference_exact (test_variant.VariantCorrectness.test_all_neighbor_interference_exact) ... ok
+test_equal_intensities_cancel (test_variant.VariantCorrectness.test_equal_intensities_cancel) ... ok
+test_exact_encoding (test_variant.VariantCorrectness.test_exact_encoding) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 5.574s
+
+OK

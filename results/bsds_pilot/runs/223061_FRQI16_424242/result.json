@@ -1,0 +1,239 @@
+{
+  "case": "223061",
+  "config": "FRQI16",
+  "method": "FRQI",
+  "seed": 424242,
+  "tile_size": 16,
+  "shots_per_circuit": 8192,
+  "subtract_tile_min": false,
+  "execution": {
+    "measurement_shots": 3276800,
+    "accepted_edge_outcomes": 24938,
+    "circuits_executed": 400,
+    "tiles": 100,
+    "tile_size": 16,
+    "core_size": 14,
+    "qubits_per_circuit": 9,
+    "encoding": "FRQI",
+    "intensity_bits": null,
+    "edge_operator": "FRQI brightness-angle interference calibrated to absolute intensity differences",
+    "shots_per_circuit": 8192,
+    "batch_tiles": 16,
+    "seed_start": 424242,
+    "subtract_tile_min": false,
+    "elapsed_seconds": 20.05420019999997,
+    "backend": "Qiskit AerSimulator",
+    "method": "statevector",
+    "ideal_simulation": true,
+    "output_source": "measured circuit counts",
+    "normalization": "FRQI brightness-angle interference calibrated to absolute intensity differences; combine directional responses and scale globally",
+    "maximum_measured_gradient": 205.85971306862155,
+    "initialization": "Aer-supported Initialize of the exact FRQI state",
+    "measurement_sampling_enabled": true,
+    "gate_trace": {
+      "enabled": false,
+      "representative_blocks": 0,
+      "run_id": "016bed32c8134e02a287e4b89abf6d71",
+      "source": "Checkpoints on the first actual image block of each circuit batch"
+    }
+  },
+  "metrics": {
+    "best_f1": 0.41863900372979584,
+    "best_threshold": 0.21875,
+    "precision": 0.31414473684210525,
+    "recall": 0.6272976143918655,
+    "boundary_ap101": 0.2922198055825966,
+    "operator_rmse": 21.609637384820278,
+    "evaluation_seconds": 0.732996200000116
+  },
+  "boundary_counts": [
+    [
+      1989.0,
+      2557.0,
+      1253.0,
+      4577.0
+    ],
+    [
+      1989.0,
+      2557.0,
+      1253.0,
+      4577.0
+    ],
+    [
+      1989.0,
+      2557.0,
+      1253.0,
+      4577.0
+    ],
+    [
+      1989.0,
+      2557.0,
+      1253.0,
+      4577.0
+    ],
+    [
+      1989.0,
+      2557.0,
+      1253.0,
+      4577.0
+    ],
+    [
+      1989.0,
+      2557.0,
+      1253.0,
+      4577.0
+    ],
+    [
+      1604.0,
+      2557.0,
+      955.0,
+      3040.0
+    ],
+    [
+      1604.0,
+      2557.0,
+      955.0,
+      3040.0
+    ],
+    [
+      1301.0,
+      2557.0,
+      703.0,
+      2072.0
+    ],
+    [
+      1301.0,
+      2557.0,
+      703.0,
+      2072.0
+    ],
+    [
+      1202.0,
+      2557.0,
+      627.0,
+      1833.0
+    ],
+    [
+      1011.0,
+      2557.0,
+      503.0,
+      1393.0
+    ],
+    [
+      782.0,
+      2557.0,
+      370.0,
+      943.0
+    ],
+    [
+      782.0,
+      2557.0,
+      370.0,
+      943.0
+    ],
+    [
+      566.0,
+      2557.0,
+      258.0,
+      629.0
+    ],
+    [
+      445.0,
+      2557.0,
+      195.0,
+      450.0
+    ],
+    [
+      373.0,
+      2557.0,
+      158.0,
+      346.0
+    ],
+    [
+      338.0,
+      2557.0,
+      138.0,
+      288.0
+    ],
+    [
+      255.0,
+      2557.0,
+      100.0,
+      192.0
+    ],
+    [
+      186.0,
+      2557.0,
+      71.0,
+      130.0
+    ],
+    [
+      132.0,
+      2557.0,
+      50.0,
+      90.0
+    ],
+    [
+      107.0,
+      2557.0,
+      38.0,
+      64.0
+    ],
+    [
+      75.0,
+      2557.0,
+      26.0,
+      44.0
+    ],
+    [
+      39.0,
+      2557.0,
+      15.0,
+      26.0
+    ],
+    [
+      35.0,
+      2557.0,
+      13.0,
+      20.0
+    ],
+    [
+      28.0,
+      2557.0,
+      9.0,
+      14.0
+    ],
+    [
+      10.0,
+      2557.0,
+      4.0,
+      8.0
+    ],
+    [
+      6.0,
+      2557.0,
+      3.0,
+      6.0
+    ],
+    [
+      4.0,
+      2557.0,
+      2.0,
+      4.0
+    ],
+    [
+      0.0,
+      2557.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      2557.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "input_pixel_sha256": "f98d7044e120e82a4bd56b68b90803aecd27ec3d485c4809738cbf9ffbccacae",
+  "protocol_sha256": "85bac6934bc803085bde8623b68d9c5510ff67aeeb63a4488025b1d5ff9a1a34"
+}

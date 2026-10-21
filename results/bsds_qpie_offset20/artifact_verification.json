@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "table_rows_checked": 9,
+  "local_links_checked": 8,
+  "figure_visually_inspected": true,
+  "correct_rmse_improvement_counts": [
+    20,
+    15,
+    5
+  ]
+}
