@@ -1,0 +1,25 @@
+{
+  "browser": "Microsoft Edge",
+  "page_errors": [],
+  "checks": [
+    "gate stepping",
+    "mixed local states",
+    "stable replay",
+    "one count per inspected shot",
+    "independent shot batches",
+    "all presets",
+    "teleportation conditional corrections and receiver verification",
+    "preset deep links",
+    "gate validation",
+    "rotation editing",
+    "intermediate measurement",
+    "undo and register resizing",
+    "playback",
+    "click-to-seek",
+    "keyboard stepping",
+    "390px and 360px responsive layouts",
+    "64 basis states",
+    "JSON export",
+    "offline file entry point"
+  ]
+}

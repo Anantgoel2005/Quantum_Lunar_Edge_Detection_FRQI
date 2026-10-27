@@ -4,6 +4,12 @@ An independent FRQI live quantum edge-detection variant of [the original QPIE sy
 
 FRQI uses eight position qubits plus one brightness-angle qubit. For pixel i, theta_i = (pi/2) I_i/255; the state is a uniform superposition over positions with color state cos(theta_i)|0> + sin(theta_i)|1>. Position-register Hadamard interference produces the color-marginal probability p = (1 - cos(theta_a-theta_b))/N. The runner reconstructs absolute intensity differences as (1020/pi) arcsin(sqrt(N p/2)). Sampling estimates are clipped to the physical intensity range before reconstruction.
 
+## Quantum Studio: individual-shot circuit visualizer
+
+Open `visualization/circuit-studio/index.html` in a browser, or open it from the live detector. The offline simulator steps through every gate of an individual shot, showing complex amplitudes, probabilities, local Bloch vectors, measurement collapse, and shot counts. It includes Bell, GHZ, phase-interference, QPIE, and a 15-operation quantum-teleportation example with intermediate measurements and classical X/Z feed-forward. The studio is an ideal simulator for 1–6 qubits; it is separate from FRQI inference.
+
+Run `node --test visualization/circuit-studio/test-simulator.cjs` to verify its state evolution and measurement branches. The teleportation preset transfers Alice's arbitrary complex state to Bob in every one of its four measurement branches; its final verification measurement is always zero.
+
 ## Run locally
 
 Prerequisites: Git, **64-bit Python 3.12** (the tested version), and internet access for packages and the default dataset. Clone this repository and enter its directory first:
